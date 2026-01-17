@@ -1,0 +1,892 @@
+openapi: 3.0.3
+info:
+  title: Vaonis Instrument HTTP API (extracted)
+  version: "v1"
+  description: |
+    Extracted from com.vaonis.barnard Android app (Singularity) via static DEX analysis.
+    This spec is best-effort and may require validation against a real instrument.
+servers:
+  - url: http://10.0.0.1:8082/v1
+    description: Default instrument HTTP endpoint (StellinaContext defaults)
+components:
+  securitySchemes:
+    AuthorizationHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+  schemas:
+    StellinaContext:
+      type: object
+      properties:
+        customPort:
+          type: boolean
+          description: "boolean"
+        httpPort:
+          type: integer
+          description: "int"
+        httpRoot:
+          type: string
+          description: "java.lang.String"
+        ip:
+          type: string
+          description: "java.lang.String"
+        socketPath:
+          type: string
+          description: "java.lang.String"
+        socketPort:
+          type: integer
+          description: "int"
+    AdjustFocusBody:
+      type: object
+      properties:
+        restartCapture:
+          type: boolean
+          description: "boolean"
+    AdjustFramingBody:
+      type: object
+      properties:
+        rot:
+          type: number
+          description: "double"
+        x:
+          type: integer
+          description: "int"
+        y:
+          type: integer
+          description: "int"
+    AutoInitBody:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: "double"
+        longitude:
+          type: number
+          description: "double"
+        observatoryId:
+          type: string
+          description: "java.lang.String"
+        observatoryName:
+          type: string
+          description: "java.lang.String"
+        skipAutoFocus:
+          type: boolean
+          description: "boolean"
+        time:
+          type: integer
+          description: "long"
+    DeleteStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+          description: "java.lang.String"
+    DeleteUserStorageFolderBody:
+      type: object
+      properties:
+        folderPaths:
+          type: array
+          description: "java.util.List"
+    NetworkBody:
+      type: object
+      properties:
+        band:
+          type: string
+          description: "java.lang.String"
+    PlaylistBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+          description: "java.lang.String"
+        deviceId:
+          type: string
+          description: "java.lang.String"
+        playlistType:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$PlaylistType"
+        targets:
+          type: array
+          description: "java.util.List"
+        userId:
+          type: object
+          description: "java.lang.Integer"
+    ReportsBody:
+      type: object
+      properties:
+        reports:
+          type: array
+          description: "java.util.List"
+    RequestCodeBody:
+      type: object
+      properties:
+        response:
+          type: string
+          description: "java.lang.String"
+    SettingsBody:
+      type: object
+      properties:
+        algoHdrBackground:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.StellinaSettings$BalensMode"
+        buttonBrightness:
+          type: string
+          description: "java.lang.String"
+        enableDarkUsage:
+          type: object
+          description: "java.lang.Boolean"
+        enableDithering:
+          type: object
+          description: "java.lang.Boolean"
+        enableFullResolution:
+          type: object
+          description: "java.lang.Boolean"
+        enableHdrBackground:
+          type: object
+          description: "java.lang.Boolean"
+        enableLiveFocus:
+          type: object
+          description: "java.lang.Boolean"
+        storageFileCategories:
+          type: array
+          description: "java.util.List"
+        telescopeName:
+          type: string
+          description: "java.lang.String"
+        usbFileTypes:
+          type: array
+          description: "java.util.List"
+    StartObservationBody:
+      type: object
+      properties:
+        algorithm:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaPointingAlgorithm"
+        backgroundEnabled:
+          type: object
+          description: "java.lang.Boolean"
+        backgroundPolyorder:
+          type: object
+          description: "java.lang.Double"
+        brightZoneOffset:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaBrightZoneOffset"
+        de:
+          type: object
+          description: "java.lang.Double"
+        doStacking:
+          type: object
+          description: "java.lang.Boolean"
+        exposureMicroSec:
+          type: object
+          description: "java.lang.Integer"
+        gain:
+          type: object
+          description: "java.lang.Integer"
+        hdrBackground:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.body.HdrBackgroundBody"
+        histogramEnabled:
+          type: object
+          description: "java.lang.Boolean"
+        histogramHigh:
+          type: object
+          description: "java.lang.Double"
+        histogramLow:
+          type: object
+          description: "java.lang.Double"
+        histogramMedium:
+          type: object
+          description: "java.lang.Double"
+        mosaicBody:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody"
+        objectId:
+          type: string
+          description: "java.lang.String"
+        objectName:
+          type: string
+          description: "java.lang.String"
+        objectType:
+          type: string
+          description: "java.lang.String"
+        observationType:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationType"
+        ra:
+          type: object
+          description: "java.lang.Double"
+        rot:
+          type: object
+          description: "java.lang.Double"
+        store:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore"
+        targetType:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$ObservationTargetType"
+    StartObservationFromStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+          description: "java.lang.String"
+    StorageAcquisitionBody:
+      type: object
+      properties:
+        exposureMicroSec:
+          type: integer
+          description: "int"
+        flip:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody$StellinaAcquisitionFlip"
+        gain:
+          type: integer
+          description: "int"
+        numExposures:
+          type: integer
+          description: "int"
+        overwrite:
+          type: boolean
+          description: "boolean"
+        path:
+          type: string
+          description: "java.lang.String"
+    SunModeActionBody:
+      type: object
+      properties:
+        action:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.StellinaSunModeAction"
+        pov:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov"
+    SunModeBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+          description: "java.lang.String"
+        deviceId:
+          type: string
+          description: "java.lang.String"
+        eclipse:
+          type: boolean
+          description: "boolean"
+        latitude:
+          type: number
+          description: "double"
+        longitude:
+          type: number
+          description: "double"
+        observatoryId:
+          type: string
+          description: "java.lang.String"
+        observatoryName:
+          type: string
+          description: "java.lang.String"
+        skipAutoFocus:
+          type: boolean
+          description: "boolean"
+        time:
+          type: integer
+          description: "long"
+        userId:
+          type: object
+          description: "java.lang.Integer"
+    SunModeParamsBody:
+      type: object
+      properties:
+        MAP:
+          type: object
+          description: "java.lang.Integer"
+        exposureMicroSec:
+          type: object
+          description: "java.lang.Integer"
+        exposureMode:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams$ExposureMode"
+        gain:
+          type: object
+          description: "java.lang.Integer"
+    SunModePovBody:
+      type: object
+      properties:
+        pov:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov"
+    TiffBody:
+      type: object
+      properties:
+        captureId:
+          type: string
+          description: "java.lang.String"
+    PlanMyNightBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+          description: "java.lang.String"
+        deviceId:
+          type: string
+          description: "java.lang.String"
+        latitude:
+          type: number
+          description: "double"
+        longitude:
+          type: number
+          description: "double"
+        observatoryId:
+          type: string
+          description: "java.lang.String"
+        observatoryName:
+          type: string
+          description: "java.lang.String"
+        planId:
+          type: string
+          description: "java.lang.String"
+        planName:
+          type: string
+          description: "java.lang.String"
+        planVersion:
+          type: string
+          description: "java.lang.String"
+        targets:
+          type: array
+          description: "java.util.List"
+        userId:
+          type: integer
+          description: "int"
+    FolderContentResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.StellinaStorageFolderContent"
+    LogResponse:
+      type: object
+      properties:
+        file:
+          type: string
+          description: "java.lang.String"
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.response.LogResponse$Result"
+        success:
+          type: boolean
+          description: "boolean"
+    OrderResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: "boolean"
+    PlanObservationResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        success:
+          type: boolean
+          description: "boolean"
+    ReportsResponse:
+      type: object
+      properties:
+        result:
+          type: array
+          description: "java.util.List"
+    ResetCodeResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: "java.lang.String"
+    StatusResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        success:
+          type: boolean
+          description: "boolean"
+    StoredObservationResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        success:
+          type: boolean
+          description: "boolean"
+    TiffResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: "com.vaonis.instruments.sdk.models.response.TiffData"
+paths:
+  /general/adjustObservationFocus:
+    post:
+      operationId: adjustObservationFocus
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/AdjustFocusBody
+  /general/adjustObservationFraming:
+    post:
+      operationId: adjustObservationFraming
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/AdjustFramingBody
+  /userManager/applyResetResponse:
+    post:
+      operationId: applyResetCode
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/RequestCodeBody
+  /sun/changePov:
+    post:
+      operationId: changePov
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/SunModePovBody
+  /logs/consume:
+    post:
+      operationId: consumeLogs
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /captureStore/deleteStoredCapture:
+    post:
+      operationId: deleteStoredCapture
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/DeleteStoredCaptureBody
+  /storage/deleteUserStorageFolders:
+    post:
+      operationId: deleteUserStorageFolder
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/DeleteUserStorageFolderBody
+  /capture/exportImageTiff:
+    post:
+      operationId: exportTiff
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/TiffBody
+  /darkManager/generateDark:
+    post:
+      operationId: generateDark
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /reporter/getAvailableReports:
+    get:
+      operationId: getAvailableReport
+      responses:
+        '200':
+          description: OK
+  /planner/getPlanObservation:
+    get:
+      operationId: getPlanObservation
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: observationId
+          required: false
+          schema:
+            type: string
+  /app/status:
+    get:
+      operationId: getStatus
+      responses:
+        '200':
+          description: OK
+  /storage/userStorageFolderContent:
+    get:
+      operationId: getStorageFolderContent
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: folderPath
+          required: false
+          schema:
+            type: string
+  /captureStore/getObservation:
+    get:
+      operationId: getStoredCaptureObservation
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: storeId
+          required: false
+          schema:
+            type: string
+  /reporter/markReportsAsSynced:
+    post:
+      operationId: markReportsAsSynced
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/ReportsBody
+  /general/openForMaintenance:
+    post:
+      operationId: openArm
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /general/park:
+    post:
+      operationId: parkArm
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /userManager/makeResetRequest:
+    post:
+      operationId: requestResetCode
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /board/requestShutdown:
+    post:
+      operationId: requestShutdown
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /sun/restartAutofocus:
+    post:
+      operationId: restartSunAutofocus
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /sun/handleUserAction:
+    post:
+      operationId: sendSunModeAction
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/SunModeActionBody
+  /sun/setUserParams:
+    post:
+      operationId: setSunModeParams
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/SunModeParamsBody
+  /capture/setToBeResumable:
+    post:
+      operationId: setToBeResumable
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /general/startAutoInit:
+    post:
+      operationId: startAutoInit
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/AutoInitBody
+  /general/startObservation:
+    post:
+      operationId: startObservation
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/StartObservationBody
+  /captureStore/startObservationFromStoredCapture:
+    post:
+      operationId: startObservationFromStoredCapture
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/StartObservationFromStoredCaptureBody
+  /planner/startPlan:
+    post:
+      operationId: startPlan
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/PlanMyNightBody
+  /playlist/startPlaylist:
+    post:
+      operationId: startPlaylist
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/PlaylistBody
+  /expertMode/startStorageAcquisition:
+    post:
+      operationId: startStorageAcquisition
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/StorageAcquisitionBody
+  /sun/startSunMode:
+    post:
+      operationId: startSunMode
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/SunModeBody
+  /general/stopAutoInit:
+    post:
+      operationId: stopAutoInit
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /darkManager/stopGenerateDark:
+    post:
+      operationId: stopGenerateDark
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /general/stopObservation:
+    post:
+      operationId: stopObservation
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /planner/stopPlan:
+    post:
+      operationId: stopPlan
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /playlist/stopPlaylist:
+    post:
+      operationId: stopPlaylist
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /expertMode/stopStorageAcquisition:
+    post:
+      operationId: stopStorageAcquisition
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /sun/stopObservation:
+    post:
+      operationId: stopSunObservation
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+  /network/switchFrequency:
+    post:
+      operationId: switchFrequency
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/NetworkBody
+  /app/setSettings:
+    post:
+      operationId: updateSettings
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: #/components/schemas/SettingsBody
+  /updates/uploadUpdateFile:
+    post:
+      operationId: uploadUpdateFile
+      responses:
+        '200':
+          description: OK
+      security:
+        - AuthorizationHeader: []
+      parameters:
+        - in: query
+          name: fileName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary

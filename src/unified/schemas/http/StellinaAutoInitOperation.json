@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaAutoInitOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "armPosition": {
+      "$ref": "./StellinaAutoInitOperation_StellinaAutoInitArmPosition.json"
+    },
+    "astrometry": {
+      "$ref": "./StellinaSkyPosition.json"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "focusResult": {
+      "$ref": "./StellinaAutoInitOperation_AutofocusResult.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "observatoryId": {
+      "type": "string"
+    },
+    "observatoryName": {
+      "type": "string"
+    },
+    "position": {
+      "$ref": "./StellinaGeoPosition.json"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "steps": {
+      "type": "array",
+      "items": {}
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "startTime",
+    "stopped",
+    "time"
+  ]
+}

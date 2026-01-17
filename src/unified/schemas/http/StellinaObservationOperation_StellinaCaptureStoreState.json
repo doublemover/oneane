@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_StellinaCaptureStoreState",
+  "type": "string",
+  "enum": [
+    "NON_RESUMABLE",
+    "PLAN",
+    "RESUME",
+    "TO_BE_RESUMABLE"
+  ]
+}

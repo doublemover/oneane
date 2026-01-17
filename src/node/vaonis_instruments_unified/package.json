@@ -1,0 +1,26 @@
+{
+  "name": "vaonis-instruments-unified",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Unified HTTP client and auth helper for Vaonis instrument firmware routes.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:coverage": "c8 --reporter=text --reporter=lcov node --test"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.4.0",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3"
+  }
+}

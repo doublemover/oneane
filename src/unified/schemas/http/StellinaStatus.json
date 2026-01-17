@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaStatus",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "telescopeId": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "bootCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "initError": {
+      "nullable": true
+    },
+    "previousBootError": {
+      "nullable": true
+    },
+    "boardInitError": {
+      "nullable": true
+    },
+    "boardInDebugMode": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "boardError": {
+      "nullable": true
+    },
+    "timestamp": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "elapsedTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "challenge": {
+      "type": "string"
+    },
+    "position": {
+      "$ref": "./StellinaSkyPosition.json",
+      "nullable": true
+    },
+    "initialized": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "autofocusTemperature": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "autofocusPosition": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "shuttingDown": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "connectedDevices": {
+      "type": "array",
+      "items": {
+        "$ref": "./ConnectedDevice.json"
+      }
+    },
+    "masterDeviceId": {
+      "type": "string",
+      "nullable": true
+    },
+    "settings": {
+      "$ref": "./SettingsStatus.json"
+    },
+    "logs": {
+      "$ref": "./LogsStatus.json"
+    },
+    "availableReports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "update": {
+      "$ref": "./UpdateStatus.json"
+    },
+    "storage": {
+      "$ref": "./StorageStatus.json"
+    },
+    "internalBattery": {
+      "$ref": "./InternalBatteryStatus.json",
+      "nullable": true
+    },
+    "sensors": {
+      "$ref": "./SensorsStatus.json",
+      "nullable": true
+    },
+    "filter": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "SOLAR",
+        "CLS",
+        "DUAL",
+        "DUST",
+        "ATHENA_47k",
+        "UNDEFINED_27k"
+      ],
+      "nullable": true
+    },
+    "motors": {
+      "$ref": "./MotorsStatus.json"
+    },
+    "network": {
+      "$ref": "./NetworkAppStatus.json"
+    },
+    "captureStore": {
+      "$ref": "./CaptureStoreStatus.json"
+    },
+    "currentOperation": {
+      "$ref": "./OperationStatus.json",
+      "nullable": true
+    },
+    "otherCurrentOperations": {
+      "type": "array",
+      "items": {
+        "$ref": "./OperationStatus.json"
+      }
+    },
+    "previousOperations": {
+      "type": "array",
+      "items": {
+        "$ref": "./OperationStatus.json"
+      }
+    }
+  }
+}

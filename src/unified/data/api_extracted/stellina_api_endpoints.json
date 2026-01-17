@@ -1,0 +1,1408 @@
+[
+  {
+    "method_idx": 53329,
+    "name": "adjustObservationFocus",
+    "http_method": "POST",
+    "path": "general/adjustObservationFocus",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53330,
+    "name": "adjustObservationFraming",
+    "http_method": "POST",
+    "path": "general/adjustObservationFraming",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53331,
+    "name": "applyResetCode",
+    "http_method": "POST",
+    "path": "userManager/applyResetResponse",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53332,
+    "name": "changePov",
+    "http_method": "POST",
+    "path": "sun/changePov",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53333,
+    "name": "consumeLogs",
+    "http_method": "POST",
+    "path": "logs/consume",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/LogResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53334,
+    "name": "deleteStoredCapture",
+    "http_method": "POST",
+    "path": "captureStore/deleteStoredCapture",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53335,
+    "name": "deleteUserStorageFolder",
+    "http_method": "POST",
+    "path": "storage/deleteUserStorageFolders",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53336,
+    "name": "downloadImage",
+    "http_method": "GET",
+    "path": null,
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "extras": {
+      "streaming": true
+    },
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "url",
+            "type": "Lretrofit2/http/Url;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53337,
+    "name": "exportTiff",
+    "http_method": "POST",
+    "path": "capture/exportImageTiff",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/TiffBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/TiffResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/TiffBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53338,
+    "name": "generateDark",
+    "http_method": "POST",
+    "path": "darkManager/generateDark",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53339,
+    "name": "getAvailableReport",
+    "http_method": "GET",
+    "path": "reporter/getAvailableReports",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53340,
+    "name": "getPlanObservation",
+    "http_method": "GET",
+    "path": "planner/getPlanObservation",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "query",
+            "type": "Lretrofit2/http/Query;",
+            "elements": {
+              "value": "observationId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53341,
+    "name": "getStatus",
+    "http_method": "GET",
+    "path": "app/status",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StatusResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53342,
+    "name": "getStorageFolderContent",
+    "http_method": "GET",
+    "path": "storage/userStorageFolderContent",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "query",
+            "type": "Lretrofit2/http/Query;",
+            "elements": {
+              "value": "folderPath"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53343,
+    "name": "getStoredCaptureObservation",
+    "http_method": "GET",
+    "path": "captureStore/getObservation",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "query",
+            "type": "Lretrofit2/http/Query;",
+            "elements": {
+              "value": "storeId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53344,
+    "name": "markReportsAsSynced",
+    "http_method": "POST",
+    "path": "reporter/markReportsAsSynced",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/ReportsBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/ReportsBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53345,
+    "name": "openArm",
+    "http_method": "POST",
+    "path": "general/openForMaintenance",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53346,
+    "name": "parkArm",
+    "http_method": "POST",
+    "path": "general/park",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53347,
+    "name": "requestResetCode",
+    "http_method": "POST",
+    "path": "userManager/makeResetRequest",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53348,
+    "name": "requestShutdown",
+    "http_method": "POST",
+    "path": "board/requestShutdown",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53349,
+    "name": "restartSunAutofocus",
+    "http_method": "POST",
+    "path": "sun/restartAutofocus",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53350,
+    "name": "sendSunModeAction",
+    "http_method": "POST",
+    "path": "sun/handleUserAction",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53351,
+    "name": "setSunModeParams",
+    "http_method": "POST",
+    "path": "sun/setUserParams",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53352,
+    "name": "setToBeResumable",
+    "http_method": "POST",
+    "path": "capture/setToBeResumable",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53353,
+    "name": "startAutoInit",
+    "http_method": "POST",
+    "path": "general/startAutoInit",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53354,
+    "name": "startObservation",
+    "http_method": "POST",
+    "path": "general/startObservation",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53355,
+    "name": "startObservationFromStoredCapture",
+    "http_method": "POST",
+    "path": "captureStore/startObservationFromStoredCapture",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53356,
+    "name": "startPlan",
+    "http_method": "POST",
+    "path": "planner/startPlan",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53357,
+    "name": "startPlaylist",
+    "http_method": "POST",
+    "path": "playlist/startPlaylist",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53358,
+    "name": "startStorageAcquisition",
+    "http_method": "POST",
+    "path": "expertMode/startStorageAcquisition",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53359,
+    "name": "startSunMode",
+    "http_method": "POST",
+    "path": "sun/startSunMode",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53360,
+    "name": "stopAutoInit",
+    "http_method": "POST",
+    "path": "general/stopAutoInit",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53361,
+    "name": "stopGenerateDark",
+    "http_method": "POST",
+    "path": "darkManager/stopGenerateDark",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53362,
+    "name": "stopObservation",
+    "http_method": "POST",
+    "path": "general/stopObservation",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53363,
+    "name": "stopPlan",
+    "http_method": "POST",
+    "path": "planner/stopPlan",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53364,
+    "name": "stopPlaylist",
+    "http_method": "POST",
+    "path": "playlist/stopPlaylist",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53365,
+    "name": "stopStorageAcquisition",
+    "http_method": "POST",
+    "path": "expertMode/stopStorageAcquisition",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53366,
+    "name": "stopSunObservation",
+    "http_method": "POST",
+    "path": "sun/stopObservation",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53367,
+    "name": "switchFrequency",
+    "http_method": "POST",
+    "path": "network/switchFrequency",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/NetworkBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/NetworkBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53368,
+    "name": "updateSettings",
+    "http_method": "POST",
+    "path": "app/setSettings",
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SettingsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "extras": {},
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SettingsBody;",
+        "annotations": [
+          {
+            "kind": "body",
+            "type": "Lretrofit2/http/Body;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Lkotlin/coroutines/Continuation;",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "method_idx": 53369,
+    "name": "uploadUpdateFile",
+    "http_method": "POST",
+    "path": "updates/uploadUpdateFile",
+    "return_type": "Lretrofit2/Call;",
+    "signature": "(Ljava/lang/String;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;",
+    "extras": {
+      "multipart": true
+    },
+    "params": [
+      {
+        "index": 0,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "header",
+            "type": "Lretrofit2/http/Header;",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "Lokhttp3/MultipartBody$Part;",
+        "annotations": [
+          {
+            "kind": "part",
+            "type": "Lretrofit2/http/Part;",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "query",
+            "type": "Lretrofit2/http/Query;",
+            "elements": {
+              "value": "fileName"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Ljava/lang/String;",
+        "annotations": [
+          {
+            "kind": "query",
+            "type": "Lretrofit2/http/Query;",
+            "elements": {
+              "value": "model"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

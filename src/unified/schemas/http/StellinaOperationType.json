@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaOperationType",
+  "type": "string",
+  "enum": [
+    "AUTO_INIT",
+    "DELETE_FOLDERS",
+    "GENERATE_DARK",
+    "OBSERVATION",
+    "OPEN",
+    "PARK",
+    "PLAN",
+    "PLAYLIST",
+    "STORAGE_ACQUISITION",
+    "SUN_MODE",
+    "SUN_OBSERVATION"
+  ]
+}

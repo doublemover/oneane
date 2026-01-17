@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation",
+  "type": "object",
+  "properties": {
+    "actionInProgress": {
+      "type": "boolean"
+    },
+    "appVersion": {
+      "type": "string"
+    },
+    "capture": {
+      "$ref": "./StellinaCapture.json"
+    },
+    "currentParams": {
+      "$ref": "./StellinaObservationOperation_CurrentParams.json"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "eclipse": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "filter": {
+      "$ref": "./InstrumentFilter.json"
+    },
+    "focusWarning": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "framing": {
+      "$ref": "./StellinaSkyPosition.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "isRestored": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "mosaic": {
+      "$ref": "./MosaicBody.json"
+    },
+    "observationType": {
+      "$ref": "./StellinaObservationOperation_StellinaObservationType.json"
+    },
+    "povErrorRatio": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+    },
+    "previousCaptures": {
+      "type": "array",
+      "items": {}
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "steps": {
+      "type": "array",
+      "items": {}
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "store": {
+      "$ref": "./StellinaObservationOperation_StellingCaptureStore.json"
+    },
+    "target": {
+      "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "actionInProgress",
+    "startTime",
+    "stopped"
+  ]
+}

@@ -1,0 +1,12 @@
+# Cloud/Internet endpoints found in Barnard APK string table
+#
+# Notes:
+# - This list is provided for completeness; controlling the telescope locally does *not* require most of these.
+# - Any API keys seen in strings have been REDACTED.
+
+vaonis_backend_base = https://vaonis-back-prod-eu.herokuapp.com
+vaonis_backend_accessories = https://vaonis-back-prod-eu.herokuapp.com/accessories/
+
+gemini_log_upload = https://gemini.dev.vaonis.com/logs/post_logs?deviceId=...
+
+openweather_forecast_template = https://api.openweathermap.org/data/2.5/forecast/?lat=%f&lon=%f&appid=REDACTED&units=metric

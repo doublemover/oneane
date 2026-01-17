@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaptureStoreStatus",
+  "type": "object",
+  "properties": {
+    "storedCaptures": {
+      "type": "array",
+      "items": {
+        "$ref": "./StoredCaptureSummary.json"
+      }
+    }
+  }
+}

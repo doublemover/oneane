@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STATUS_UPDATED payload",
+  "description": "Payload for Socket.IO event STATUS_UPDATED.",
+  "$ref": "../http/StellinaStatus.json"
+}

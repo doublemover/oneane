@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSunModeOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "eclipse": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "filterDetected": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "filterDetectionSafetyTimeout": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "meanIndicatesFilterIsInstalled": {
+      "type": "boolean"
+    },
+    "meanOverSafetyThreshold": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "meanSafetyTimeout": {
+      "type": "boolean"
+    },
+    "observationCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "observationError": {
+      "$ref": "./StellinaError.json"
+    },
+    "safetyEnabled": {
+      "type": "boolean"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "state": {
+      "$ref": "./StellinaSunModeOperation_StellinaSunModeState.json"
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "meanIndicatesFilterIsInstalled",
+    "meanSafetyTimeout",
+    "observationCount",
+    "safetyEnabled",
+    "startTime",
+    "stopped"
+  ]
+}

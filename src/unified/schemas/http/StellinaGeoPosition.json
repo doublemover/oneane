@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaGeoPosition",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "latitude",
+    "longitude"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StoragePublicSpace",
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "available": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "system": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "boolean"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "size",
+    "available",
+    "system",
+    "user",
+    "required"
+  ]
+}

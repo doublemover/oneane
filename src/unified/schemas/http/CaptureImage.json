@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaptureImage",
+  "type": "object",
+  "description": "Single captured image summary as serialized in STATUS_UPDATED / capture store.",
+  "properties": {
+    "index": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    },
+    "hasUrl": {
+      "type": "boolean"
+    },
+    "isSaved": {
+      "type": "boolean"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "timestamp": {
+      "type": "integer"
+    },
+    "score": {
+      "type": "number"
+    },
+    "starsCount": {
+      "type": "integer"
+    },
+    "fwhmX": {
+      "type": "number"
+    },
+    "fwhmY": {
+      "type": "number"
+    },
+    "fwhm": {
+      "type": "number"
+    },
+    "stackingCount": {
+      "type": "integer"
+    },
+    "totalStackingCount": {
+      "type": "integer"
+    },
+    "cropX": {
+      "type": "integer"
+    },
+    "cropY": {
+      "type": "integer"
+    },
+    "cropWidth": {
+      "type": "integer"
+    },
+    "cropHeight": {
+      "type": "integer"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

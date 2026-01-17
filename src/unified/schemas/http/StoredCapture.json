@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StoredCapture",
+  "type": "object",
+  "properties": {
+    "storeId": {
+      "type": "string"
+    },
+    "filter": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "SOLAR",
+        "CLS",
+        "DUAL",
+        "DUST",
+        "ATHENA_47k",
+        "UNDEFINED_27k"
+      ],
+      "nullable": true
+    },
+    "exposureMicroSec": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "gain": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "dark": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "target": {
+      "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json",
+      "nullable": true
+    },
+    "mosaic": {
+      "$ref": "./MosaicBody.json",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "totalStackingCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "lastImage": {
+      "type": "object",
+      "nullable": true
+    },
+    "error": {
+      "nullable": true
+    }
+  },
+  "additionalProperties": true
+}

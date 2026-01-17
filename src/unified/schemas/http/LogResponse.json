@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LogResponse",
+  "type": "object",
+  "properties": {
+    "file": {
+      "type": "string"
+    },
+    "result": {
+      "$ref": "./LogResponse_Result.json"
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "success"
+  ]
+}

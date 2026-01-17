@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MotorsStatus",
+  "type": "object",
+  "properties": {
+    "AZ": {
+      "$ref": "./MotorAxisStatus.json"
+    },
+    "ALT": {
+      "$ref": "./MotorAxisStatus.json"
+    },
+    "DER": {
+      "$ref": "./MotorAxisStatus.json"
+    },
+    "MAP": {
+      "$ref": "./MotorAxisStatus.json"
+    }
+  }
+}

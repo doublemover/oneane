@@ -1,0 +1,3446 @@
+{
+  "events": {
+    "schemasByName": {
+      "CONNECTION_ERROR": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "description": "Payload for Socket.IO event CONNECTION_ERROR (when handshake query is invalid/missing id).",
+        "title": "CONNECTION_ERROR payload",
+        "type": "string"
+      },
+      "DEBUG_STATUS_UPDATED": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "description": "Payload for Socket.IO namespace /debug event DEBUG_STATUS_UPDATED.",
+        "properties": {
+          "activeOperations": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "astrometry": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "autoInit": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "automator": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "battery": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "board": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "boardDebug": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "boardInitError": {},
+          "bootCount": {
+            "type": "integer"
+          },
+          "camera": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "capture": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "captureStore": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "challenge": {
+            "type": "string"
+          },
+          "darkManager": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "elapsedTime": {
+            "type": [
+              "number",
+              "integer"
+            ]
+          },
+          "focus": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "initError": {},
+          "internalBattery": {
+            "additionalProperties": true,
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "leds": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "logManager": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "model": {
+            "type": "string"
+          },
+          "motors": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "network": {
+            "additionalProperties": false,
+            "properties": {
+              "currentCenter1": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "currentChannel": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "currentSsid": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currentTxpower": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "currentWidth": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "online": {
+            "type": "boolean"
+          },
+          "planner": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "previousBootError": {},
+          "previousOperations": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "regionManager": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "reporter": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "resources": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "ctx": {
+                  "type": "string"
+                },
+                "operation": {
+                  "additionalProperties": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "sensors": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "sequence": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "settings": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "sim": {
+            "type": "boolean"
+          },
+          "socket": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "stacking": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "stellarium": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "storage": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "telescopeId": {
+            "type": "string"
+          },
+          "updateManager": {
+            "$ref": "../http/UpdateStatus.json"
+          }
+        },
+        "title": "DEBUG_STATUS_UPDATED payload",
+        "type": "object"
+      },
+      "STATUS_UPDATED": {
+        "$ref": "../http/StellinaStatus.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "description": "Payload for Socket.IO event STATUS_UPDATED.",
+        "title": "STATUS_UPDATED payload"
+      }
+    }
+  },
+  "generatedAt": "2026-01-17T08:18:20.187541+00:00",
+  "http": {
+    "routes": {
+      "GET /app/status": {
+        "responses": {
+          "200": "StatusResponse"
+        }
+      },
+      "GET /captureStore/getObservation": {
+        "queryParams": [
+          "storeId"
+        ],
+        "responses": {
+          "200": "StoredObservationResponse"
+        }
+      },
+      "GET /planner/getPlanObservation": {
+        "queryParams": [
+          "observationId"
+        ],
+        "responses": {
+          "200": "PlanObservationResponse"
+        }
+      },
+      "GET /reporter/getAvailableReports": {
+        "responses": {
+          "200": "ReportsResponse"
+        }
+      },
+      "GET /storage/userStorageFolderContent": {
+        "queryParams": [
+          "folderPath"
+        ],
+        "responses": {
+          "200": "FolderContentResponse"
+        }
+      },
+      "POST /app/setSettings": {
+        "request": "SettingsBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /board/requestShutdown": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /capture/exportImageTiff": {
+        "request": "TiffBody",
+        "responses": {
+          "200": "TiffResponse"
+        }
+      },
+      "POST /capture/setToBeResumable": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /captureStore/deleteStoredCapture": {
+        "request": "DeleteStoredCaptureBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /captureStore/startObservationFromStoredCapture": {
+        "request": "StartObservationFromStoredCaptureBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /darkManager/generateDark": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /darkManager/stopGenerateDark": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /expertMode/startStorageAcquisition": {
+        "request": "StorageAcquisitionBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /expertMode/stopStorageAcquisition": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/adjustObservationFocus": {
+        "request": "AdjustFocusBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/adjustObservationFraming": {
+        "request": "AdjustFramingBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/openForMaintenance": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/park": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/startAutoInit": {
+        "request": "AutoInitBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/startObservation": {
+        "request": "StartObservationBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/stopAutoInit": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /general/stopObservation": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /logs/consume": {
+        "responses": {
+          "200": "LogResponse"
+        }
+      },
+      "POST /network/switchFrequency": {
+        "request": "NetworkBody"
+      },
+      "POST /planner/startPlan": {
+        "request": "PlanMyNightBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /planner/stopPlan": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /playlist/startPlaylist": {
+        "request": "PlaylistBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /playlist/stopPlaylist": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /reporter/markReportsAsSynced": {
+        "request": "ReportsBody"
+      },
+      "POST /storage/deleteUserStorageFolders": {
+        "request": "DeleteUserStorageFolderBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/changePov": {
+        "request": "SunModePovBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/handleUserAction": {
+        "request": "SunModeActionBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/restartAutofocus": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/setUserParams": {
+        "request": "SunModeParamsBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/startSunMode": {
+        "request": "SunModeBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /sun/stopObservation": {
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /updates/uploadUpdateFile": {
+        "queryParams": [
+          "fileName",
+          "model"
+        ]
+      },
+      "POST /userManager/applyResetResponse": {
+        "request": "RequestCodeBody",
+        "responses": {
+          "200": "OrderResponse"
+        }
+      },
+      "POST /userManager/makeResetRequest": {
+        "responses": {
+          "200": "ResetCodeResponse"
+        }
+      }
+    },
+    "schemasByName": {
+      "AdjustFocusBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "restartCapture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "restartCapture"
+        ],
+        "title": "AdjustFocusBody",
+        "type": "object"
+      },
+      "AdjustFramingBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "rot": {
+            "format": "double",
+            "type": "number"
+          },
+          "x": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "y": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rot",
+          "x",
+          "y"
+        ],
+        "title": "AdjustFramingBody",
+        "type": "object"
+      },
+      "AutoInitBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "latitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "longitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "observatoryId": {
+            "type": "string"
+          },
+          "observatoryName": {
+            "type": "string"
+          },
+          "skipAutoFocus": {
+            "type": "boolean"
+          },
+          "time": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude",
+          "skipAutoFocus",
+          "time"
+        ],
+        "title": "AutoInitBody",
+        "type": "object"
+      },
+      "CaptureImage": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": true,
+        "description": "Single captured image summary as serialized in STATUS_UPDATED / capture store.",
+        "properties": {
+          "cropHeight": {
+            "type": "integer"
+          },
+          "cropWidth": {
+            "type": "integer"
+          },
+          "cropX": {
+            "type": "integer"
+          },
+          "cropY": {
+            "type": "integer"
+          },
+          "fwhm": {
+            "type": "number"
+          },
+          "fwhmX": {
+            "type": "number"
+          },
+          "fwhmY": {
+            "type": "number"
+          },
+          "hasUrl": {
+            "type": "boolean"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "index": {
+            "type": "integer"
+          },
+          "isSaved": {
+            "type": "boolean"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "score": {
+            "type": "number"
+          },
+          "stackingCount": {
+            "type": "integer"
+          },
+          "starsCount": {
+            "type": "integer"
+          },
+          "timestamp": {
+            "type": "integer"
+          },
+          "totalStackingCount": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer"
+          }
+        },
+        "title": "CaptureImage",
+        "type": "object"
+      },
+      "CaptureStoreStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "storedCaptures": {
+            "items": {
+              "$ref": "./StoredCaptureSummary.json"
+            },
+            "type": "array"
+          }
+        },
+        "title": "CaptureStoreStatus",
+        "type": "object"
+      },
+      "ConnectedDevice": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "user": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "title": "ConnectedDevice",
+        "type": "object"
+      },
+      "DeleteStoredCaptureBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "storeId": {
+            "type": "string"
+          }
+        },
+        "title": "DeleteStoredCaptureBody",
+        "type": "object"
+      },
+      "DeleteUserStorageFolderBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "folderPaths": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "title": "DeleteUserStorageFolderBody",
+        "type": "object"
+      },
+      "FilterType": {
+        "$id": "schemas/http/FilterType.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "FilterType",
+        "type": "string"
+      },
+      "FolderContentResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "$ref": "./StellinaStorageFolderContent.json"
+          }
+        },
+        "title": "FolderContentResponse",
+        "type": "object"
+      },
+      "HdrBackgroundBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "curve": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "polynomialOrder": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "ratioParam": {
+            "format": "double",
+            "type": "number"
+          },
+          "ratioParamLocal": {
+            "format": "double",
+            "type": "number"
+          },
+          "saturation": {
+            "format": "double",
+            "type": "number"
+          },
+          "whiteMeanNoiseRatio": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "required": [
+          "curve",
+          "polynomialOrder",
+          "ratioParam",
+          "ratioParamLocal",
+          "saturation",
+          "whiteMeanNoiseRatio"
+        ],
+        "title": "HdrBackgroundBody",
+        "type": "object"
+      },
+      "InstrumentFilter": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "CLS",
+          "DUAL",
+          "DUST",
+          "IR",
+          "NONE",
+          "SOLAR"
+        ],
+        "title": "InstrumentFilter",
+        "type": "string"
+      },
+      "InternalBatteryStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "TS": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "chargeAlert": {
+            "enum": [
+              "NONE",
+              "TOO_COLD",
+              "TOO_HOT"
+            ],
+            "type": "string"
+          },
+          "chargeLevel": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "chargeStatus": {
+            "enum": [
+              "OFF",
+              "CHARGING",
+              "CONNECTED"
+            ],
+            "type": "string"
+          }
+        },
+        "title": "InternalBatteryStatus",
+        "type": "object"
+      },
+      "LogResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "result": {
+            "$ref": "./LogResponse_Result.json"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "success"
+        ],
+        "title": "LogResponse",
+        "type": "object"
+      },
+      "LogResponse_Result": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "title": "LogResponse_Result",
+        "type": "object"
+      },
+      "LogsStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "bufferPosition": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "bufferSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "numFiles": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "title": "LogsStatus",
+        "type": "object"
+      },
+      "MosaicBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "heightDegree": {
+            "format": "float",
+            "type": "number"
+          },
+          "widthDegree": {
+            "format": "float",
+            "type": "number"
+          }
+        },
+        "required": [
+          "heightDegree",
+          "widthDegree"
+        ],
+        "title": "MosaicBody",
+        "type": "object"
+      },
+      "MotorAxisStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "atStop": {
+            "type": "boolean"
+          },
+          "calibrated": {
+            "type": "boolean"
+          },
+          "position": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "title": "MotorAxisStatus",
+        "type": "object"
+      },
+      "MotorsStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "ALT": {
+            "$ref": "./MotorAxisStatus.json"
+          },
+          "AZ": {
+            "$ref": "./MotorAxisStatus.json"
+          },
+          "DER": {
+            "$ref": "./MotorAxisStatus.json"
+          },
+          "MAP": {
+            "$ref": "./MotorAxisStatus.json"
+          }
+        },
+        "title": "MotorsStatus",
+        "type": "object"
+      },
+      "NetworkAppStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "band": {
+            "enum": [
+              "BAND_2_4_GHZ",
+              "BAND_5_GHZ"
+            ],
+            "type": "string"
+          },
+          "channel": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "title": "NetworkAppStatus",
+        "type": "object"
+      },
+      "NetworkBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "band": {
+            "type": "string"
+          }
+        },
+        "title": "NetworkBody",
+        "type": "object"
+      },
+      "OperationStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": true,
+        "properties": {
+          "appVersion": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ctx": {
+            "nullable": true,
+            "type": "string"
+          },
+          "deviceId": {
+            "nullable": true,
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json",
+            "nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "stopped": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "userName": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "title": "OperationStatus",
+        "type": "object"
+      },
+      "OrderResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "success"
+        ],
+        "title": "OrderResponse",
+        "type": "object"
+      },
+      "PlanMyNightBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "latitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "longitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "observatoryId": {
+            "type": "string"
+          },
+          "observatoryName": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "planName": {
+            "type": "string"
+          },
+          "planVersion": {
+            "type": "string"
+          },
+          "targets": {
+            "items": {},
+            "type": "array"
+          },
+          "userId": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude",
+          "userId"
+        ],
+        "title": "PlanMyNightBody",
+        "type": "object"
+      },
+      "PlanObservationResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "$ref": "./StellinaObservationOperation.json"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "success"
+        ],
+        "title": "PlanObservationResponse",
+        "type": "object"
+      },
+      "PlaylistBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "playlistType": {
+            "$ref": "./StellinaPlaylistOperation_PlaylistType.json"
+          },
+          "targets": {
+            "items": {},
+            "type": "array"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "title": "PlaylistBody",
+        "type": "object"
+      },
+      "PublicStorageSpace": {
+        "$id": "schemas/http/PublicStorageSpace.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "nullable": true,
+        "properties": {
+          "available": {
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "system": {
+            "description": "System partition bytes",
+            "type": "integer"
+          },
+          "user": {
+            "description": "User partition bytes",
+            "type": "integer"
+          }
+        },
+        "title": "PublicStorageSpace",
+        "type": "object"
+      },
+      "ReportsBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "reports": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "title": "ReportsBody",
+        "type": "object"
+      },
+      "ReportsResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "title": "ReportsResponse",
+        "type": "object"
+      },
+      "RequestCodeBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "response": {
+            "type": "string"
+          }
+        },
+        "title": "RequestCodeBody",
+        "type": "object"
+      },
+      "ResetCodeResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "title": "ResetCodeResponse",
+        "type": "object"
+      },
+      "SensorsStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "defogStatus": {
+            "enum": [
+              "OFF",
+              "LOW_DD",
+              "LOW_TEMP",
+              "ON"
+            ],
+            "nullable": true,
+            "type": "string"
+          },
+          "dewpointDepression": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "humidity": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "humidityDelta": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "temperature": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "temperatureDelta": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          }
+        },
+        "title": "SensorsStatus",
+        "type": "object"
+      },
+      "SettingsBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "algoHdrBackground": {
+            "$ref": "./StellinaSettings_BalensMode.json"
+          },
+          "buttonBrightness": {
+            "type": "string"
+          },
+          "enableDarkUsage": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableDithering": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableFullResolution": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableHdrBackground": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableLiveFocus": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "storageFileCategories": {
+            "items": {},
+            "type": "array"
+          },
+          "telescopeName": {
+            "type": "string"
+          },
+          "usbFileTypes": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "title": "SettingsBody",
+        "type": "object"
+      },
+      "SettingsStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": true,
+        "properties": {
+          "algoHdrBackground": {
+            "$ref": "./StellinaSettings_BalensMode.json",
+            "nullable": true
+          },
+          "buttonBrightness": {
+            "nullable": true,
+            "type": "string"
+          },
+          "enableDarkUsage": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableDithering": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableFullResolution": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableHdrBackground": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "enableLiveFocus": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "hasFilterDetection": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "storageFileCategories": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "telescopeName": {
+            "nullable": true,
+            "type": "string"
+          },
+          "usbFileTypes": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "title": "SettingsStatus",
+        "type": "object"
+      },
+      "StartObservationBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "algorithm": {
+            "$ref": "./StellinaObservationOperation_StellinaPointingAlgorithm.json"
+          },
+          "backgroundEnabled": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "backgroundPolyorder": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "brightZoneOffset": {
+            "$ref": "./StellinaObservationOperation_StellinaBrightZoneOffset.json"
+          },
+          "de": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "doStacking": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "exposureMicroSec": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "gain": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "hdrBackground": {
+            "$ref": "./HdrBackgroundBody.json"
+          },
+          "histogramEnabled": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "histogramHigh": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "histogramLow": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "histogramMedium": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "mosaicBody": {
+            "$ref": "./MosaicBody.json"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "objectName": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "observationType": {
+            "$ref": "./StellinaObservationOperation_StellinaObservationType.json"
+          },
+          "ra": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "rot": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "store": {
+            "$ref": "./StellinaObservationOperation_StellingCaptureStore.json"
+          },
+          "targetType": {
+            "$ref": "./StellinaObservationOperation_ObservationTargetType.json"
+          }
+        },
+        "title": "StartObservationBody",
+        "type": "object"
+      },
+      "StartObservationFromStoredCaptureBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "storeId": {
+            "type": "string"
+          }
+        },
+        "title": "StartObservationFromStoredCaptureBody",
+        "type": "object"
+      },
+      "StatusResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "$ref": "./StellinaStatus.json"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "success"
+        ],
+        "title": "StatusResponse",
+        "type": "object"
+      },
+      "StellinaAutoInitOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "armPosition": {
+            "$ref": "./StellinaAutoInitOperation_StellinaAutoInitArmPosition.json"
+          },
+          "astrometry": {
+            "$ref": "./StellinaSkyPosition.json"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "focusResult": {
+            "$ref": "./StellinaAutoInitOperation_AutofocusResult.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "observatoryId": {
+            "type": "string"
+          },
+          "observatoryName": {
+            "type": "string"
+          },
+          "position": {
+            "$ref": "./StellinaGeoPosition.json"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "steps": {
+            "items": {},
+            "type": "array"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "time": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped",
+          "time"
+        ],
+        "title": "StellinaAutoInitOperation",
+        "type": "object"
+      },
+      "StellinaAutoInitOperation_AutofocusResult": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "focusValue": {
+            "format": "double",
+            "type": "number"
+          },
+          "map": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "focusValue",
+          "map"
+        ],
+        "title": "StellinaAutoInitOperation_AutofocusResult",
+        "type": "object"
+      },
+      "StellinaAutoInitOperation_StellinaAutoInitArmPosition": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "ALT": {
+            "format": "double",
+            "type": "number"
+          },
+          "AZ": {
+            "format": "double",
+            "type": "number"
+          },
+          "index": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ALT",
+          "AZ",
+          "index"
+        ],
+        "title": "StellinaAutoInitOperation_StellinaAutoInitArmPosition",
+        "type": "object"
+      },
+      "StellinaCapture": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "acquisitionCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "cameraParams": {
+            "$ref": "./StellinaCapture_StellinaCameraParams.json"
+          },
+          "captureType": {
+            "$ref": "./StellinaCapture_StellinaCaptureType.json"
+          },
+          "dark": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "debayerInterpolation": {
+            "$ref": "./StellinaCapture_StellinaDebayerInterpolation.json"
+          },
+          "endHumidity": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "endTemperature": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "hasStacking": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "images": {
+            "items": {},
+            "type": "array"
+          },
+          "outputImageCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "outputImageErrorCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "stackingCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "stackingErrorCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "stackingErrorMap": {
+            "$ref": "./StellinaCapture_StellinaStackingErrorMap.json"
+          },
+          "startHumidity": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "startTemperature": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "startTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "target": {
+            "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+          },
+          "totalStackingCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "userExposureMicroSec": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "userGain": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "hasStacking"
+        ],
+        "title": "StellinaCapture",
+        "type": "object"
+      },
+      "StellinaCapture_StellinaCameraParams": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "exposureMicroSec": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "gain": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "height": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "width": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exposureMicroSec",
+          "gain"
+        ],
+        "title": "StellinaCapture_StellinaCameraParams",
+        "type": "object"
+      },
+      "StellinaCapture_StellinaCaptureType": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "ADJUST_FOCUS",
+          "ADJUST_FRAMING",
+          "INITIAL",
+          "MANUAL"
+        ],
+        "title": "StellinaCapture_StellinaCaptureType",
+        "type": "string"
+      },
+      "StellinaCapture_StellinaDebayerInterpolation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "SUPER_PIXEL",
+          "VNG"
+        ],
+        "title": "StellinaCapture_StellinaDebayerInterpolation",
+        "type": "string"
+      },
+      "StellinaCapture_StellinaStackingErrorMap": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "StackingBadRegistration": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "StackingError": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "StackingFitError": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "StackingLackOfStar": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "StackingMatchingError": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "StackingRoundnessError": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "total": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total"
+        ],
+        "title": "StellinaCapture_StellinaStackingErrorMap",
+        "type": "object"
+      },
+      "StellinaDarkCalibrationOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "ctx": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "steps": {
+            "items": {},
+            "type": "array"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaDarkCalibrationOperation",
+        "type": "object"
+      },
+      "StellinaDeleteFoldersOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deletedFolderCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "totalFolderCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "deletedFolderCount",
+          "startTime",
+          "stopped",
+          "totalFolderCount"
+        ],
+        "title": "StellinaDeleteFoldersOperation",
+        "type": "object"
+      },
+      "StellinaError": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "rawError": {
+            "type": "string"
+          },
+          "unknownName": {
+            "type": "string"
+          }
+        },
+        "title": "StellinaError",
+        "type": "object"
+      },
+      "StellinaGeoPosition": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "latitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "longitude": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "title": "StellinaGeoPosition",
+        "type": "object"
+      },
+      "StellinaObservationOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "actionInProgress": {
+            "type": "boolean"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "capture": {
+            "$ref": "./StellinaCapture.json"
+          },
+          "currentParams": {
+            "$ref": "./StellinaObservationOperation_CurrentParams.json"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "eclipse": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "filter": {
+            "$ref": "./InstrumentFilter.json"
+          },
+          "focusWarning": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "framing": {
+            "$ref": "./StellinaSkyPosition.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "isRestored": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "mosaic": {
+            "$ref": "./MosaicBody.json"
+          },
+          "observationType": {
+            "$ref": "./StellinaObservationOperation_StellinaObservationType.json"
+          },
+          "povErrorRatio": {
+            "format": "float",
+            "nullable": true,
+            "type": "number"
+          },
+          "previousCaptures": {
+            "items": {},
+            "type": "array"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "steps": {
+            "items": {},
+            "type": "array"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "store": {
+            "$ref": "./StellinaObservationOperation_StellingCaptureStore.json"
+          },
+          "target": {
+            "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "actionInProgress",
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaObservationOperation",
+        "type": "object"
+      },
+      "StellinaObservationOperation_CurrentParams": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "MAP": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "exposureMicroSec": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "exposureMode": {
+            "$ref": "./StellinaObservationOperation_CurrentParams_ExposureMode.json"
+          },
+          "gain": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "title": "StellinaObservationOperation_CurrentParams",
+        "type": "object"
+      },
+      "StellinaObservationOperation_CurrentParams_ExposureMode": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "antique",
+          "auto",
+          "init",
+          "static",
+          "user"
+        ],
+        "title": "StellinaObservationOperation_CurrentParams_ExposureMode",
+        "type": "string"
+      },
+      "StellinaObservationOperation_ObservationTargetType": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "CATALOG",
+          "DEBUG_UI",
+          "MANUAL"
+        ],
+        "title": "StellinaObservationOperation_ObservationTargetType",
+        "type": "string"
+      },
+      "StellinaObservationOperation_StellinaBrightZoneOffset": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "AUTO",
+          "FAR",
+          "NEAR"
+        ],
+        "title": "StellinaObservationOperation_StellinaBrightZoneOffset",
+        "type": "string"
+      },
+      "StellinaObservationOperation_StellinaCaptureStoreState": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "NON_RESUMABLE",
+          "PLAN",
+          "RESUME",
+          "TO_BE_RESUMABLE"
+        ],
+        "title": "StellinaObservationOperation_StellinaCaptureStoreState",
+        "type": "string"
+      },
+      "StellinaObservationOperation_StellinaObservationTarget": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "coords": {
+            "$ref": "./StellinaSkyPosition.json"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "objectName": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "./StellinaObservationOperation_ObservationTargetType.json"
+          }
+        },
+        "title": "StellinaObservationOperation_StellinaObservationTarget",
+        "type": "object"
+      },
+      "StellinaObservationOperation_StellinaObservationType": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "DEBUG_UI",
+          "MANUAL",
+          "PLAN",
+          "PLAYLIST",
+          "STANDARD",
+          "STORE",
+          "SUN"
+        ],
+        "title": "StellinaObservationOperation_StellinaObservationType",
+        "type": "string"
+      },
+      "StellinaObservationOperation_StellinaPointingAlgorithm": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "AUTO",
+          "BRIGHT_ZONE",
+          "DEEP_SKY",
+          "DEEP_SKY_THEN_BRIGHT_ZONE"
+        ],
+        "title": "StellinaObservationOperation_StellinaPointingAlgorithm",
+        "type": "string"
+      },
+      "StellinaObservationOperation_StellingCaptureStore": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "state": {
+            "$ref": "./StellinaObservationOperation_StellinaCaptureStoreState.json"
+          },
+          "step": {
+            "$ref": "./StellinaObservationOperation_StellingCaptureStore_Step.json"
+          },
+          "storeId": {
+            "type": "string"
+          },
+          "totalStackingCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "title": "StellinaObservationOperation_StellingCaptureStore",
+        "type": "object"
+      },
+      "StellinaObservationOperation_StellingCaptureStore_Step": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "EXPORT_TIFF",
+          "SAVE_CGS"
+        ],
+        "title": "StellinaObservationOperation_StellingCaptureStore_Step",
+        "type": "string"
+      },
+      "StellinaOpenOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaOpenOperation",
+        "type": "object"
+      },
+      "StellinaOperationType": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "AUTO_INIT",
+          "DELETE_FOLDERS",
+          "GENERATE_DARK",
+          "OBSERVATION",
+          "OPEN",
+          "PARK",
+          "PLAN",
+          "PLAYLIST",
+          "STORAGE_ACQUISITION",
+          "SUN_MODE",
+          "SUN_OBSERVATION"
+        ],
+        "title": "StellinaOperationType",
+        "type": "string"
+      },
+      "StellinaParkOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaParkOperation",
+        "type": "object"
+      },
+      "StellinaPlanOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "planName": {
+            "type": "string"
+          },
+          "planVersion": {
+            "type": "string"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "state": {
+            "$ref": "./StellinaPlanOperation_StellinaPlanOperationState.json"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "targets": {
+            "items": {},
+            "type": "array"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaPlanOperation",
+        "type": "object"
+      },
+      "StellinaPlanOperation_StellinaPlanOperationState": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "AUTO_INIT",
+          "FINISHED",
+          "OBSERVATION",
+          "WAITING_FOR_OBSERVATION_START",
+          "WAITING_FOR_RETRY",
+          "WAITING_UNTIL_START"
+        ],
+        "title": "StellinaPlanOperation_StellinaPlanOperationState",
+        "type": "string"
+      },
+      "StellinaPlaylistOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "observations": {
+            "items": {},
+            "type": "array"
+          },
+          "playlistType": {
+            "$ref": "./StellinaPlaylistOperation_PlaylistType.json"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "targets": {
+            "items": {},
+            "type": "array"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaPlaylistOperation",
+        "type": "object"
+      },
+      "StellinaPlaylistOperation_PlaylistType": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "RANDOM"
+        ],
+        "title": "StellinaPlaylistOperation_PlaylistType",
+        "type": "string"
+      },
+      "StellinaSettings_BalensMode": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "HARD",
+          "OLD",
+          "RECOMMENDED",
+          "SOFT"
+        ],
+        "title": "StellinaSettings_BalensMode",
+        "type": "string"
+      },
+      "StellinaSkyPosition": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "de": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "ra": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "rot": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          }
+        },
+        "title": "StellinaSkyPosition",
+        "type": "object"
+      },
+      "StellinaStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "apiVersion": {
+            "type": "string"
+          },
+          "autofocusPosition": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "autofocusTemperature": {
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          },
+          "availableReports": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "boardError": {
+            "nullable": true
+          },
+          "boardInDebugMode": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "boardInitError": {
+            "nullable": true
+          },
+          "bootCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "captureStore": {
+            "$ref": "./CaptureStoreStatus.json"
+          },
+          "challenge": {
+            "type": "string"
+          },
+          "connectedDevices": {
+            "items": {
+              "$ref": "./ConnectedDevice.json"
+            },
+            "type": "array"
+          },
+          "currentOperation": {
+            "$ref": "./OperationStatus.json",
+            "nullable": true
+          },
+          "elapsedTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "filter": {
+            "enum": [
+              "NONE",
+              "SOLAR",
+              "CLS",
+              "DUAL",
+              "DUST",
+              "ATHENA_47k",
+              "UNDEFINED_27k"
+            ],
+            "nullable": true,
+            "type": "string"
+          },
+          "initError": {
+            "nullable": true
+          },
+          "initialized": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "internalBattery": {
+            "$ref": "./InternalBatteryStatus.json",
+            "nullable": true
+          },
+          "logs": {
+            "$ref": "./LogsStatus.json"
+          },
+          "masterDeviceId": {
+            "nullable": true,
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "motors": {
+            "$ref": "./MotorsStatus.json"
+          },
+          "network": {
+            "$ref": "./NetworkAppStatus.json"
+          },
+          "otherCurrentOperations": {
+            "items": {
+              "$ref": "./OperationStatus.json"
+            },
+            "type": "array"
+          },
+          "position": {
+            "$ref": "./StellinaSkyPosition.json",
+            "nullable": true
+          },
+          "previousBootError": {
+            "nullable": true
+          },
+          "previousOperations": {
+            "items": {
+              "$ref": "./OperationStatus.json"
+            },
+            "type": "array"
+          },
+          "sensors": {
+            "$ref": "./SensorsStatus.json",
+            "nullable": true
+          },
+          "settings": {
+            "$ref": "./SettingsStatus.json"
+          },
+          "shuttingDown": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "storage": {
+            "$ref": "./StorageStatus.json"
+          },
+          "telescopeId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "update": {
+            "$ref": "./UpdateStatus.json"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "title": "StellinaStatus",
+        "type": "object"
+      },
+      "StellinaStorageAcquisitionOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "count": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "requiredCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "count",
+          "requiredCount",
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaStorageAcquisitionOperation",
+        "type": "object"
+      },
+      "StellinaStorageFolderContent": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "fileCountPerType": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "folders": {
+            "items": {},
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "size"
+        ],
+        "title": "StellinaStorageFolderContent",
+        "type": "object"
+      },
+      "StellinaStorage_StellinaStorageSpace": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "available": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "changeCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "required": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "system": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "user": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "available",
+          "size"
+        ],
+        "title": "StellinaStorage_StellinaStorageSpace",
+        "type": "object"
+      },
+      "StellinaSunModeAction": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "CANCEL_FILTER_REMOVAL",
+          "CONFIRM_ARM_ORIENTATION",
+          "CONFIRM_FILTER_INSTALLATION",
+          "CONFIRM_FILTER_REMOVED",
+          "DISABLE_SAFETY",
+          "ENABLE_SAFETY",
+          "PREPARE_FILTER_REMOVAL",
+          "RETRY_AFTER_FAILURE"
+        ],
+        "title": "StellinaSunModeAction",
+        "type": "string"
+      },
+      "StellinaSunModeOperation": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "eclipse": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "endTime": {
+            "format": "int64",
+            "nullable": true,
+            "type": "integer"
+          },
+          "error": {
+            "$ref": "./StellinaError.json"
+          },
+          "filterDetected": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "filterDetectionSafetyTimeout": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meanIndicatesFilterIsInstalled": {
+            "type": "boolean"
+          },
+          "meanOverSafetyThreshold": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "meanSafetyTimeout": {
+            "type": "boolean"
+          },
+          "observationCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "observationError": {
+            "$ref": "./StellinaError.json"
+          },
+          "safetyEnabled": {
+            "type": "boolean"
+          },
+          "startTime": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "state": {
+            "$ref": "./StellinaSunModeOperation_StellinaSunModeState.json"
+          },
+          "stopped": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "./StellinaOperationType.json"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "meanIndicatesFilterIsInstalled",
+          "meanSafetyTimeout",
+          "observationCount",
+          "safetyEnabled",
+          "startTime",
+          "stopped"
+        ],
+        "title": "StellinaSunModeOperation",
+        "type": "object"
+      },
+      "StellinaSunModeOperation_StellinaSunModePov": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "earth",
+          "jupiter",
+          "mars",
+          "mercury",
+          "neptune",
+          "raw",
+          "saturn",
+          "uranus",
+          "venus"
+        ],
+        "title": "StellinaSunModeOperation_StellinaSunModePov",
+        "type": "string"
+      },
+      "StellinaSunModeOperation_StellinaSunModeState": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "CLOSING_ARM",
+          "OBSERVATION",
+          "OPENING_ARM",
+          "WAITING_AFTER_OBSERVATION_FAILED",
+          "WAITING_FOR_FILTER_INSTALLATION",
+          "WAITING_FOR_FILTER_REMOVAL",
+          "WAITING_FOR_ORIENTATION"
+        ],
+        "title": "StellinaSunModeOperation_StellinaSunModeState",
+        "type": "string"
+      },
+      "StorageAcquisitionBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "exposureMicroSec": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "flip": {
+            "$ref": "./StorageAcquisitionBody_StellinaAcquisitionFlip.json"
+          },
+          "gain": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "numExposures": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "overwrite": {
+            "type": "boolean"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "exposureMicroSec",
+          "gain",
+          "numExposures",
+          "overwrite"
+        ],
+        "title": "StorageAcquisitionBody",
+        "type": "object"
+      },
+      "StorageAcquisitionBody_StellinaAcquisitionFlip": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "BOTH",
+          "FLIP",
+          "NO_FLIP"
+        ],
+        "title": "StorageAcquisitionBody_StellinaAcquisitionFlip",
+        "type": "string"
+      },
+      "StoragePublicSpace": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "available": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "system": {
+            "type": "boolean"
+          },
+          "user": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "size",
+          "available",
+          "system",
+          "user",
+          "required"
+        ],
+        "title": "StoragePublicSpace",
+        "type": "object"
+      },
+      "StorageSpace": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "available": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "size",
+          "available"
+        ],
+        "title": "StorageSpace",
+        "type": "object"
+      },
+      "StorageStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "data": {
+            "$ref": "./StorageSpace.json"
+          },
+          "public": {
+            "$ref": "./StoragePublicSpace.json",
+            "nullable": true
+          },
+          "system": {
+            "$ref": "./StorageSpace.json"
+          },
+          "usb": {
+            "$ref": "./StorageUsbSpace.json",
+            "nullable": true
+          }
+        },
+        "required": [
+          "system",
+          "data"
+        ],
+        "title": "StorageStatus",
+        "type": "object"
+      },
+      "StorageUsbSpace": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "available": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "changeCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "size": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "size",
+          "available",
+          "changeCount",
+          "required"
+        ],
+        "title": "StorageUsbSpace",
+        "type": "object"
+      },
+      "StoredCapture": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": true,
+        "properties": {
+          "dark": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "error": {
+            "nullable": true
+          },
+          "exposureMicroSec": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "filter": {
+            "enum": [
+              "NONE",
+              "SOLAR",
+              "CLS",
+              "DUAL",
+              "DUST",
+              "ATHENA_47k",
+              "UNDEFINED_27k"
+            ],
+            "nullable": true,
+            "type": "string"
+          },
+          "gain": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "lastImage": {
+            "nullable": true,
+            "type": "object"
+          },
+          "mosaic": {
+            "$ref": "./MosaicBody.json",
+            "nullable": true
+          },
+          "startTime": {
+            "nullable": true,
+            "type": "string"
+          },
+          "storeId": {
+            "type": "string"
+          },
+          "target": {
+            "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json",
+            "nullable": true
+          },
+          "totalStackingCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "title": "StoredCapture",
+        "type": "object"
+      },
+      "StoredCaptureSummary": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": true,
+        "description": "Summary of a stored capture (capture store entry).",
+        "properties": {
+          "dark": {
+            "type": "boolean"
+          },
+          "error": {},
+          "exposureMicroSec": {
+            "type": "integer"
+          },
+          "filter": {
+            "$ref": "./InstrumentFilter.json"
+          },
+          "gain": {
+            "type": "integer"
+          },
+          "lastImage": {
+            "oneOf": [
+              {
+                "$ref": "./CaptureImage.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mosaic": {
+            "oneOf": [
+              {
+                "$ref": "./MosaicBody.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "startTime": {},
+          "storeId": {
+            "type": "string"
+          },
+          "target": {
+            "oneOf": [
+              {
+                "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "totalStackingCount": {
+            "type": "integer"
+          }
+        },
+        "title": "StoredCaptureSummary",
+        "type": "object"
+      },
+      "StoredObservationResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "$ref": "./StellinaObservationOperation.json"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "success"
+        ],
+        "title": "StoredObservationResponse",
+        "type": "object"
+      },
+      "SunModeActionBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "action": {
+            "$ref": "./StellinaSunModeAction.json"
+          },
+          "pov": {
+            "$ref": "./StellinaSunModeOperation_StellinaSunModePov.json"
+          }
+        },
+        "title": "SunModeActionBody",
+        "type": "object"
+      },
+      "SunModeBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "appVersion": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "eclipse": {
+            "type": "boolean"
+          },
+          "latitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "longitude": {
+            "format": "double",
+            "type": "number"
+          },
+          "observatoryId": {
+            "type": "string"
+          },
+          "observatoryName": {
+            "type": "string"
+          },
+          "skipAutoFocus": {
+            "type": "boolean"
+          },
+          "time": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "userId": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "eclipse",
+          "latitude",
+          "longitude",
+          "skipAutoFocus",
+          "time"
+        ],
+        "title": "SunModeBody",
+        "type": "object"
+      },
+      "SunModeParamsBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "MAP": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "exposureMicroSec": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "exposureMode": {
+            "$ref": "./StellinaObservationOperation_CurrentParams_ExposureMode.json"
+          },
+          "gain": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          }
+        },
+        "title": "SunModeParamsBody",
+        "type": "object"
+      },
+      "SunModePovBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "pov": {
+            "$ref": "./StellinaSunModeOperation_StellinaSunModePov.json"
+          }
+        },
+        "title": "SunModePovBody",
+        "type": "object"
+      },
+      "TiffBody": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "captureId": {
+            "type": "string"
+          }
+        },
+        "title": "TiffBody",
+        "type": "object"
+      },
+      "TiffData": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "savedOnUsbStorage": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "stackingCount": {
+            "format": "int32",
+            "nullable": true,
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "title": "TiffData",
+        "type": "object"
+      },
+      "TiffResponse": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "result": {
+            "$ref": "./TiffData.json"
+          }
+        },
+        "title": "TiffResponse",
+        "type": "object"
+      },
+      "UpdateProgressInfo": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "progressPercent": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "step": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "stepTotal": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "title": "UpdateProgressInfo",
+        "type": "object"
+      },
+      "UpdateStatus": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "installedVersion": {
+            "type": "string"
+          },
+          "minimumCompatibleVersion": {
+            "type": "string"
+          },
+          "progressInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "./UpdateProgressInfo.json"
+              }
+            ]
+          },
+          "state": {
+            "enum": [
+              "IDLE",
+              "INSTALL",
+              "UPLOAD"
+            ],
+            "type": "string"
+          }
+        },
+        "title": "UpdateStatus",
+        "type": "object"
+      },
+      "UsbStorageSpace": {
+        "$id": "schemas/http/UsbStorageSpace.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "nullable": true,
+        "properties": {
+          "available": {
+            "type": "integer"
+          },
+          "changeCount": {
+            "description": "Incremented when USB device changes",
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "integer"
+          }
+        },
+        "title": "UsbStorageSpace",
+        "type": "object"
+      }
+    }
+  },
+  "socket": {
+    "schemasByName": {
+      "SocketMessageName": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "enum": [
+          "takeControl",
+          "releaseControl",
+          "getStatus",
+          "setSystemTime",
+          "sendUserName"
+        ],
+        "title": "SocketMessageName",
+        "type": "string"
+      },
+      "getStatus.response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "$ref": "../http/StellinaStatus.json"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "$ref": "../http/StelError.json"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "type": "object"
+          },
+          {
+            "$ref": "../http/StelError.json"
+          }
+        ],
+        "title": "getStatus response"
+      },
+      "releaseControl.response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "$ref": "../http/StellinaStatus.json"
+              },
+              "success": {
+                "const": true,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "success",
+              "status"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "$ref": "../http/StelError.json"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "type": "object"
+          },
+          {
+            "$ref": "../http/StelError.json"
+          }
+        ],
+        "title": "releaseControl response"
+      },
+      "sendUserName.request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "userId",
+          "user"
+        ],
+        "title": "sendUserName request",
+        "type": "object"
+      },
+      "sendUserName.response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "success": {
+                "const": true,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "$ref": "../http/StelError.json"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "type": "object"
+          },
+          {
+            "$ref": "../http/StelError.json"
+          }
+        ],
+        "title": "sendUserName response"
+      },
+      "setSystemTime.request": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "description": "Unix timestamp in milliseconds since epoch. Firmware rejects dates before 2018-01-01.",
+        "title": "setSystemTime request",
+        "type": "number"
+      },
+      "setSystemTime.response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "success": {
+                "const": true,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "$ref": "../http/StelError.json"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "type": "object"
+          },
+          {
+            "$ref": "../http/StelError.json"
+          }
+        ],
+        "title": "setSystemTime response"
+      },
+      "takeControl.response": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "$ref": "../http/StellinaStatus.json"
+              },
+              "success": {
+                "const": true,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "success",
+              "status"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "$ref": "../http/StelError.json"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "type": "object"
+          },
+          {
+            "$ref": "../http/StelError.json"
+          }
+        ],
+        "title": "takeControl response"
+      }
+    }
+  },
+  "version": 1
+}

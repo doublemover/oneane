@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vaonis-instruments"
+version = "0.0.1"
+description = "Minimal client for the Vaonis Barnard instrument API"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["requests>=2.28", "Pillow>=10.0", "pynacl>=1.5"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vaonis_instruments*"]
+exclude = ["tests*", "examples*"]
+
+[tool.setuptools.package-data]
+vaonis_instruments = ["data/*.json"]
+
+[project.optional-dependencies]
+socketio = ["python-socketio>=5", "python-engineio>=4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

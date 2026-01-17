@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/http/UsbStorageSpace.json",
+  "title": "UsbStorageSpace",
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "size": {
+      "type": "integer"
+    },
+    "available": {
+      "type": "integer"
+    },
+    "changeCount": {
+      "type": "integer",
+      "description": "Incremented when USB device changes"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}

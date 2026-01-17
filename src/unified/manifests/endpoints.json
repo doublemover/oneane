@@ -1,0 +1,2528 @@
+[
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OpenWeatherAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OpenWeatherAPI",
+    "method_name": "get5DaysWeatherForecast",
+    "http_method": "GET",
+    "path": "",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/WeatherForecastResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$Error;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/WeatherForecastResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$Error;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "url",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionArticlesAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method_name": "getArticles",
+    "http_method": "GET",
+    "path": "/articles/",
+    "params": [
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ArticlesResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$ErrorResponse;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ArticlesResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$ErrorResponse;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "X_API_VERSION"
+      },
+      {
+        "index": 2,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "language"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionArticlesAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method_name": "getArticleImage",
+    "http_method": "GET",
+    "path": "/articles/{article_id}/image/",
+    "params": [
+      "Ljava/lang/String;",
+      "Ljava/lang/String;"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Single;",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/rxjava3/core/Single<Lokhttp3/ResponseBody;>;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "article_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionDeviceInstrumentAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method_name": "sendLogsV2",
+    "http_method": "POST",
+    "path": "",
+    "params": [
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lokhttp3/RequestBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Lokhttp3/RequestBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/LogResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/LogResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "url",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "index": 1,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lokhttp3/RequestBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionDeviceInstrumentAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method_name": "sendDeviceInfo",
+    "http_method": "POST",
+    "path": "devices/",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/model/Device;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/Device;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/Device;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/Device;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/Device;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionDeviceInstrumentAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method_name": "sendDeviceFCMToken",
+    "http_method": "POST",
+    "path": "devices/gcm/",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/model/body/FcmBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/FcmBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/FcmBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionDeviceInstrumentAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method_name": "sendAutoInitReports",
+    "http_method": "POST",
+    "path": "instruments/autoinit/",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/model/body/AutoInitBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/AutoInitBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionDeviceInstrumentAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method_name": "sendInstrumentsConnexion",
+    "http_method": "POST",
+    "path": "instruments/connexions/",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/model/body/ConnexionsBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/ConnexionsBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/ConnexionsBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionManualTargetAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method_name": "getManualTargets",
+    "http_method": "GET",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ManualTargetResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ManualTargetResponse;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionManualTargetAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method_name": "createManualTarget",
+    "http_method": "POST",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/model/OrionManualTarget;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/OrionManualTarget;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/OrionManualTarget;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionManualTargetAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method_name": "deleteManualTarget",
+    "http_method": "DELETE",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionManualTargetAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method_name": "updateManualTarget",
+    "http_method": "PATCH",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/model/OrionManualTarget;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lcom/vaonis/barnard/data/model/OrionManualTarget;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "id"
+      },
+      {
+        "index": 3,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/OrionManualTarget;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "getSavedObservationV2",
+    "http_method": "GET",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/observations/ObservationsResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/observations/ObservationsResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "sendSavedObservation",
+    "http_method": "POST",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/model/body/ObservationImageBody;",
+      "Lokhttp3/MultipartBody$Part;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/body/ObservationImageBody;Lokhttp3/MultipartBody$Part;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/observations/ObservationCreationResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/observations/ObservationCreationResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "part",
+        "type": "Lcom/vaonis/barnard/data/model/body/ObservationImageBody;",
+        "name": "data"
+      },
+      {
+        "index": 3,
+        "kind": "part",
+        "type": "Lokhttp3/MultipartBody$Part;"
+      }
+    ],
+    "markers": {
+      "multipart": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "deleteSavedObservation",
+    "http_method": "DELETE",
+    "path": "/profiles/{profile_id}/observationImages/{id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/StorageResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/StorageResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "I",
+        "name": "id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "getObservationImageV2",
+    "http_method": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/image/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "I",
+        "name": "id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "getObservationThumbnailV2",
+    "http_method": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/thumbnail/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "I",
+        "name": "id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionObservationAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method_name": "sendObservationReport",
+    "http_method": "POST",
+    "path": "profiles/{profile_id}/observations/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/model/body/ObservationBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/body/ObservationBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/ObservationBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionPlanMyNightAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method_name": "getAllPlannedNight",
+    "http_method": "GET",
+    "path": "profiles/{profile_id}/plans/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlanMyNight;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlanMyNight;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionPlanMyNightAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method_name": "postPlannedNight",
+    "http_method": "POST",
+    "path": "profiles/{profile_id}/plans/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionPlanMyNightAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method_name": "deletePlan",
+    "http_method": "DELETE",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "plan_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionPlanMyNightAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method_name": "patchPlannedNight",
+    "http_method": "PATCH",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "profile_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "plan_id"
+      },
+      {
+        "index": 3,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "login",
+    "http_method": "POST",
+    "path": "auth/login/",
+    "params": [
+      "Lcom/vaonis/barnard/data/model/body/LoginBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lcom/vaonis/barnard/data/model/body/LoginBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/LoginBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "logout",
+    "http_method": "POST",
+    "path": "auth/logout/",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "sendPasswordResetEmail",
+    "http_method": "POST",
+    "path": "auth/password-reset/",
+    "params": [
+      "Lcom/vaonis/barnard/data/model/body/PasswordResetBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lcom/vaonis/barnard/data/model/body/PasswordResetBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/body/PasswordResetBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "register",
+    "http_method": "POST",
+    "path": "auth/register/",
+    "params": [
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "email"
+      },
+      {
+        "index": 1,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "username"
+      },
+      {
+        "index": 2,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "password"
+      },
+      {
+        "index": 3,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "first_name"
+      },
+      {
+        "index": 4,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "last_name"
+      }
+    ],
+    "markers": {
+      "multipart": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "getProfile",
+    "http_method": "GET",
+    "path": "profiles/{user_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Single;",
+    "signature": "(Ljava/lang/String;I)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/User;>;",
+    "response_type": "Lcom/vaonis/barnard/data/model/User;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "updateProfile",
+    "http_method": "PATCH",
+    "path": "profiles/{user_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/util/List;",
+      "Lokhttp3/MultipartBody$Part;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Single;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/Integer;>;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/User;>;",
+    "response_type": "Lcom/vaonis/barnard/data/model/User;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "username"
+      },
+      {
+        "index": 3,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "first_name"
+      },
+      {
+        "index": 4,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "last_name"
+      },
+      {
+        "index": 5,
+        "kind": "part",
+        "type": "Ljava/util/List;",
+        "name": "interests"
+      },
+      {
+        "index": 6,
+        "kind": "part",
+        "type": "Lokhttp3/MultipartBody$Part;"
+      },
+      {
+        "index": 7,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "eula_version"
+      },
+      {
+        "index": 8,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "privacy_policy_version"
+      }
+    ],
+    "markers": {
+      "multipart": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "getObjectPreferences",
+    "http_method": "GET",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "params": [
+      "Ljava/lang/String;",
+      "I"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Single;",
+    "signature": "(Ljava/lang/String;I)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/response/ObjectPreferenceResponse;>;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/ObjectPreferenceResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "createObjectPreference",
+    "http_method": "POST",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/datasource/local/entities/ObjectPreference;"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Completable;",
+    "signature": null,
+    "response_type": null,
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/datasource/local/entities/ObjectPreference;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method_name": "createObservatory",
+    "http_method": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/model/OrionObservatory;"
+    ],
+    "return_type": "Lio/reactivex/rxjava3/core/Completable;",
+    "signature": null,
+    "response_type": null,
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/OrionObservatory;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "deleteProfile",
+    "http_method": "DELETE",
+    "path": "profiles/{user_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "getProfile",
+    "http_method": "GET",
+    "path": "profiles/{user_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/User;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/User;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "updateProfile",
+    "http_method": "PATCH",
+    "path": "profiles/{user_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/util/List;",
+      "Lokhttp3/MultipartBody$Part;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/Integer;>;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/User;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/User;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "username"
+      },
+      {
+        "index": 3,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "first_name"
+      },
+      {
+        "index": 4,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "last_name"
+      },
+      {
+        "index": 5,
+        "kind": "part",
+        "type": "Ljava/util/List;",
+        "name": "interests"
+      },
+      {
+        "index": 6,
+        "kind": "part",
+        "type": "Lokhttp3/MultipartBody$Part;"
+      },
+      {
+        "index": 7,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "eula_version"
+      },
+      {
+        "index": 8,
+        "kind": "part",
+        "type": "Ljava/lang/String;",
+        "name": "privacy_policy_version"
+      }
+    ],
+    "markers": {
+      "multipart": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "getAvatar",
+    "http_method": "GET",
+    "path": "profiles/{user_id}/avatar/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Landroid/graphics/Bitmap;>;)Ljava/lang/Object;",
+    "response_type": "Landroid/graphics/Bitmap;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "getObservatories",
+    "http_method": "GET",
+    "path": "profiles/{user_id}/observatories/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/ObservatoryResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/model/response/ObservatoryResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "createObservatory",
+    "http_method": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Lcom/vaonis/barnard/data/model/OrionObservatory;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/OrionObservatory;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "body",
+        "type": "Lcom/vaonis/barnard/data/model/OrionObservatory;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/OrionUserAPIV2;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method_name": "deleteObservatory",
+    "http_method": "DELETE",
+    "path": "profiles/{user_id}/observatories/{observatory_id}/",
+    "params": [
+      "Ljava/lang/String;",
+      "I",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "path",
+        "type": "I",
+        "name": "user_id"
+      },
+      {
+        "index": 2,
+        "kind": "path",
+        "type": "Ljava/lang/String;",
+        "name": "observatory_id"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/barnard/data/api/StoreAPI;",
+    "declaring_class_human": "com.vaonis.barnard.data.api.StoreAPI",
+    "method_name": "getAccessories",
+    "http_method": "GET",
+    "path": "accessories/",
+    "params": [
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/api/model/store/OrionAccessoryList;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/barnard/data/api/model/store/OrionAccessoryList;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "language"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "downloadImage",
+    "http_method": "GET",
+    "path": "",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "response_type": "Lokhttp3/ResponseBody;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "url",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "markers": {
+      "streaming": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "updateSettings",
+    "http_method": "POST",
+    "path": "app/setSettings",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/SettingsBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SettingsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SettingsBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "getStatus",
+    "http_method": "GET",
+    "path": "app/status",
+    "params": [
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StatusResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/StatusResponse;",
+    "retrofit_params": [],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "requestShutdown",
+    "http_method": "POST",
+    "path": "board/requestShutdown",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "exportTiff",
+    "http_method": "POST",
+    "path": "capture/exportImageTiff",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/TiffBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/TiffBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/TiffResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/TiffResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/TiffBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "setToBeResumable",
+    "http_method": "POST",
+    "path": "capture/setToBeResumable",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "deleteStoredCapture",
+    "http_method": "POST",
+    "path": "captureStore/deleteStoredCapture",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "getStoredCaptureObservation",
+    "http_method": "GET",
+    "path": "captureStore/getObservation",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "storeId"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startObservationFromStoredCapture",
+    "http_method": "POST",
+    "path": "captureStore/startObservationFromStoredCapture",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "generateDark",
+    "http_method": "POST",
+    "path": "darkManager/generateDark",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopGenerateDark",
+    "http_method": "POST",
+    "path": "darkManager/stopGenerateDark",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startStorageAcquisition",
+    "http_method": "POST",
+    "path": "expertMode/startStorageAcquisition",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopStorageAcquisition",
+    "http_method": "POST",
+    "path": "expertMode/stopStorageAcquisition",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "adjustObservationFocus",
+    "http_method": "POST",
+    "path": "general/adjustObservationFocus",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "adjustObservationFraming",
+    "http_method": "POST",
+    "path": "general/adjustObservationFraming",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "openArm",
+    "http_method": "POST",
+    "path": "general/openForMaintenance",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "parkArm",
+    "http_method": "POST",
+    "path": "general/park",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startAutoInit",
+    "http_method": "POST",
+    "path": "general/startAutoInit",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startObservation",
+    "http_method": "POST",
+    "path": "general/startObservation",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopAutoInit",
+    "http_method": "POST",
+    "path": "general/stopAutoInit",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopObservation",
+    "http_method": "POST",
+    "path": "general/stopObservation",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "consumeLogs",
+    "http_method": "POST",
+    "path": "logs/consume",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/LogResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/LogResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "switchFrequency",
+    "http_method": "POST",
+    "path": "network/switchFrequency",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/NetworkBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/NetworkBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "response_type": "Lkotlin/Unit;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/NetworkBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "getPlanObservation",
+    "http_method": "GET",
+    "path": "planner/getPlanObservation",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "observationId"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startPlan",
+    "http_method": "POST",
+    "path": "planner/startPlan",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopPlan",
+    "http_method": "POST",
+    "path": "planner/stopPlan",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startPlaylist",
+    "http_method": "POST",
+    "path": "playlist/startPlaylist",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopPlaylist",
+    "http_method": "POST",
+    "path": "playlist/stopPlaylist",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "getAvailableReport",
+    "http_method": "GET",
+    "path": "reporter/getAvailableReports",
+    "params": [
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;",
+    "retrofit_params": [],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "markReportsAsSynced",
+    "http_method": "POST",
+    "path": "reporter/markReportsAsSynced",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/ReportsBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/ReportsBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "response_type": "Lkotlin/Unit;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/ReportsBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "deleteUserStorageFolder",
+    "http_method": "POST",
+    "path": "storage/deleteUserStorageFolders",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "getStorageFolderContent",
+    "http_method": "GET",
+    "path": "storage/userStorageFolderContent",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "folderPath"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "changePov",
+    "http_method": "POST",
+    "path": "sun/changePov",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "sendSunModeAction",
+    "http_method": "POST",
+    "path": "sun/handleUserAction",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "restartSunAutofocus",
+    "http_method": "POST",
+    "path": "sun/restartAutofocus",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "setSunModeParams",
+    "http_method": "POST",
+    "path": "sun/setUserParams",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "startSunMode",
+    "http_method": "POST",
+    "path": "sun/startSunMode",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/SunModeBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/SunModeBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "stopSunObservation",
+    "http_method": "POST",
+    "path": "sun/stopObservation",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "uploadUpdateFile",
+    "http_method": "POST",
+    "path": "updates/uploadUpdateFile",
+    "params": [
+      "Ljava/lang/String;",
+      "Lokhttp3/MultipartBody$Part;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;"
+    ],
+    "return_type": "Lretrofit2/Call;",
+    "signature": "(Ljava/lang/String;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;",
+    "response_type": null,
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "part",
+        "type": "Lokhttp3/MultipartBody$Part;"
+      },
+      {
+        "index": 2,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "fileName"
+      },
+      {
+        "index": 3,
+        "kind": "query",
+        "type": "Ljava/lang/String;",
+        "name": "model"
+      }
+    ],
+    "markers": {
+      "multipart": true
+    },
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "applyResetCode",
+    "http_method": "POST",
+    "path": "userManager/applyResetResponse",
+    "params": [
+      "Ljava/lang/String;",
+      "Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      },
+      {
+        "index": 1,
+        "kind": "body",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  },
+  {
+    "declaring_class": "Lcom/vaonis/instruments/sdk/StellinaAPI;",
+    "declaring_class_human": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method_name": "requestResetCode",
+    "http_method": "POST",
+    "path": "userManager/makeResetRequest",
+    "params": [
+      "Ljava/lang/String;",
+      "Lkotlin/coroutines/Continuation;"
+    ],
+    "return_type": "Ljava/lang/Object;",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;>;)Ljava/lang/Object;",
+    "response_type": "Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;",
+    "retrofit_params": [
+      {
+        "index": 0,
+        "kind": "header",
+        "type": "Ljava/lang/String;",
+        "name": "Authorization"
+      }
+    ],
+    "markers": {},
+    "dex": "classes2.dex"
+  }
+]

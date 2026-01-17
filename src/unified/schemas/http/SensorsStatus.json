@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SensorsStatus",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "temperatureDelta": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "humidity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "humidityDelta": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "defogStatus": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "LOW_DD",
+        "LOW_TEMP",
+        "ON"
+      ],
+      "nullable": true
+    },
+    "dewpointDepression": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  }
+}

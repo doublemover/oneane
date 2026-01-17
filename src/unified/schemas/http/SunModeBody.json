@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SunModeBody",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "eclipse": {
+      "type": "boolean"
+    },
+    "latitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "observatoryId": {
+      "type": "string"
+    },
+    "observatoryName": {
+      "type": "string"
+    },
+    "skipAutoFocus": {
+      "type": "boolean"
+    },
+    "time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "eclipse",
+    "latitude",
+    "longitude",
+    "skipAutoFocus",
+    "time"
+  ]
+}

@@ -1,0 +1,447 @@
+[
+  {
+    "method": "POST",
+    "path": "/general/adjustObservationFocus",
+    "operationId": "adjustObservationFocus",
+    "requestBodyRef": "#/components/schemas/AdjustFocusBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/adjustObservationFraming",
+    "operationId": "adjustObservationFraming",
+    "requestBodyRef": "#/components/schemas/AdjustFramingBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/userManager/applyResetResponse",
+    "operationId": "applyResetCode",
+    "requestBodyRef": "#/components/schemas/RequestCodeBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/changePov",
+    "operationId": "changePov",
+    "requestBodyRef": "#/components/schemas/SunModePovBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/logs/consume",
+    "operationId": "consumeLogs",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/LogResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/captureStore/deleteStoredCapture",
+    "operationId": "deleteStoredCapture",
+    "requestBodyRef": "#/components/schemas/DeleteStoredCaptureBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/storage/deleteUserStorageFolders",
+    "operationId": "deleteUserStorageFolder",
+    "requestBodyRef": "#/components/schemas/DeleteUserStorageFolderBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/capture/exportImageTiff",
+    "operationId": "exportTiff",
+    "requestBodyRef": "#/components/schemas/TiffBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/TiffResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/darkManager/generateDark",
+    "operationId": "generateDark",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/reporter/getAvailableReports",
+    "operationId": "getAvailableReport",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/ReportsResponse"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/planner/getPlanObservation",
+    "operationId": "getPlanObservation",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/PlanObservationResponse"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/app/status",
+    "operationId": "getStatus",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/StatusResponse"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/storage/userStorageFolderContent",
+    "operationId": "getStorageFolderContent",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/FolderContentResponse"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/captureStore/getObservation",
+    "operationId": "getStoredCaptureObservation",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/StoredObservationResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/reporter/markReportsAsSynced",
+    "operationId": "markReportsAsSynced",
+    "requestBodyRef": "#/components/schemas/ReportsBody",
+    "responses": {}
+  },
+  {
+    "method": "POST",
+    "path": "/general/openForMaintenance",
+    "operationId": "openArm",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/park",
+    "operationId": "parkArm",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/userManager/makeResetRequest",
+    "operationId": "requestResetCode",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/ResetCodeResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/board/requestShutdown",
+    "operationId": "requestShutdown",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/restartAutofocus",
+    "operationId": "restartSunAutofocus",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/handleUserAction",
+    "operationId": "sendSunModeAction",
+    "requestBodyRef": "#/components/schemas/SunModeActionBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/setUserParams",
+    "operationId": "setSunModeParams",
+    "requestBodyRef": "#/components/schemas/SunModeParamsBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/capture/setToBeResumable",
+    "operationId": "setToBeResumable",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/startAutoInit",
+    "operationId": "startAutoInit",
+    "requestBodyRef": "#/components/schemas/AutoInitBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/startObservation",
+    "operationId": "startObservation",
+    "requestBodyRef": "#/components/schemas/StartObservationBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/captureStore/startObservationFromStoredCapture",
+    "operationId": "startObservationFromStoredCapture",
+    "requestBodyRef": "#/components/schemas/StartObservationFromStoredCaptureBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/planner/startPlan",
+    "operationId": "startPlan",
+    "requestBodyRef": "#/components/schemas/PlanMyNightBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/playlist/startPlaylist",
+    "operationId": "startPlaylist",
+    "requestBodyRef": "#/components/schemas/PlaylistBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/expertMode/startStorageAcquisition",
+    "operationId": "startStorageAcquisition",
+    "requestBodyRef": "#/components/schemas/StorageAcquisitionBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/startSunMode",
+    "operationId": "startSunMode",
+    "requestBodyRef": "#/components/schemas/SunModeBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopAutoInit",
+    "operationId": "stopAutoInit",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/darkManager/stopGenerateDark",
+    "operationId": "stopGenerateDark",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopObservation",
+    "operationId": "stopObservation",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/planner/stopPlan",
+    "operationId": "stopPlan",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/playlist/stopPlaylist",
+    "operationId": "stopPlaylist",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/expertMode/stopStorageAcquisition",
+    "operationId": "stopStorageAcquisition",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/sun/stopObservation",
+    "operationId": "stopSunObservation",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/network/switchFrequency",
+    "operationId": "switchFrequency",
+    "requestBodyRef": "#/components/schemas/NetworkBody",
+    "responses": {}
+  },
+  {
+    "method": "POST",
+    "path": "/app/setSettings",
+    "operationId": "updateSettings",
+    "requestBodyRef": "#/components/schemas/SettingsBody",
+    "responses": {
+      "200": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/OrderResponse"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/updates/uploadUpdateFile",
+    "operationId": "uploadUpdateFile",
+    "requestBodyRef": null,
+    "responses": {}
+  }
+]

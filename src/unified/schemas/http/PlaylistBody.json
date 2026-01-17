@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlaylistBody",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "playlistType": {
+      "$ref": "./StellinaPlaylistOperation_PlaylistType.json"
+    },
+    "targets": {
+      "type": "array",
+      "items": {}
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  }
+}

@@ -1,0 +1,2865 @@
+[
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "restartCapture",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "rot",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "x",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "y",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "latitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "longitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "skipAutoFocus",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "time",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "storeId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "folderPaths",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/HdrBackgroundBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "curve",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "polynomialOrder",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "ratioParam",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "ratioParamLocal",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "saturation",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "whiteMeanNoiseRatio",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/NetworkBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "band",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "playlistType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation$PlaylistType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/ReportsBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "reports",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "response",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SettingsBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "algoHdrBackground",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSettings$BalensMode;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "buttonBrightness",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "enableDarkUsage",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "enableDithering",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "enableFullResolution",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "enableHdrBackground",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "enableLiveFocus",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "storageFileCategories",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "telescopeName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "usbFileTypes",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "algorithm",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaPointingAlgorithm;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "backgroundEnabled",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "backgroundPolyorder",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "brightZoneOffset",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaBrightZoneOffset;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "de",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "doStacking",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "exposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "gain",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "hdrBackground",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/HdrBackgroundBody;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "histogramEnabled",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "histogramHigh",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "histogramLow",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "histogramMedium",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "mosaicBody",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/mosaic/MosaicBody;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "objectId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "objectName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "objectType",
+        "type": "Ljava/lang/String;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "observationType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationType;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "ra",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "rot",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "store",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "targetType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$ObservationTargetType;",
+        "access_flags": 2,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "storeId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody$StellinaAcquisitionFlip;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "BOTH",
+      "FLIP",
+      "NO_FLIP"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "exposureMicroSec",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "flip",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody$StellinaAcquisitionFlip;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "gain",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "numExposures",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "overwrite",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "path",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "action",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSunModeAction;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "pov",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModePov;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "eclipse",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "latitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "longitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "skipAutoFocus",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "time",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "MAP",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "exposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "exposureMode",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams$ExposureMode;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "gain",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "pov",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModePov;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/TiffBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "captureId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/mosaic/MosaicBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "heightDegree",
+        "type": "F",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "widthDegree",
+        "type": "F",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "latitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "longitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaStorageFolderContent;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/LogResponse$Result;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "data",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "message",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/LogResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "file",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/response/LogResponse$Result;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "success",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "success",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "success",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/StatusResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaStatus;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "success",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "success",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/TiffData;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "savedOnUsbStorage",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stackingCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "url",
+        "type": "Ljava/lang/String;",
+        "access_flags": 2,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/TiffResponse;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/response/TiffData;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/InstrumentFilter;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "CLS",
+      "DUAL",
+      "DUST",
+      "IR",
+      "NONE",
+      "SOLAR"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaCameraParams;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "exposureMicroSec",
+        "type": "I",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "gain",
+        "type": "I",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "height",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "width",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaCaptureType;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "ADJUST_FOCUS",
+      "ADJUST_FRAMING",
+      "INITIAL",
+      "MANUAL"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaDebayerInterpolation;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "SUPER_PIXEL",
+      "VNG"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaStackingErrorMap;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "StackingBadRegistration",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "StackingError",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "StackingFitError",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "StackingLackOfStar",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "StackingMatchingError",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "StackingRoundnessError",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "total",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "acquisitionCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "cameraParams",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaCameraParams;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "captureType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaCaptureType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "dark",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "debayerInterpolation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaDebayerInterpolation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endHumidity",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTemperature",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "hasStacking",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "images",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "outputImageCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "outputImageErrorCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stackingCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stackingErrorCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stackingErrorMap",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture$StellinaStackingErrorMap;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startHumidity",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTemperature",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "target",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationTarget;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "totalStackingCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userExposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userGain",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "name",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "rawError",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "unknownName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaGeoPosition;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "latitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "longitude",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaSettings$BalensMode;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "HARD",
+      "OLD",
+      "RECOMMENDED",
+      "SOFT"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaSkyPosition;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "de",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "ra",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "rot",
+        "type": "Ljava/lang/Double;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaStatus;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "apiVersion$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "autofocusPosition$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "autofocusTemperature$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "availableReports$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "boardError$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "boardInDebugMode$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "boardInitError$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "bootCount$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "captureStore$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "challenge$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "connectedDevices$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentAutoInitOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentDarkCalibrationOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaDarkCalibrationOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentDeleteFoldersOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaDeleteFoldersOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentObservationOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentOpenOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOpenOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentOperation$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentParkOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaParkOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentPlanOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlanOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentPlaylistOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentStorageAcquisitionOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaStorageAcquisitionOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentSunModeOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentSunObservationOperation",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "dark$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "elapsedTime$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "filter$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "initError$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "initialized$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "internalBattery$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "json",
+        "type": "Lorg/json/JSONObject;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "logs$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "masterDeviceId$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "model$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "moshi",
+        "type": "Lcom/squareup/moshi/Moshi;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "motors$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "network$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryId$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "otherCurrentOperations$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "position$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "previousBootError$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "previousOperations$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "sensors$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "settings$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "shuttingDown$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "storage$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "telescopeId$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "telescopeName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "timestamp$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "update$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userStorageSpace",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaStorage$StellinaStorageSpace;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "version$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "versionNumber$delegate",
+        "type": "Lkotlin/Lazy;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaStorage$StellinaStorageSpace;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "available",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "changeCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "required",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "size",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "system",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "user",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 2,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaStorageFolderContent;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "fileCountPerType",
+        "type": "Ljava/util/Map;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "folders",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "name",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "size",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/StellinaSunModeAction;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "CANCEL_FILTER_REMOVAL",
+      "CONFIRM_ARM_ORIENTATION",
+      "CONFIRM_FILTER_INSTALLATION",
+      "CONFIRM_FILTER_REMOVED",
+      "DISABLE_SAFETY",
+      "ENABLE_SAFETY",
+      "PREPARE_FILTER_REMOVAL",
+      "RETRY_AFTER_FAILURE"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation$AutofocusResult;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "focusValue",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "map",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation$StellinaAutoInitArmPosition;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "ALT",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "AZ",
+        "type": "D",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "index",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "armPosition",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation$StellinaAutoInitArmPosition;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "astrometry",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSkyPosition;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "focusResult",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaAutoInitOperation$AutofocusResult;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "position",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaGeoPosition;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "steps",
+        "type": "Ljava/util/List;",
+        "access_flags": 2,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "time",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaDarkCalibrationOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "ctx",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "steps",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaDeleteFoldersOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deletedFolderCount",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "totalFolderCount",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams$ExposureMode;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "antique",
+      "auto",
+      "init",
+      "static",
+      "user"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "MAP",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "exposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "exposureMode",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams$ExposureMode;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "gain",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$ObservationTargetType;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "CATALOG",
+      "DEBUG_UI",
+      "MANUAL"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaBrightZoneOffset;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "AUTO",
+      "FAR",
+      "NEAR"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaCaptureStoreState;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "NON_RESUMABLE",
+      "PLAN",
+      "RESUME",
+      "TO_BE_RESUMABLE"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationTarget;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "coords",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSkyPosition;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "objectId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "objectName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "objectType",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$ObservationTargetType;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationType;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "DEBUG_UI",
+      "MANUAL",
+      "PLAN",
+      "PLAYLIST",
+      "STANDARD",
+      "STORE",
+      "SUN"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaPointingAlgorithm;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "AUTO",
+      "BRIGHT_ZONE",
+      "DEEP_SKY",
+      "DEEP_SKY_THEN_BRIGHT_ZONE"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore$Step;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "EXPORT_TIFF",
+      "SAVE_CGS"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "state",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaCaptureStoreState;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "step",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore$Step;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "storeId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "totalStackingCount",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "actionInProgress",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "capture",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaCapture;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "currentParams",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "eclipse",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "filter",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/InstrumentFilter;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "focusWarning",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "framing",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSkyPosition;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "isRestored",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "mosaic",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/mosaic/MosaicBody;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observationType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "povErrorRatio",
+        "type": "Ljava/lang/Float;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "previousCaptures",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "steps",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "store",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "target",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationTarget;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOpenOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "AUTO_INIT",
+      "DELETE_FOLDERS",
+      "GENERATE_DARK",
+      "OBSERVATION",
+      "OPEN",
+      "PARK",
+      "PLAN",
+      "PLAYLIST",
+      "STORAGE_ACQUISITION",
+      "SUN_MODE",
+      "SUN_OBSERVATION"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaParkOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlanOperation$StellinaPlanOperationState;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "AUTO_INIT",
+      "FINISHED",
+      "OBSERVATION",
+      "WAITING_FOR_OBSERVATION_START",
+      "WAITING_FOR_RETRY",
+      "WAITING_UNTIL_START"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlanOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planName",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "planVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "state",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlanOperation$StellinaPlanOperationState;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation$PlaylistType;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "RANDOM"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observations",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "playlistType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation$PlaylistType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaStorageAcquisitionOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "count",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "path",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "requiredCount",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModePov;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "earth",
+      "jupiter",
+      "mars",
+      "mercury",
+      "neptune",
+      "raw",
+      "saturn",
+      "uranus",
+      "venus"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModeState;",
+    "access_flags": 16401,
+    "kind": "enum",
+    "constants": [
+      "CLOSING_ARM",
+      "OBSERVATION",
+      "OPENING_ARM",
+      "WAITING_AFTER_OBSERVATION_FAILED",
+      "WAITING_FOR_FILTER_INSTALLATION",
+      "WAITING_FOR_FILTER_REMOVAL",
+      "WAITING_FOR_ORIENTATION"
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation;",
+    "access_flags": 17,
+    "kind": "class",
+    "fields": [
+      {
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "eclipse",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "endTime",
+        "type": "Ljava/lang/Long;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "error",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "filterDetected",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "filterDetectionSafetyTimeout",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "id",
+        "type": "Ljava/lang/String;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "meanIndicatesFilterIsInstalled",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "meanOverSafetyThreshold",
+        "type": "Ljava/lang/Boolean;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "meanSafetyTimeout",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observationCount",
+        "type": "I",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "observationError",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaError;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "safetyEnabled",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "startTime",
+        "type": "J",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "state",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModeState;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "stopped",
+        "type": "Z",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "type",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaOperationType;",
+        "access_flags": 18,
+        "json_name": null
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "access_flags": 18,
+        "json_name": null
+      }
+    ]
+  }
+]

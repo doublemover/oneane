@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_CurrentParams",
+  "type": "object",
+  "properties": {
+    "MAP": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "exposureMicroSec": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "exposureMode": {
+      "$ref": "./StellinaObservationOperation_CurrentParams_ExposureMode.json"
+    },
+    "gain": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  }
+}

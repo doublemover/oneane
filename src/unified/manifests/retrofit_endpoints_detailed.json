@@ -1,0 +1,3339 @@
+[
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OpenWeatherAPI",
+    "method": "get5DaysWeatherForecast",
+    "http_verb": "GET",
+    "path": "",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/WeatherForecastResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$Error;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method": "getArticles",
+    "http_verb": "GET",
+    "path": "/articles/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ArticlesResponse;Lcom/vaonis/barnard/data/model/response/OrionResponse$ErrorResponse;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "X_API_VERSION"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "language"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method": "getArticleImage",
+    "http_verb": "GET",
+    "path": "/articles/{article_id}/image/",
+    "modifiers": [],
+    "return_type": "io.reactivex.rxjava3.core.Single",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/rxjava3/core/Single<Lokhttp3/ResponseBody;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "article_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendLogsV2",
+    "http_verb": "POST",
+    "path": "",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Lokhttp3/RequestBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/LogResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "okhttp3.RequestBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendDeviceInfo",
+    "http_verb": "POST",
+    "path": "devices/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/Device;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/Device;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.barnard.data.model.Device",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendDeviceFCMToken",
+    "http_verb": "POST",
+    "path": "devices/gcm/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/FcmBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.barnard.data.model.body.FcmBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendAutoInitReports",
+    "http_verb": "POST",
+    "path": "instruments/autoinit/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.barnard.data.model.body.AutoInitBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendInstrumentsConnexion",
+    "http_verb": "POST",
+    "path": "instruments/connexions/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/barnard/data/model/body/ConnexionsBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.barnard.data.model.body.ConnexionsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "getManualTargets",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/ManualTargetResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "createManualTarget",
+    "http_verb": "POST",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/OrionManualTarget;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.model.OrionManualTarget",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "deleteManualTarget",
+    "http_verb": "DELETE",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "updateManualTarget",
+    "http_verb": "PATCH",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lcom/vaonis/barnard/data/model/OrionManualTarget;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "com.vaonis.barnard.data.model.OrionManualTarget",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getSavedObservationV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/observations/ObservationsResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "sendSavedObservation",
+    "http_verb": "POST",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/body/ObservationImageBody;Lokhttp3/MultipartBody$Part;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/observations/ObservationCreationResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.model.body.ObservationImageBody",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "data"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "okhttp3.MultipartBody$Part",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "deleteSavedObservation",
+    "http_verb": "DELETE",
+    "path": "/profiles/{profile_id}/observationImages/{id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/StorageResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getObservationImageV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/image/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getObservationThumbnailV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/thumbnail/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;IILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "sendObservationReport",
+    "http_verb": "POST",
+    "path": "profiles/{profile_id}/observations/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/body/ObservationBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.model.body.ObservationBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "getAllPlannedNight",
+    "http_verb": "GET",
+    "path": "profiles/{profile_id}/plans/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlanMyNight;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "postPlannedNight",
+    "http_verb": "POST",
+    "path": "profiles/{profile_id}/plans/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.api.model.planmynight.OrionPlannedNight",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "deletePlan",
+    "http_verb": "DELETE",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "plan_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "patchPlannedNight",
+    "http_verb": "PATCH",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lcom/vaonis/barnard/data/api/model/planmynight/OrionPlannedNight;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "plan_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "com.vaonis.barnard.data.api.model.planmynight.OrionPlannedNight",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "login",
+    "http_verb": "POST",
+    "path": "auth/login/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lcom/vaonis/barnard/data/model/body/LoginBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "com.vaonis.barnard.data.model.body.LoginBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "logout",
+    "http_verb": "POST",
+    "path": "auth/logout/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "sendPasswordResetEmail",
+    "http_verb": "POST",
+    "path": "auth/password-reset/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lcom/vaonis/barnard/data/model/body/PasswordResetBody;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lkotlin/Unit;Lkotlin/Unit;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "com.vaonis.barnard.data.model.body.PasswordResetBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "register",
+    "http_verb": "POST",
+    "path": "auth/register/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/haroldadmin/cnradapter/NetworkResponse<Lcom/vaonis/barnard/data/model/response/LoginResponse;Lcom/vaonis/barnard/data/model/OrionError;>;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "email"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "password"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "getProfile",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "return_type": "io.reactivex.rxjava3.core.Single",
+    "signature": "(Ljava/lang/String;I)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/User;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "updateProfile",
+    "http_verb": "PATCH",
+    "path": "profiles/{user_id}/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "io.reactivex.rxjava3.core.Single",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/Integer;>;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/User;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "java.util.List",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "interests"
+            }
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "type": "okhttp3.MultipartBody$Part",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "eula_version"
+            }
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "privacy_policy_version"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "getObjectPreferences",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "modifiers": [],
+    "return_type": "io.reactivex.rxjava3.core.Single",
+    "signature": "(Ljava/lang/String;I)Lio/reactivex/rxjava3/core/Single<Lcom/vaonis/barnard/data/model/response/ObjectPreferenceResponse;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "createObjectPreference",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "modifiers": [],
+    "return_type": "io.reactivex.rxjava3.core.Completable",
+    "signature": null,
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.datasource.local.entities.ObjectPreference",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "createObservatory",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "return_type": "io.reactivex.rxjava3.core.Completable",
+    "signature": null,
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.model.OrionObservatory",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "deleteProfile",
+    "http_verb": "DELETE",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getProfile",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/User;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "updateProfile",
+    "http_verb": "PATCH",
+    "path": "profiles/{user_id}/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/Integer;>;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/User;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "java.util.List",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "interests"
+            }
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "type": "okhttp3.MultipartBody$Part",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "eula_version"
+            }
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "privacy_policy_version"
+            }
+          }
+        ]
+      },
+      {
+        "index": 9,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getAvatar",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/avatar/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Landroid/graphics/Bitmap;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getObservatories",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/model/response/ObservatoryResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "createObservatory",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILcom/vaonis/barnard/data/model/OrionObservatory;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "com.vaonis.barnard.data.model.OrionObservatory",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "deleteObservatory",
+    "http_verb": "DELETE",
+    "path": "profiles/{user_id}/observatories/{observatory_id}/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "I",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "observatory_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.StoreAPI",
+    "method": "getAccessories",
+    "http_verb": "GET",
+    "path": "accessories/",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/barnard/data/api/model/store/OrionAccessoryList;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "language"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "downloadImage",
+    "http_verb": "GET",
+    "path": "",
+    "modifiers": [
+      {
+        "type": "Streaming",
+        "elements": {}
+      }
+    ],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "updateSettings",
+    "http_verb": "POST",
+    "path": "app/setSettings",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SettingsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SettingsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStatus",
+    "http_verb": "GET",
+    "path": "app/status",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StatusResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestShutdown",
+    "http_verb": "POST",
+    "path": "board/requestShutdown",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "exportTiff",
+    "http_verb": "POST",
+    "path": "capture/exportImageTiff",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/TiffBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/TiffResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.TiffBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setToBeResumable",
+    "http_verb": "POST",
+    "path": "capture/setToBeResumable",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/deleteStoredCapture",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.DeleteStoredCaptureBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStoredCaptureObservation",
+    "http_verb": "GET",
+    "path": "captureStore/getObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "storeId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservationFromStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/startObservationFromStoredCapture",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StartObservationFromStoredCaptureBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "generateDark",
+    "http_verb": "POST",
+    "path": "darkManager/generateDark",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopGenerateDark",
+    "http_verb": "POST",
+    "path": "darkManager/stopGenerateDark",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/startStorageAcquisition",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/stopStorageAcquisition",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFocus",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFocus",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AdjustFocusBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFraming",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFraming",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AdjustFramingBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "openArm",
+    "http_verb": "POST",
+    "path": "general/openForMaintenance",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "parkArm",
+    "http_verb": "POST",
+    "path": "general/park",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startAutoInit",
+    "http_verb": "POST",
+    "path": "general/startAutoInit",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AutoInitBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservation",
+    "http_verb": "POST",
+    "path": "general/startObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StartObservationBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopAutoInit",
+    "http_verb": "POST",
+    "path": "general/stopAutoInit",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopObservation",
+    "http_verb": "POST",
+    "path": "general/stopObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "consumeLogs",
+    "http_verb": "POST",
+    "path": "logs/consume",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/LogResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "switchFrequency",
+    "http_verb": "POST",
+    "path": "network/switchFrequency",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/NetworkBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.NetworkBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getPlanObservation",
+    "http_verb": "GET",
+    "path": "planner/getPlanObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "observationId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlan",
+    "http_verb": "POST",
+    "path": "planner/startPlan",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.planmynight.PlanMyNightBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlan",
+    "http_verb": "POST",
+    "path": "planner/stopPlan",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/startPlaylist",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.PlaylistBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/stopPlaylist",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getAvailableReport",
+    "http_verb": "GET",
+    "path": "reporter/getAvailableReports",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "markReportsAsSynced",
+    "http_verb": "POST",
+    "path": "reporter/markReportsAsSynced",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/ReportsBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.ReportsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteUserStorageFolder",
+    "http_verb": "POST",
+    "path": "storage/deleteUserStorageFolders",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.DeleteUserStorageFolderBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStorageFolderContent",
+    "http_verb": "GET",
+    "path": "storage/userStorageFolderContent",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "folderPath"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "changePov",
+    "http_verb": "POST",
+    "path": "sun/changePov",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModePovBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "sendSunModeAction",
+    "http_verb": "POST",
+    "path": "sun/handleUserAction",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeActionBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "restartSunAutofocus",
+    "http_verb": "POST",
+    "path": "sun/restartAutofocus",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setSunModeParams",
+    "http_verb": "POST",
+    "path": "sun/setUserParams",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeParamsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startSunMode",
+    "http_verb": "POST",
+    "path": "sun/startSunMode",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopSunObservation",
+    "http_verb": "POST",
+    "path": "sun/stopObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "uploadUpdateFile",
+    "http_verb": "POST",
+    "path": "updates/uploadUpdateFile",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "retrofit2.Call",
+    "signature": "(Ljava/lang/String;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "okhttp3.MultipartBody$Part",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "fileName"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "model"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "applyResetCode",
+    "http_verb": "POST",
+    "path": "userManager/applyResetResponse",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.RequestCodeBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestResetCode",
+    "http_verb": "POST",
+    "path": "userManager/makeResetRequest",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  }
+]

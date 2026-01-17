@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEBUG_STATUS_UPDATED payload",
+  "description": "Payload for Socket.IO namespace /debug event DEBUG_STATUS_UPDATED.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "online": {
+      "type": "boolean"
+    },
+    "sim": {
+      "type": "boolean"
+    },
+    "telescopeId": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "bootCount": {
+      "type": "integer"
+    },
+    "initError": {},
+    "boardInitError": {},
+    "previousBootError": {},
+    "elapsedTime": {
+      "type": [
+        "number",
+        "integer"
+      ]
+    },
+    "challenge": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ctx": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "operation": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "activeOperations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "previousOperations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "battery": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currentChannel": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "currentWidth": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "currentCenter1": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "currentSsid": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currentTxpower": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "socket": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "reporter": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "board": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "motors": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "sensors": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "internalBattery": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "leds": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "astrometry": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "focus": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "stacking": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "sequence": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "autoInit": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "planner": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "logManager": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "updateManager": {
+      "$ref": "../http/UpdateStatus.json"
+    },
+    "automator": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "regionManager": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "captureStore": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "boardDebug": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "stellarium": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "darkManager": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_StellingCaptureStore",
+  "type": "object",
+  "properties": {
+    "state": {
+      "$ref": "./StellinaObservationOperation_StellinaCaptureStoreState.json"
+    },
+    "step": {
+      "$ref": "./StellinaObservationOperation_StellingCaptureStore_Step.json"
+    },
+    "storeId": {
+      "type": "string"
+    },
+    "totalStackingCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  }
+}

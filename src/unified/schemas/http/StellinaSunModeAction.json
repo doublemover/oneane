@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSunModeAction",
+  "type": "string",
+  "enum": [
+    "CANCEL_FILTER_REMOVAL",
+    "CONFIRM_ARM_ORIENTATION",
+    "CONFIRM_FILTER_INSTALLATION",
+    "CONFIRM_FILTER_REMOVED",
+    "DISABLE_SAFETY",
+    "ENABLE_SAFETY",
+    "PREPARE_FILTER_REMOVAL",
+    "RETRY_AFTER_FAILURE"
+  ]
+}

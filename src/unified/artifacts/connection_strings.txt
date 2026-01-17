@@ -1,0 +1,19 @@
+# Connection-related strings extracted from com.vaonis.barnard (Barnard) APK
+#
+# Source: base.apk / classes2.dex string table (ASCII extraction)
+
+http_base_format = "http://%s:%s%s/v1/"
+
+instrument_http_roots:
+  - /stellina/http
+  - /vespera/http
+
+instrument_socket_roots:
+  - /stellina/socket
+  - /vespera/socket
+
+socketio_engineio_path = /socket.io
+
+common_default_hosts_seen:
+  - 10.0.0.1
+  - 10.142.164.2

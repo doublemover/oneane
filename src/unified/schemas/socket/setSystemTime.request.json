@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "setSystemTime request",
+  "description": "Unix timestamp in milliseconds since epoch. Firmware rejects dates before 2018-01-01.",
+  "type": "number"
+}

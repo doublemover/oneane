@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LogResponse_Result",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

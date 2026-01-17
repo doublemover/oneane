@@ -1,0 +1,688 @@
+openapi: 3.0.3
+info:
+  title: Vaonis Instrument HTTP API (extracted from Barnard APK)
+  version: '0.1'
+  description: 'This spec is generated from Retrofit annotations found in com.vaonis.barnard.
+
+    It is a *skeleton* (schemas are not fully expanded).
+
+    Use only with devices you own/are authorized to control.'
+servers:
+- url: http://{host}:{port}{root}/v1
+  variables:
+    host:
+      default: 10.0.0.1
+      description: Instrument host (commonly 10.0.0.1 when connected to telescope
+        Wi-Fi)
+    port:
+      default: '80'
+      description: Instrument HTTP port (verify on your device)
+    root:
+      default: /stellina/http
+      description: Model-specific root (e.g., /stellina/http or /vespera/http)
+paths:
+  /:
+    get:
+      operationId: downloadImage
+      tags:
+      - instrument
+      summary: downloadImage (GET )
+      responses:
+        '200':
+          description: OK
+      parameters:
+      - name: url
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Dynamic full URL (Retrofit @Url)
+  /app/setSettings:
+    post:
+      operationId: updateSettings
+      tags:
+      - instrument
+      summary: updateSettings (POST app/setSettings)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsBody'
+  /app/status:
+    get:
+      operationId: getStatus
+      tags:
+      - instrument
+      summary: getStatus (GET app/status)
+      responses:
+        '200':
+          description: OK
+  /board/requestShutdown:
+    post:
+      operationId: requestShutdown
+      tags:
+      - instrument
+      summary: requestShutdown (POST board/requestShutdown)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /capture/exportImageTiff:
+    post:
+      operationId: exportTiff
+      tags:
+      - instrument
+      summary: exportTiff (POST capture/exportImageTiff)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TiffBody'
+  /capture/setToBeResumable:
+    post:
+      operationId: setToBeResumable
+      tags:
+      - instrument
+      summary: setToBeResumable (POST capture/setToBeResumable)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /captureStore/deleteStoredCapture:
+    post:
+      operationId: deleteStoredCapture
+      tags:
+      - instrument
+      summary: deleteStoredCapture (POST captureStore/deleteStoredCapture)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteStoredCaptureBody'
+  /captureStore/getObservation:
+    get:
+      operationId: getStoredCaptureObservation
+      tags:
+      - instrument
+      summary: getStoredCaptureObservation (GET captureStore/getObservation)
+      responses:
+        '200':
+          description: OK
+      parameters:
+      - name: storeId
+        in: query
+        required: false
+        schema:
+          type: string
+  /captureStore/startObservationFromStoredCapture:
+    post:
+      operationId: startObservationFromStoredCapture
+      tags:
+      - instrument
+      summary: startObservationFromStoredCapture (POST captureStore/startObservationFromStoredCapture)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartObservationFromStoredCaptureBody'
+  /darkManager/generateDark:
+    post:
+      operationId: generateDark
+      tags:
+      - instrument
+      summary: generateDark (POST darkManager/generateDark)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /darkManager/stopGenerateDark:
+    post:
+      operationId: stopGenerateDark
+      tags:
+      - instrument
+      summary: stopGenerateDark (POST darkManager/stopGenerateDark)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /expertMode/startStorageAcquisition:
+    post:
+      operationId: startStorageAcquisition
+      tags:
+      - instrument
+      summary: startStorageAcquisition (POST expertMode/startStorageAcquisition)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageAcquisitionBody'
+  /expertMode/stopStorageAcquisition:
+    post:
+      operationId: stopStorageAcquisition
+      tags:
+      - instrument
+      summary: stopStorageAcquisition (POST expertMode/stopStorageAcquisition)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /general/adjustObservationFocus:
+    post:
+      operationId: adjustObservationFocus
+      tags:
+      - instrument
+      summary: adjustObservationFocus (POST general/adjustObservationFocus)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdjustFocusBody'
+  /general/adjustObservationFraming:
+    post:
+      operationId: adjustObservationFraming
+      tags:
+      - instrument
+      summary: adjustObservationFraming (POST general/adjustObservationFraming)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdjustFramingBody'
+  /general/openForMaintenance:
+    post:
+      operationId: openArm
+      tags:
+      - instrument
+      summary: openArm (POST general/openForMaintenance)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /general/park:
+    post:
+      operationId: parkArm
+      tags:
+      - instrument
+      summary: parkArm (POST general/park)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /general/startAutoInit:
+    post:
+      operationId: startAutoInit
+      tags:
+      - instrument
+      summary: startAutoInit (POST general/startAutoInit)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoInitBody'
+  /general/startObservation:
+    post:
+      operationId: startObservation
+      tags:
+      - instrument
+      summary: startObservation (POST general/startObservation)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartObservationBody'
+  /general/stopAutoInit:
+    post:
+      operationId: stopAutoInit
+      tags:
+      - instrument
+      summary: stopAutoInit (POST general/stopAutoInit)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /general/stopObservation:
+    post:
+      operationId: stopObservation
+      tags:
+      - instrument
+      summary: stopObservation (POST general/stopObservation)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /logs/consume:
+    post:
+      operationId: consumeLogs
+      tags:
+      - instrument
+      summary: consumeLogs (POST logs/consume)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /network/switchFrequency:
+    post:
+      operationId: switchFrequency
+      tags:
+      - instrument
+      summary: switchFrequency (POST network/switchFrequency)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NetworkBody'
+  /planner/getPlanObservation:
+    get:
+      operationId: getPlanObservation
+      tags:
+      - instrument
+      summary: getPlanObservation (GET planner/getPlanObservation)
+      responses:
+        '200':
+          description: OK
+      parameters:
+      - name: observationId
+        in: query
+        required: false
+        schema:
+          type: string
+  /planner/startPlan:
+    post:
+      operationId: startPlan
+      tags:
+      - instrument
+      summary: startPlan (POST planner/startPlan)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanMyNightBody'
+  /planner/stopPlan:
+    post:
+      operationId: stopPlan
+      tags:
+      - instrument
+      summary: stopPlan (POST planner/stopPlan)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /playlist/startPlaylist:
+    post:
+      operationId: startPlaylist
+      tags:
+      - instrument
+      summary: startPlaylist (POST playlist/startPlaylist)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistBody'
+  /playlist/stopPlaylist:
+    post:
+      operationId: stopPlaylist
+      tags:
+      - instrument
+      summary: stopPlaylist (POST playlist/stopPlaylist)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /reporter/getAvailableReports:
+    get:
+      operationId: getAvailableReport
+      tags:
+      - instrument
+      summary: getAvailableReport (GET reporter/getAvailableReports)
+      responses:
+        '200':
+          description: OK
+  /reporter/markReportsAsSynced:
+    post:
+      operationId: markReportsAsSynced
+      tags:
+      - instrument
+      summary: markReportsAsSynced (POST reporter/markReportsAsSynced)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportsBody'
+  /storage/deleteUserStorageFolders:
+    post:
+      operationId: deleteUserStorageFolder
+      tags:
+      - instrument
+      summary: deleteUserStorageFolder (POST storage/deleteUserStorageFolders)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteUserStorageFolderBody'
+  /storage/userStorageFolderContent:
+    get:
+      operationId: getStorageFolderContent
+      tags:
+      - instrument
+      summary: getStorageFolderContent (GET storage/userStorageFolderContent)
+      responses:
+        '200':
+          description: OK
+      parameters:
+      - name: folderPath
+        in: query
+        required: false
+        schema:
+          type: string
+  /sun/changePov:
+    post:
+      operationId: changePov
+      tags:
+      - instrument
+      summary: changePov (POST sun/changePov)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModePovBody'
+  /sun/handleUserAction:
+    post:
+      operationId: sendSunModeAction
+      tags:
+      - instrument
+      summary: sendSunModeAction (POST sun/handleUserAction)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeActionBody'
+  /sun/restartAutofocus:
+    post:
+      operationId: restartSunAutofocus
+      tags:
+      - instrument
+      summary: restartSunAutofocus (POST sun/restartAutofocus)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /sun/setUserParams:
+    post:
+      operationId: setSunModeParams
+      tags:
+      - instrument
+      summary: setSunModeParams (POST sun/setUserParams)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeParamsBody'
+  /sun/startSunMode:
+    post:
+      operationId: startSunMode
+      tags:
+      - instrument
+      summary: startSunMode (POST sun/startSunMode)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeBody'
+  /sun/stopObservation:
+    post:
+      operationId: stopSunObservation
+      tags:
+      - instrument
+      summary: stopSunObservation (POST sun/stopObservation)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+  /updates/uploadUpdateFile:
+    post:
+      operationId: uploadUpdateFile
+      tags:
+      - instrument
+      summary: uploadUpdateFile (POST updates/uploadUpdateFile)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      parameters:
+      - name: fileName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: model
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+  /userManager/applyResetResponse:
+    post:
+      operationId: applyResetCode
+      tags:
+      - instrument
+      summary: applyResetCode (POST userManager/applyResetResponse)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCodeBody'
+  /userManager/makeResetRequest:
+    post:
+      operationId: requestResetCode
+      tags:
+      - instrument
+      summary: requestResetCode (POST userManager/makeResetRequest)
+      responses:
+        '200':
+          description: OK
+      security:
+      - AuthorizationHeader: []
+components:
+  securitySchemes:
+    AuthorizationHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Most endpoints require an Authorization header. Exact format/value
+        must be obtained from device pairing/session.
+  schemas:
+    SettingsBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.SettingsBody
+    TiffBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.TiffBody
+    DeleteStoredCaptureBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.DeleteStoredCaptureBody
+    StartObservationFromStoredCaptureBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.StartObservationFromStoredCaptureBody
+    StorageAcquisitionBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody
+    AdjustFocusBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.AdjustFocusBody
+    AdjustFramingBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.AdjustFramingBody
+    AutoInitBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.AutoInitBody
+    StartObservationBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.StartObservationBody
+    NetworkBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.NetworkBody
+    PlanMyNightBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.planmynight.PlanMyNightBody
+    PlaylistBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.PlaylistBody
+    ReportsBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.ReportsBody
+    DeleteUserStorageFolderBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.DeleteUserStorageFolderBody
+    SunModePovBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.SunModePovBody
+    SunModeActionBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.SunModeActionBody
+    SunModeParamsBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.SunModeParamsBody
+    SunModeBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.SunModeBody
+    RequestCodeBody:
+      type: object
+      description: Placeholder for com.vaonis.instruments.sdk.models.body.RequestCodeBody

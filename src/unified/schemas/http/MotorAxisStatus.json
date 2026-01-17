@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MotorAxisStatus",
+  "type": "object",
+  "properties": {
+    "position": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "state": {
+      "type": "string"
+    },
+    "atStop": {
+      "type": "boolean"
+    },
+    "calibrated": {
+      "type": "boolean"
+    }
+  }
+}

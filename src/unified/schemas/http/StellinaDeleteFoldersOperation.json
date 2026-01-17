@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaDeleteFoldersOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deletedFolderCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "totalFolderCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "deletedFolderCount",
+    "startTime",
+    "stopped",
+    "totalFolderCount"
+  ]
+}

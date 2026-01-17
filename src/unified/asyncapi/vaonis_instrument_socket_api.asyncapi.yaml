@@ -1,0 +1,98 @@
+asyncapi: 2.6.0
+info:
+  title: Vaonis instrument Socket.IO API
+  version: 1.0.0
+  description: 'Socket.IO push channel used by Vaonis instruments (Stellina / Vespera)
+    as observed in firmware socket implementation.
+
+
+    Namespaces:
+
+    - / (default): control channel + STATUS_UPDATED
+
+    - /debug: debug push channel + DEBUG_STATUS_UPDATED
+
+
+    Transport notes: Socket.IO uses HTTP long-polling + WebSocket upgrades; represent
+    here as event channels.'
+servers:
+  instrument:
+    url: '{host}:8083'
+    protocol: socket.io
+    variables:
+      host:
+        default: 10.0.0.1
+        description: Instrument IP/hostname
+    description: Instrument Socket.IO server (default namespace /).
+  instrumentDebug:
+    url: '{host}:8083/debug'
+    protocol: socket.io
+    variables:
+      host:
+        default: 10.0.0.1
+    description: Instrument Socket.IO server (debug namespace /debug).
+channels:
+  STATUS_UPDATED:
+    subscribe:
+      summary: 'Server push: application status snapshot'
+      message:
+        $ref: '#/components/messages/StatusUpdated'
+  DEBUG_STATUS_UPDATED:
+    subscribe:
+      summary: 'Server push: debug status snapshot'
+      message:
+        $ref: '#/components/messages/DebugStatusUpdated'
+  CONNECTION_ERROR:
+    subscribe:
+      summary: 'Server push: connection error (handshake validation)'
+      message:
+        $ref: '#/components/messages/ConnectionError'
+  message:
+    publish:
+      summary: 'Client request channel (Socket.IO event name: message). The first
+        argument is the command name; the second is optional command payload.'
+      message:
+        $ref: '#/components/messages/ClientMessage'
+components:
+  schemas:
+    StellinaStatus:
+      $ref: ../openapi/vaonis_instrument_http_api_openapi.fixed.yaml#/components/schemas/StellinaStatus
+    DebugStatus:
+      $ref: ../schemas/events/DEBUG_STATUS_UPDATED.json
+    StelError:
+      $ref: ../openapi/vaonis_instrument_http_api_openapi.fixed.yaml#/components/schemas/StelError
+  messages:
+    StatusUpdated:
+      name: STATUS_UPDATED
+      payload:
+        $ref: '#/components/schemas/StellinaStatus'
+    DebugStatusUpdated:
+      name: DEBUG_STATUS_UPDATED
+      payload:
+        $ref: '#/components/schemas/DebugStatus'
+    ConnectionError:
+      name: CONNECTION_ERROR
+      payload:
+        type: string
+    ClientMessage:
+      name: message
+      payload:
+        type: object
+        description: 'Representation of the Socket.IO message event arguments.
+
+          Actual wire call: socket.emit("message", <commandName>, [commandPayload],
+          [ackCallback]).
+
+          This envelope is provided for schema documentation only.'
+        properties:
+          command:
+            $ref: ../schemas/socket/SocketMessageName.json
+          payload:
+            type:
+            - object
+            - number
+            - string
+            - 'null'
+        required:
+        - command
+        additionalProperties: false

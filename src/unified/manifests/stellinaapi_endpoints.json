@@ -1,0 +1,1394 @@
+[
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "downloadImage",
+    "http_verb": "GET",
+    "path": "",
+    "modifiers": [
+      {
+        "type": "Streaming",
+        "elements": {}
+      }
+    ],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lokhttp3/ResponseBody;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "updateSettings",
+    "http_verb": "POST",
+    "path": "app/setSettings",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SettingsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SettingsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStatus",
+    "http_verb": "GET",
+    "path": "app/status",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StatusResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestShutdown",
+    "http_verb": "POST",
+    "path": "board/requestShutdown",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "exportTiff",
+    "http_verb": "POST",
+    "path": "capture/exportImageTiff",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/TiffBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/TiffResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.TiffBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setToBeResumable",
+    "http_verb": "POST",
+    "path": "capture/setToBeResumable",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/deleteStoredCapture",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.DeleteStoredCaptureBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStoredCaptureObservation",
+    "http_verb": "GET",
+    "path": "captureStore/getObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "storeId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservationFromStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/startObservationFromStoredCapture",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StartObservationFromStoredCaptureBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "generateDark",
+    "http_verb": "POST",
+    "path": "darkManager/generateDark",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopGenerateDark",
+    "http_verb": "POST",
+    "path": "darkManager/stopGenerateDark",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/startStorageAcquisition",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/stopStorageAcquisition",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFocus",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFocus",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AdjustFocusBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFraming",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFraming",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AdjustFramingBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "openArm",
+    "http_verb": "POST",
+    "path": "general/openForMaintenance",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "parkArm",
+    "http_verb": "POST",
+    "path": "general/park",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startAutoInit",
+    "http_verb": "POST",
+    "path": "general/startAutoInit",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.AutoInitBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservation",
+    "http_verb": "POST",
+    "path": "general/startObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.StartObservationBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopAutoInit",
+    "http_verb": "POST",
+    "path": "general/stopAutoInit",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopObservation",
+    "http_verb": "POST",
+    "path": "general/stopObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "consumeLogs",
+    "http_verb": "POST",
+    "path": "logs/consume",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/LogResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "switchFrequency",
+    "http_verb": "POST",
+    "path": "network/switchFrequency",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/NetworkBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.NetworkBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getPlanObservation",
+    "http_verb": "GET",
+    "path": "planner/getPlanObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "observationId"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlan",
+    "http_verb": "POST",
+    "path": "planner/startPlan",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.planmynight.PlanMyNightBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlan",
+    "http_verb": "POST",
+    "path": "planner/stopPlan",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/startPlaylist",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.PlaylistBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/stopPlaylist",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getAvailableReport",
+    "http_verb": "GET",
+    "path": "reporter/getAvailableReports",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "markReportsAsSynced",
+    "http_verb": "POST",
+    "path": "reporter/markReportsAsSynced",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/ReportsBody;Lkotlin/coroutines/Continuation<-Lkotlin/Unit;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.ReportsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteUserStorageFolder",
+    "http_verb": "POST",
+    "path": "storage/deleteUserStorageFolders",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.DeleteUserStorageFolderBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStorageFolderContent",
+    "http_verb": "GET",
+    "path": "storage/userStorageFolderContent",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "folderPath"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "changePov",
+    "http_verb": "POST",
+    "path": "sun/changePov",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModePovBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "sendSunModeAction",
+    "http_verb": "POST",
+    "path": "sun/handleUserAction",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeActionBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "restartSunAutofocus",
+    "http_verb": "POST",
+    "path": "sun/restartAutofocus",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setSunModeParams",
+    "http_verb": "POST",
+    "path": "sun/setUserParams",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeParamsBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startSunMode",
+    "http_verb": "POST",
+    "path": "sun/startSunMode",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/SunModeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.SunModeBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopSunObservation",
+    "http_verb": "POST",
+    "path": "sun/stopObservation",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "uploadUpdateFile",
+    "http_verb": "POST",
+    "path": "updates/uploadUpdateFile",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "return_type": "retrofit2.Call",
+    "signature": "(Ljava/lang/String;Lokhttp3/MultipartBody$Part;Ljava/lang/String;Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "okhttp3.MultipartBody$Part",
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "fileName"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "model"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "applyResetCode",
+    "http_verb": "POST",
+    "path": "userManager/applyResetResponse",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/OrderResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "com.vaonis.instruments.sdk.models.body.RequestCodeBody",
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestResetCode",
+    "http_verb": "POST",
+    "path": "userManager/makeResetRequest",
+    "modifiers": [],
+    "return_type": "java.lang.Object",
+    "signature": "(Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;>;)Ljava/lang/Object;",
+    "params": [
+      {
+        "index": 0,
+        "type": "java.lang.String",
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "type": "kotlin.coroutines.Continuation",
+        "annotations": []
+      }
+    ]
+  }
+]

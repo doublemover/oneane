@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UpdateProgressInfo",
+  "type": "object",
+  "properties": {
+    "step": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "stepTotal": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "progressPercent": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

@@ -1,0 +1,946 @@
+openapi: 3.0.3
+info:
+  title: Vaonis Barnard / Stellina Instrument HTTP API (extracted)
+  version: "1.0"
+  description: |
+    Local instrument REST API used by the Android app package com.vaonis.barnard.
+
+    Defaults observed in the embedded com.vaonis.instruments.sdk:
+      - ip: 10.0.0.1
+      - http port: 8082
+      - base path: /v1
+
+    This spec focuses on the instrument-local HTTP endpoints. Response shapes are
+    documented generically as objects because firmware versions can differ.
+servers:
+  - url: http://{ip}:{port}/v1
+    variables:
+      ip:
+        default: 10.0.0.1
+      port:
+        default: "8082"
+components:
+  securitySchemes:
+    AuthorizationHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Required by many mutating endpoints.
+
+        The official app generates this value dynamically (not documented here).
+  schemas:
+    SettingsBody:
+      type: object
+      properties:
+        algoHdrBackground:
+          type: string
+          description: StellinaSettings.BalensMode (enum-like)
+        buttonBrightness:
+          type: string
+        enableDarkUsage:
+          type: boolean
+          nullable: true
+        enableDithering:
+          type: boolean
+          nullable: true
+        enableFullResolution:
+          type: boolean
+          nullable: true
+        enableHdrBackground:
+          type: boolean
+          nullable: true
+        enableLiveFocus:
+          type: boolean
+          nullable: true
+        storageFileCategories:
+          type: array
+          items:
+            type: string
+        telescopeName:
+          type: string
+        usbFileTypes:
+          type: array
+          items:
+            type: string
+
+    TiffBody:
+      type: object
+      properties:
+        captureId:
+          type: string
+
+    DeleteStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+
+    StartObservationFromStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+
+    StorageAcquisitionBody:
+      type: object
+      properties:
+        exposureMicroSec:
+          type: integer
+          format: int32
+        flip:
+          type: string
+          description: StorageAcquisitionBody.StellinaAcquisitionFlip (enum-like)
+        gain:
+          type: integer
+          format: int32
+        numExposures:
+          type: integer
+          format: int32
+        overwrite:
+          type: boolean
+        path:
+          type: string
+
+    AdjustFocusBody:
+      type: object
+      properties:
+        restartCapture:
+          type: boolean
+
+    AdjustFramingBody:
+      type: object
+      properties:
+        rot:
+          type: number
+          format: double
+        x:
+          type: integer
+          format: int32
+        y:
+          type: integer
+          format: int32
+
+    AutoInitBody:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        skipAutoFocus:
+          type: boolean
+        time:
+          type: integer
+          format: int64
+
+    HdrBackgroundBody:
+      type: object
+      properties:
+        curve:
+          type: integer
+          format: int32
+        polynomialOrder:
+          type: integer
+          format: int32
+        ratioParam:
+          type: number
+          format: double
+        ratioParamLocal:
+          type: number
+          format: double
+        saturation:
+          type: number
+          format: double
+        whiteMeanNoiseRatio:
+          type: number
+          format: double
+
+    MosaicBody:
+      type: object
+      properties:
+        heightDegree:
+          type: number
+          format: float
+        widthDegree:
+          type: number
+          format: float
+
+    StartObservationBody:
+      type: object
+      properties:
+        algorithm:
+          type: string
+          description: StellinaObservationOperation.StellinaPointingAlgorithm (enum-like)
+        backgroundEnabled:
+          type: boolean
+          nullable: true
+        backgroundPolyorder:
+          type: number
+          format: double
+          nullable: true
+        brightZoneOffset:
+          type: string
+          description: StellinaObservationOperation.StellinaBrightZoneOffset (enum-like)
+        de:
+          type: number
+          format: double
+          nullable: true
+        doStacking:
+          type: boolean
+          nullable: true
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+        hdrBackground:
+          $ref: "#/components/schemas/HdrBackgroundBody"
+        histogramEnabled:
+          type: boolean
+          nullable: true
+        histogramHigh:
+          type: number
+          format: double
+          nullable: true
+        histogramLow:
+          type: number
+          format: double
+          nullable: true
+        histogramMedium:
+          type: number
+          format: double
+          nullable: true
+        mosaicBody:
+          $ref: "#/components/schemas/MosaicBody"
+        objectId:
+          type: string
+        objectName:
+          type: string
+        objectType:
+          type: string
+        observationType:
+          type: string
+          description: StellinaObservationOperation.StellinaObservationType (enum-like)
+        ra:
+          type: number
+          format: double
+          nullable: true
+        rot:
+          type: number
+          format: double
+          nullable: true
+        store:
+          type: string
+          description: StellinaObservationOperation.StellingCaptureStore (enum-like)
+        targetType:
+          type: string
+          description: StellinaObservationOperation.ObservationTargetType (enum-like)
+
+    NetworkBody:
+      type: object
+      properties:
+        band:
+          type: string
+
+    PlanMyNightTargetBody:
+      type: object
+      properties:
+        endTime:
+          type: integer
+          format: int64
+        params:
+          $ref: "#/components/schemas/StartObservationBody"
+        startTime:
+          type: integer
+          format: int64
+        storeId:
+          type: string
+
+    PlanMyNightBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        planId:
+          type: string
+        planName:
+          type: string
+        planVersion:
+          type: string
+        targets:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlanMyNightTargetBody"
+        userId:
+          type: integer
+          format: int32
+
+    PlaylistTargetsParam:
+      type: object
+      properties:
+        params:
+          $ref: "#/components/schemas/StartObservationBody"
+
+    PlaylistBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        playlistType:
+          type: string
+          description: StellinaPlaylistOperation.PlaylistType (enum-like)
+        targets:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlaylistTargetsParam"
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+
+    ReportsBodyReport:
+      type: object
+      properties:
+        operationEnded:
+          type: boolean
+        operationId:
+          type: string
+
+    ReportsBody:
+      type: object
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReportsBodyReport"
+
+    DeleteUserStorageFolderBody:
+      type: object
+      properties:
+        folderPaths:
+          type: array
+          items:
+            type: string
+
+    SunModePovBody:
+      type: object
+      properties:
+        pov:
+          type: string
+          description: StellinaSunModeOperation.StellinaSunModePov (enum-like)
+
+    SunModeActionBody:
+      type: object
+      properties:
+        action:
+          type: string
+          description: StellinaSunModeAction (enum-like)
+        pov:
+          type: string
+          description: StellinaSunModeOperation.StellinaSunModePov (enum-like)
+
+    SunModeParamsBody:
+      type: object
+      properties:
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        exposureMode:
+          type: string
+          description: StellinaObservationOperation.CurrentParams.ExposureMode (enum-like)
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+
+    SunModeBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        eclipse:
+          type: boolean
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        skipAutoFocus:
+          type: boolean
+        time:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+
+    RequestCodeBody:
+      type: object
+      properties:
+        response:
+          type: string
+
+paths:
+  /app/status:
+    get:
+      summary: Get instrument status
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /app/setSettings:
+    post:
+      summary: Update instrument settings
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SettingsBody"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /board/requestShutdown:
+    post:
+      summary: Request instrument shutdown
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /capture/exportImageTiff:
+    post:
+      summary: Export a capture as TIFF
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TiffBody"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /capture/setToBeResumable:
+    post:
+      summary: Mark current capture as resumable
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /captureStore/getObservation:
+    get:
+      summary: Get stored capture observation
+      parameters:
+        - name: storeId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /captureStore/deleteStoredCapture:
+    post:
+      summary: Delete a stored capture
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteStoredCaptureBody"
+      responses:
+        '200':
+          description: OK
+
+  /captureStore/startObservationFromStoredCapture:
+    post:
+      summary: Start an observation from a stored capture
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartObservationFromStoredCaptureBody"
+      responses:
+        '200':
+          description: OK
+
+  /darkManager/generateDark:
+    post:
+      summary: Start dark calibration generation
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /darkManager/stopGenerateDark:
+    post:
+      summary: Stop dark calibration generation
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /expertMode/startStorageAcquisition:
+    post:
+      summary: Start storage acquisition
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StorageAcquisitionBody"
+      responses:
+        '200':
+          description: OK
+
+  /expertMode/stopStorageAcquisition:
+    post:
+      summary: Stop storage acquisition
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /general/adjustObservationFocus:
+    post:
+      summary: Adjust observation focus
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdjustFocusBody"
+      responses:
+        '200':
+          description: OK
+
+  /general/adjustObservationFraming:
+    post:
+      summary: Adjust observation framing
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdjustFramingBody"
+      responses:
+        '200':
+          description: OK
+
+  /general/openForMaintenance:
+    post:
+      summary: Open arm for maintenance
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /general/park:
+    post:
+      summary: Park the arm
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /general/startAutoInit:
+    post:
+      summary: Start auto initialization
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AutoInitBody"
+      responses:
+        '200':
+          description: OK
+
+  /general/stopAutoInit:
+    post:
+      summary: Stop auto initialization
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /general/startObservation:
+    post:
+      summary: Start an observation
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartObservationBody"
+      responses:
+        '200':
+          description: OK
+
+  /general/stopObservation:
+    post:
+      summary: Stop observation
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /logs/consume:
+    post:
+      summary: Consume logs
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /network/switchFrequency:
+    post:
+      summary: Switch Wi-Fi frequency/band
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NetworkBody"
+      responses:
+        '200':
+          description: OK
+
+  /planner/getPlanObservation:
+    get:
+      summary: Get a plan observation
+      parameters:
+        - name: observationId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /planner/startPlan:
+    post:
+      summary: Start a plan
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanMyNightBody"
+      responses:
+        '200':
+          description: OK
+
+  /planner/stopPlan:
+    post:
+      summary: Stop current plan
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /playlist/startPlaylist:
+    post:
+      summary: Start a playlist
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlaylistBody"
+      responses:
+        '200':
+          description: OK
+
+  /playlist/stopPlaylist:
+    post:
+      summary: Stop current playlist
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /reporter/getAvailableReports:
+    get:
+      summary: List available reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /reporter/markReportsAsSynced:
+    post:
+      summary: Mark reports as synced
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportsBody"
+      responses:
+        '200':
+          description: OK
+
+  /storage/userStorageFolderContent:
+    get:
+      summary: List content of a storage folder
+      parameters:
+        - name: folderPath
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /storage/deleteUserStorageFolders:
+    post:
+      summary: Delete user storage folders
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteUserStorageFolderBody"
+      responses:
+        '200':
+          description: OK
+
+  /sun/startSunMode:
+    post:
+      summary: Start sun mode
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SunModeBody"
+      responses:
+        '200':
+          description: OK
+
+  /sun/stopObservation:
+    post:
+      summary: Stop sun observation
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /sun/changePov:
+    post:
+      summary: Change sun mode POV
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SunModePovBody"
+      responses:
+        '200':
+          description: OK
+
+  /sun/setUserParams:
+    post:
+      summary: Set sun mode user params
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SunModeParamsBody"
+      responses:
+        '200':
+          description: OK
+
+  /sun/handleUserAction:
+    post:
+      summary: Send a sun mode user action
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SunModeActionBody"
+      responses:
+        '200':
+          description: OK
+
+  /sun/restartAutofocus:
+    post:
+      summary: Restart sun autofocus
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /updates/uploadUpdateFile:
+    post:
+      summary: Upload an update file
+      security:
+        - AuthorizationHeader: []
+      parameters:
+        - name: fileName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: model
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: OK
+
+  /userManager/makeResetRequest:
+    post:
+      summary: Request a reset code
+      security:
+        - AuthorizationHeader: []
+      responses:
+        '200':
+          description: OK
+
+  /userManager/applyResetResponse:
+    post:
+      summary: Apply reset response
+      security:
+        - AuthorizationHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestCodeBody"
+      responses:
+        '200':
+          description: OK

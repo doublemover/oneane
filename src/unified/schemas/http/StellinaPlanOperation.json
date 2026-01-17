@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaPlanOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "string"
+    },
+    "planName": {
+      "type": "string"
+    },
+    "planVersion": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "state": {
+      "$ref": "./StellinaPlanOperation_StellinaPlanOperationState.json"
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "targets": {
+      "type": "array",
+      "items": {}
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "startTime",
+    "stopped"
+  ]
+}

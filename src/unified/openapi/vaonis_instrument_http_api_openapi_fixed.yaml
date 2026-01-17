@@ -1,0 +1,2750 @@
+openapi: 3.0.3
+info:
+  title: Vaonis Instrument HTTP API (extracted from Barnard)
+  version: 1.0.0
+  description: This is a best-effort OpenAPI spec generated from static analysis of
+    com.vaonis.barnard (Barnard) Android app.
+servers:
+- url: http://{ip}:{port}/v1
+  variables:
+    ip:
+      default: 10.0.0.1
+    port:
+      default: '8082'
+- url: http://ursa.dev.vaonis.com{root}/v1
+  variables:
+    root:
+      default: /stellina/http
+      enum:
+      - /stellina/http
+      - /vespera/http
+paths:
+  /general/adjustObservationFocus:
+    post:
+      operationId: adjustObservationFocus
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdjustFocusBody'
+  /general/adjustObservationFraming:
+    post:
+      operationId: adjustObservationFraming
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdjustFramingBody'
+  /userManager/applyResetResponse:
+    post:
+      operationId: applyResetCode
+      tags:
+      - userManager
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCodeBody'
+  /sun/changePov:
+    post:
+      operationId: changePov
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModePovBody'
+  /logs/consume:
+    post:
+      operationId: consumeLogs
+      tags:
+      - logs
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogResponse'
+      security:
+      - InstrumentAuth: []
+  /captureStore/deleteStoredCapture:
+    post:
+      operationId: deleteStoredCapture
+      tags:
+      - captureStore
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteStoredCaptureBody'
+  /storage/deleteUserStorageFolders:
+    post:
+      operationId: deleteUserStorageFolder
+      tags:
+      - storage
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteUserStorageFolderBody'
+  /capture/exportImageTiff:
+    post:
+      operationId: exportTiff
+      tags:
+      - capture
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TiffResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TiffBody'
+  /darkManager/generateDark:
+    post:
+      operationId: generateDark
+      tags:
+      - darkManager
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /reporter/getAvailableReports:
+    get:
+      operationId: getAvailableReport
+      tags:
+      - reporter
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportsResponse'
+  /planner/getPlanObservation:
+    get:
+      operationId: getPlanObservation
+      tags:
+      - planner
+      parameters:
+      - name: observationId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanObservationResponse'
+  /app/status:
+    get:
+      operationId: getStatus
+      tags:
+      - app
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /storage/userStorageFolderContent:
+    get:
+      operationId: getStorageFolderContent
+      tags:
+      - storage
+      parameters:
+      - name: folderPath
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderContentResponse'
+  /captureStore/getObservation:
+    get:
+      operationId: getStoredCaptureObservation
+      tags:
+      - captureStore
+      parameters:
+      - name: storeId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoredObservationResponse'
+  /reporter/markReportsAsSynced:
+    post:
+      operationId: markReportsAsSynced
+      tags:
+      - reporter
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportsBody'
+  /general/openForMaintenance:
+    post:
+      operationId: openArm
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /general/park:
+    post:
+      operationId: parkArm
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /userManager/makeResetRequest:
+    post:
+      operationId: requestResetCode
+      tags:
+      - userManager
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetCodeResponse'
+      security:
+      - InstrumentAuth: []
+  /board/requestShutdown:
+    post:
+      operationId: requestShutdown
+      tags:
+      - board
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /sun/restartAutofocus:
+    post:
+      operationId: restartSunAutofocus
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /sun/handleUserAction:
+    post:
+      operationId: sendSunModeAction
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeActionBody'
+  /sun/setUserParams:
+    post:
+      operationId: setSunModeParams
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeParamsBody'
+  /capture/setToBeResumable:
+    post:
+      operationId: setToBeResumable
+      tags:
+      - capture
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /general/startAutoInit:
+    post:
+      operationId: startAutoInit
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoInitBody'
+  /general/startObservation:
+    post:
+      operationId: startObservation
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartObservationBody'
+  /captureStore/startObservationFromStoredCapture:
+    post:
+      operationId: startObservationFromStoredCapture
+      tags:
+      - captureStore
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartObservationFromStoredCaptureBody'
+  /planner/startPlan:
+    post:
+      operationId: startPlan
+      tags:
+      - planner
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanMyNightBody'
+  /playlist/startPlaylist:
+    post:
+      operationId: startPlaylist
+      tags:
+      - playlist
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistBody'
+  /expertMode/startStorageAcquisition:
+    post:
+      operationId: startStorageAcquisition
+      tags:
+      - expertMode
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageAcquisitionBody'
+  /sun/startSunMode:
+    post:
+      operationId: startSunMode
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SunModeBody'
+  /general/stopAutoInit:
+    post:
+      operationId: stopAutoInit
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /darkManager/stopGenerateDark:
+    post:
+      operationId: stopGenerateDark
+      tags:
+      - darkManager
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /general/stopObservation:
+    post:
+      operationId: stopObservation
+      tags:
+      - general
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /planner/stopPlan:
+    post:
+      operationId: stopPlan
+      tags:
+      - planner
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /playlist/stopPlaylist:
+    post:
+      operationId: stopPlaylist
+      tags:
+      - playlist
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /expertMode/stopStorageAcquisition:
+    post:
+      operationId: stopStorageAcquisition
+      tags:
+      - expertMode
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /sun/stopObservation:
+    post:
+      operationId: stopSunObservation
+      tags:
+      - sun
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+  /network/switchFrequency:
+    post:
+      operationId: switchFrequency
+      tags:
+      - network
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NetworkBody'
+  /app/setSettings:
+    post:
+      operationId: updateSettings
+      tags:
+      - app
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsBody'
+  /updates/uploadUpdateFile:
+    post:
+      operationId: uploadUpdateFile
+      tags:
+      - updates
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: fileName
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Binary response
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+      security:
+      - InstrumentAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+            encoding:
+              file:
+                contentType: application/octet-stream
+components:
+  securitySchemes:
+    InstrumentAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Barnard uses a custom Basic challenge-response header for privileged
+        endpoints. This spec does not include any embedded keys or code.
+  schemas:
+    AdjustFocusBody:
+      type: object
+      properties:
+        restartCapture:
+          type: boolean
+      required:
+      - restartCapture
+    AdjustFramingBody:
+      type: object
+      properties:
+        rot:
+          type: number
+          format: double
+        x:
+          type: integer
+          format: int32
+        y:
+          type: integer
+          format: int32
+      required:
+      - rot
+      - x
+      - y
+    AutoInitBody:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        skipAutoFocus:
+          type: boolean
+        time:
+          type: integer
+          format: int64
+      required:
+      - latitude
+      - longitude
+      - skipAutoFocus
+      - time
+    DeleteStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+    DeleteUserStorageFolderBody:
+      type: object
+      properties:
+        folderPaths:
+          type: array
+          items: {}
+    HdrBackgroundBody:
+      type: object
+      properties:
+        curve:
+          type: integer
+          format: int32
+        polynomialOrder:
+          type: integer
+          format: int32
+        ratioParam:
+          type: number
+          format: double
+        ratioParamLocal:
+          type: number
+          format: double
+        saturation:
+          type: number
+          format: double
+        whiteMeanNoiseRatio:
+          type: number
+          format: double
+      required:
+      - curve
+      - polynomialOrder
+      - ratioParam
+      - ratioParamLocal
+      - saturation
+      - whiteMeanNoiseRatio
+    NetworkBody:
+      type: object
+      properties:
+        band:
+          type: string
+    PlaylistBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        playlistType:
+          $ref: '#/components/schemas/StellinaPlaylistOperation_PlaylistType'
+        targets:
+          type: array
+          items: {}
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+    ReportsBody:
+      type: object
+      properties:
+        reports:
+          type: array
+          items: {}
+    RequestCodeBody:
+      type: object
+      properties:
+        response:
+          type: string
+    SettingsBody:
+      type: object
+      properties:
+        algoHdrBackground:
+          $ref: '#/components/schemas/StellinaSettings_BalensMode'
+        buttonBrightness:
+          type: string
+        enableDarkUsage:
+          type: boolean
+          nullable: true
+        enableDithering:
+          type: boolean
+          nullable: true
+        enableFullResolution:
+          type: boolean
+          nullable: true
+        enableHdrBackground:
+          type: boolean
+          nullable: true
+        enableLiveFocus:
+          type: boolean
+          nullable: true
+        storageFileCategories:
+          type: array
+          items: {}
+        telescopeName:
+          type: string
+        usbFileTypes:
+          type: array
+          items: {}
+    StartObservationBody:
+      type: object
+      properties:
+        algorithm:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaPointingAlgorithm'
+        backgroundEnabled:
+          type: boolean
+          nullable: true
+        backgroundPolyorder:
+          type: number
+          format: double
+          nullable: true
+        brightZoneOffset:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaBrightZoneOffset'
+        de:
+          type: number
+          format: double
+          nullable: true
+        doStacking:
+          type: boolean
+          nullable: true
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+        hdrBackground:
+          $ref: '#/components/schemas/HdrBackgroundBody'
+        histogramEnabled:
+          type: boolean
+          nullable: true
+        histogramHigh:
+          type: number
+          format: double
+          nullable: true
+        histogramLow:
+          type: number
+          format: double
+          nullable: true
+        histogramMedium:
+          type: number
+          format: double
+          nullable: true
+        mosaicBody:
+          $ref: '#/components/schemas/MosaicBody'
+        objectId:
+          type: string
+        objectName:
+          type: string
+        objectType:
+          type: string
+        observationType:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationType'
+        ra:
+          type: number
+          format: double
+          nullable: true
+        rot:
+          type: number
+          format: double
+          nullable: true
+        store:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellingCaptureStore'
+        targetType:
+          $ref: '#/components/schemas/StellinaObservationOperation_ObservationTargetType'
+    StartObservationFromStoredCaptureBody:
+      type: object
+      properties:
+        storeId:
+          type: string
+    StorageAcquisitionBody_StellinaAcquisitionFlip:
+      type: string
+      enum:
+      - BOTH
+      - FLIP
+      - NO_FLIP
+    StorageAcquisitionBody:
+      type: object
+      properties:
+        exposureMicroSec:
+          type: integer
+          format: int32
+        flip:
+          $ref: '#/components/schemas/StorageAcquisitionBody_StellinaAcquisitionFlip'
+        gain:
+          type: integer
+          format: int32
+        numExposures:
+          type: integer
+          format: int32
+        overwrite:
+          type: boolean
+        path:
+          type: string
+      required:
+      - exposureMicroSec
+      - gain
+      - numExposures
+      - overwrite
+    SunModeActionBody:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/StellinaSunModeAction'
+        pov:
+          $ref: '#/components/schemas/StellinaSunModeOperation_StellinaSunModePov'
+    SunModeBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        eclipse:
+          type: boolean
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        skipAutoFocus:
+          type: boolean
+        time:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - eclipse
+      - latitude
+      - longitude
+      - skipAutoFocus
+      - time
+    SunModeParamsBody:
+      type: object
+      properties:
+        MAP:
+          type: integer
+          format: int32
+          nullable: true
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        exposureMode:
+          $ref: '#/components/schemas/StellinaObservationOperation_CurrentParams_ExposureMode'
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+    SunModePovBody:
+      type: object
+      properties:
+        pov:
+          $ref: '#/components/schemas/StellinaSunModeOperation_StellinaSunModePov'
+    TiffBody:
+      type: object
+      properties:
+        captureId:
+          type: string
+    MosaicBody:
+      type: object
+      properties:
+        heightDegree:
+          type: number
+          format: float
+        widthDegree:
+          type: number
+          format: float
+      required:
+      - heightDegree
+      - widthDegree
+    PlanMyNightBody:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        planId:
+          type: string
+        planName:
+          type: string
+        planVersion:
+          type: string
+        targets:
+          type: array
+          items: {}
+        userId:
+          type: integer
+          format: int32
+      required:
+      - latitude
+      - longitude
+      - userId
+    FolderContentResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/StellinaStorageFolderContent'
+    LogResponse_Result:
+      type: object
+      properties:
+        data:
+          type: string
+        message:
+          type: string
+    LogResponse:
+      type: object
+      properties:
+        file:
+          type: string
+        result:
+          $ref: '#/components/schemas/LogResponse_Result'
+        success:
+          type: boolean
+      required:
+      - success
+    OrderResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+      - success
+    PlanObservationResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/StellinaObservationOperation'
+        success:
+          type: boolean
+      required:
+      - success
+    ReportsResponse:
+      type: object
+      properties:
+        result:
+          type: array
+          items: {}
+    ResetCodeResponse:
+      type: object
+      properties:
+        result:
+          type: string
+    StatusResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/StellinaStatus'
+        success:
+          type: boolean
+      required:
+      - success
+    StoredObservationResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/StellinaObservationOperation'
+        success:
+          type: boolean
+      required:
+      - success
+    TiffData:
+      type: object
+      properties:
+        savedOnUsbStorage:
+          type: boolean
+          nullable: true
+        stackingCount:
+          type: integer
+          format: int32
+          nullable: true
+        url:
+          type: string
+    TiffResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/TiffData'
+    InstrumentFilter:
+      type: string
+      enum:
+      - CLS
+      - DUAL
+      - DUST
+      - IR
+      - NONE
+      - SOLAR
+    StellinaCapture_StellinaCameraParams:
+      type: object
+      properties:
+        exposureMicroSec:
+          type: integer
+          format: int32
+        gain:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+          nullable: true
+        width:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - exposureMicroSec
+      - gain
+    StellinaCapture_StellinaCaptureType:
+      type: string
+      enum:
+      - ADJUST_FOCUS
+      - ADJUST_FRAMING
+      - INITIAL
+      - MANUAL
+    StellinaCapture_StellinaDebayerInterpolation:
+      type: string
+      enum:
+      - SUPER_PIXEL
+      - VNG
+    StellinaCapture_StellinaStackingErrorMap:
+      type: object
+      properties:
+        StackingBadRegistration:
+          type: integer
+          format: int32
+          nullable: true
+        StackingError:
+          type: integer
+          format: int32
+          nullable: true
+        StackingFitError:
+          type: integer
+          format: int32
+          nullable: true
+        StackingLackOfStar:
+          type: integer
+          format: int32
+          nullable: true
+        StackingMatchingError:
+          type: integer
+          format: int32
+          nullable: true
+        StackingRoundnessError:
+          type: integer
+          format: int32
+          nullable: true
+        total:
+          type: integer
+          format: int32
+      required:
+      - total
+    StellinaCapture:
+      type: object
+      properties:
+        acquisitionCount:
+          type: integer
+          format: int32
+          nullable: true
+        cameraParams:
+          $ref: '#/components/schemas/StellinaCapture_StellinaCameraParams'
+        captureType:
+          $ref: '#/components/schemas/StellinaCapture_StellinaCaptureType'
+        dark:
+          type: boolean
+          nullable: true
+        debayerInterpolation:
+          $ref: '#/components/schemas/StellinaCapture_StellinaDebayerInterpolation'
+        endHumidity:
+          type: number
+          format: double
+          nullable: true
+        endTemperature:
+          type: number
+          format: double
+          nullable: true
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        hasStacking:
+          type: boolean
+        id:
+          type: string
+        images:
+          type: array
+          items: {}
+        outputImageCount:
+          type: integer
+          format: int32
+          nullable: true
+        outputImageErrorCount:
+          type: integer
+          format: int32
+          nullable: true
+        stackingCount:
+          type: integer
+          format: int32
+          nullable: true
+        stackingErrorCount:
+          type: integer
+          format: int32
+          nullable: true
+        stackingErrorMap:
+          $ref: '#/components/schemas/StellinaCapture_StellinaStackingErrorMap'
+        startHumidity:
+          type: number
+          format: double
+          nullable: true
+        startTemperature:
+          type: number
+          format: double
+          nullable: true
+        startTime:
+          type: integer
+          format: int64
+          nullable: true
+        target:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationTarget'
+        totalStackingCount:
+          type: integer
+          format: int32
+          nullable: true
+        userExposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        userGain:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - hasStacking
+    StellinaError:
+      type: object
+      properties:
+        name:
+          type: string
+        rawError:
+          type: string
+        unknownName:
+          type: string
+    StellinaGeoPosition:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+      required:
+      - latitude
+      - longitude
+    StellinaSettings_BalensMode:
+      type: string
+      enum:
+      - HARD
+      - OLD
+      - RECOMMENDED
+      - SOFT
+    StellinaSkyPosition:
+      type: object
+      properties:
+        de:
+          type: number
+          format: double
+          nullable: true
+        ra:
+          type: number
+          format: double
+          nullable: true
+        rot:
+          type: number
+          format: double
+          nullable: true
+    StellinaStatus:
+      type: object
+      properties:
+        apiVersion:
+          type: string
+        version:
+          type: string
+        telescopeId:
+          type: string
+        model:
+          type: string
+        bootCount:
+          type: integer
+          format: int32
+        initError:
+          nullable: true
+        previousBootError:
+          nullable: true
+        boardInitError:
+          nullable: true
+        boardInDebugMode:
+          type: boolean
+          nullable: true
+        boardError:
+          nullable: true
+        timestamp:
+          type: integer
+          format: int64
+        elapsedTime:
+          type: integer
+          format: int64
+          nullable: true
+        challenge:
+          type: string
+        position:
+          $ref: '#/components/schemas/StellinaSkyPosition'
+          nullable: true
+        initialized:
+          type: boolean
+          nullable: true
+        autofocusTemperature:
+          type: number
+          format: double
+          nullable: true
+        autofocusPosition:
+          type: integer
+          format: int32
+          nullable: true
+        shuttingDown:
+          type: boolean
+          nullable: true
+        connectedDevices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectedDevice'
+        masterDeviceId:
+          type: string
+          nullable: true
+        settings:
+          $ref: '#/components/schemas/SettingsStatus'
+        logs:
+          $ref: '#/components/schemas/LogsStatus'
+        availableReports:
+          type: array
+          items:
+            type: string
+        update:
+          $ref: '#/components/schemas/UpdateStatus'
+        storage:
+          $ref: '#/components/schemas/StorageStatus'
+        internalBattery:
+          $ref: '#/components/schemas/InternalBatteryStatus'
+          nullable: true
+        sensors:
+          $ref: '#/components/schemas/SensorsStatus'
+          nullable: true
+        filter:
+          type: string
+          enum: &id001
+          - NONE
+          - SOLAR
+          - CLS
+          - DUAL
+          - DUST
+          - ATHENA_47k
+          - UNDEFINED_27k
+          nullable: true
+        motors:
+          $ref: '#/components/schemas/MotorsStatus'
+        network:
+          $ref: '#/components/schemas/NetworkAppStatus'
+        captureStore:
+          $ref: '#/components/schemas/CaptureStoreStatus'
+        currentOperation:
+          $ref: '#/components/schemas/OperationStatus'
+          nullable: true
+        otherCurrentOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationStatus'
+        previousOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationStatus'
+    StellinaStorage_StellinaStorageSpace:
+      type: object
+      properties:
+        available:
+          type: integer
+          format: int64
+        changeCount:
+          type: integer
+          format: int32
+          nullable: true
+        required:
+          type: integer
+          format: int64
+          nullable: true
+        size:
+          type: integer
+          format: int64
+        system:
+          type: integer
+          format: int64
+          nullable: true
+        user:
+          type: integer
+          format: int64
+          nullable: true
+      required:
+      - available
+      - size
+    StellinaStorageFolderContent:
+      type: object
+      properties:
+        fileCountPerType:
+          type: object
+          additionalProperties: {}
+        folders:
+          type: array
+          items: {}
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+      required:
+      - size
+    StellinaSunModeAction:
+      type: string
+      enum:
+      - CANCEL_FILTER_REMOVAL
+      - CONFIRM_ARM_ORIENTATION
+      - CONFIRM_FILTER_INSTALLATION
+      - CONFIRM_FILTER_REMOVED
+      - DISABLE_SAFETY
+      - ENABLE_SAFETY
+      - PREPARE_FILTER_REMOVAL
+      - RETRY_AFTER_FAILURE
+    StellinaAutoInitOperation_AutofocusResult:
+      type: object
+      properties:
+        focusValue:
+          type: number
+          format: double
+        map:
+          type: integer
+          format: int32
+      required:
+      - focusValue
+      - map
+    StellinaAutoInitOperation_StellinaAutoInitArmPosition:
+      type: object
+      properties:
+        ALT:
+          type: number
+          format: double
+        AZ:
+          type: number
+          format: double
+        index:
+          type: integer
+          format: int32
+      required:
+      - ALT
+      - AZ
+      - index
+    StellinaAutoInitOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        armPosition:
+          $ref: '#/components/schemas/StellinaAutoInitOperation_StellinaAutoInitArmPosition'
+        astrometry:
+          $ref: '#/components/schemas/StellinaSkyPosition'
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        focusResult:
+          $ref: '#/components/schemas/StellinaAutoInitOperation_AutofocusResult'
+        id:
+          type: string
+        observatoryId:
+          type: string
+        observatoryName:
+          type: string
+        position:
+          $ref: '#/components/schemas/StellinaGeoPosition'
+        startTime:
+          type: integer
+          format: int64
+        steps:
+          type: array
+          items: {}
+        stopped:
+          type: boolean
+        time:
+          type: integer
+          format: int64
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+      - time
+    StellinaDarkCalibrationOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        ctx:
+          type: string
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        steps:
+          type: array
+          items: {}
+        stopped:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+    StellinaDeleteFoldersOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deletedFolderCount:
+          type: integer
+          format: int32
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        stopped:
+          type: boolean
+        totalFolderCount:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - deletedFolderCount
+      - startTime
+      - stopped
+      - totalFolderCount
+    StellinaObservationOperation_CurrentParams_ExposureMode:
+      type: string
+      enum:
+      - antique
+      - auto
+      - init
+      - static
+      - user
+    StellinaObservationOperation_CurrentParams:
+      type: object
+      properties:
+        MAP:
+          type: integer
+          format: int32
+          nullable: true
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        exposureMode:
+          $ref: '#/components/schemas/StellinaObservationOperation_CurrentParams_ExposureMode'
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+    StellinaObservationOperation_ObservationTargetType:
+      type: string
+      enum:
+      - CATALOG
+      - DEBUG_UI
+      - MANUAL
+    StellinaObservationOperation_StellinaBrightZoneOffset:
+      type: string
+      enum:
+      - AUTO
+      - FAR
+      - NEAR
+    StellinaObservationOperation_StellinaCaptureStoreState:
+      type: string
+      enum:
+      - NON_RESUMABLE
+      - PLAN
+      - RESUME
+      - TO_BE_RESUMABLE
+    StellinaObservationOperation_StellinaObservationTarget:
+      type: object
+      properties:
+        coords:
+          $ref: '#/components/schemas/StellinaSkyPosition'
+        objectId:
+          type: string
+        objectName:
+          type: string
+        objectType:
+          type: string
+        type:
+          $ref: '#/components/schemas/StellinaObservationOperation_ObservationTargetType'
+    StellinaObservationOperation_StellinaObservationType:
+      type: string
+      enum:
+      - DEBUG_UI
+      - MANUAL
+      - PLAN
+      - PLAYLIST
+      - STANDARD
+      - STORE
+      - SUN
+    StellinaObservationOperation_StellinaPointingAlgorithm:
+      type: string
+      enum:
+      - AUTO
+      - BRIGHT_ZONE
+      - DEEP_SKY
+      - DEEP_SKY_THEN_BRIGHT_ZONE
+    StellinaObservationOperation_StellingCaptureStore_Step:
+      type: string
+      enum:
+      - EXPORT_TIFF
+      - SAVE_CGS
+    StellinaObservationOperation_StellingCaptureStore:
+      type: object
+      properties:
+        state:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaCaptureStoreState'
+        step:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellingCaptureStore_Step'
+        storeId:
+          type: string
+        totalStackingCount:
+          type: integer
+          format: int32
+          nullable: true
+    StellinaObservationOperation:
+      type: object
+      properties:
+        actionInProgress:
+          type: boolean
+        appVersion:
+          type: string
+        capture:
+          $ref: '#/components/schemas/StellinaCapture'
+        currentParams:
+          $ref: '#/components/schemas/StellinaObservationOperation_CurrentParams'
+        deviceId:
+          type: string
+        eclipse:
+          type: boolean
+          nullable: true
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        filter:
+          $ref: '#/components/schemas/InstrumentFilter'
+        focusWarning:
+          type: boolean
+          nullable: true
+        framing:
+          $ref: '#/components/schemas/StellinaSkyPosition'
+        id:
+          type: string
+        isRestored:
+          type: boolean
+          nullable: true
+        mosaic:
+          $ref: '#/components/schemas/MosaicBody'
+        observationType:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationType'
+        povErrorRatio:
+          type: number
+          format: float
+          nullable: true
+        previousCaptures:
+          type: array
+          items: {}
+        startTime:
+          type: integer
+          format: int64
+        steps:
+          type: array
+          items: {}
+        stopped:
+          type: boolean
+        store:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellingCaptureStore'
+        target:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationTarget'
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - actionInProgress
+      - startTime
+      - stopped
+    StellinaOpenOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        stopped:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+    StellinaOperationType:
+      type: string
+      enum:
+      - AUTO_INIT
+      - DELETE_FOLDERS
+      - GENERATE_DARK
+      - OBSERVATION
+      - OPEN
+      - PARK
+      - PLAN
+      - PLAYLIST
+      - STORAGE_ACQUISITION
+      - SUN_MODE
+      - SUN_OBSERVATION
+    StellinaParkOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        stopped:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+    StellinaPlanOperation_StellinaPlanOperationState:
+      type: string
+      enum:
+      - AUTO_INIT
+      - FINISHED
+      - OBSERVATION
+      - WAITING_FOR_OBSERVATION_START
+      - WAITING_FOR_RETRY
+      - WAITING_UNTIL_START
+    StellinaPlanOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        planId:
+          type: string
+        planName:
+          type: string
+        planVersion:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        state:
+          $ref: '#/components/schemas/StellinaPlanOperation_StellinaPlanOperationState'
+        stopped:
+          type: boolean
+        targets:
+          type: array
+          items: {}
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+    StellinaPlaylistOperation_PlaylistType:
+      type: string
+      enum:
+      - RANDOM
+    StellinaPlaylistOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        observations:
+          type: array
+          items: {}
+        playlistType:
+          $ref: '#/components/schemas/StellinaPlaylistOperation_PlaylistType'
+        startTime:
+          type: integer
+          format: int64
+        stopped:
+          type: boolean
+        targets:
+          type: array
+          items: {}
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - startTime
+      - stopped
+    StellinaStorageAcquisitionOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        count:
+          type: integer
+          format: int32
+        deviceId:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        id:
+          type: string
+        path:
+          type: string
+        requiredCount:
+          type: integer
+          format: int32
+        startTime:
+          type: integer
+          format: int64
+        stopped:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - count
+      - requiredCount
+      - startTime
+      - stopped
+    StellinaSunModeOperation_StellinaSunModePov:
+      type: string
+      enum:
+      - earth
+      - jupiter
+      - mars
+      - mercury
+      - neptune
+      - raw
+      - saturn
+      - uranus
+      - venus
+    StellinaSunModeOperation_StellinaSunModeState:
+      type: string
+      enum:
+      - CLOSING_ARM
+      - OBSERVATION
+      - OPENING_ARM
+      - WAITING_AFTER_OBSERVATION_FAILED
+      - WAITING_FOR_FILTER_INSTALLATION
+      - WAITING_FOR_FILTER_REMOVAL
+      - WAITING_FOR_ORIENTATION
+    StellinaSunModeOperation:
+      type: object
+      properties:
+        appVersion:
+          type: string
+        deviceId:
+          type: string
+        eclipse:
+          type: boolean
+          nullable: true
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+        filterDetected:
+          type: boolean
+          nullable: true
+        filterDetectionSafetyTimeout:
+          type: boolean
+          nullable: true
+        id:
+          type: string
+        meanIndicatesFilterIsInstalled:
+          type: boolean
+        meanOverSafetyThreshold:
+          type: boolean
+          nullable: true
+        meanSafetyTimeout:
+          type: boolean
+        observationCount:
+          type: integer
+          format: int32
+        observationError:
+          $ref: '#/components/schemas/StellinaError'
+        safetyEnabled:
+          type: boolean
+        startTime:
+          type: integer
+          format: int64
+        state:
+          $ref: '#/components/schemas/StellinaSunModeOperation_StellinaSunModeState'
+        stopped:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/StellinaOperationType'
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+      required:
+      - meanIndicatesFilterIsInstalled
+      - meanSafetyTimeout
+      - observationCount
+      - safetyEnabled
+      - startTime
+      - stopped
+    ConnectedDevice:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          nullable: true
+        user:
+          type: string
+          nullable: true
+    LogsStatus:
+      type: object
+      properties:
+        numFiles:
+          type: integer
+          format: int32
+        bufferPosition:
+          type: integer
+          format: int32
+        bufferSize:
+          type: integer
+          format: int32
+    UpdateProgressInfo:
+      type: object
+      properties:
+        step:
+          type: integer
+          format: int32
+        stepTotal:
+          type: integer
+          format: int32
+        progressPercent:
+          type: integer
+          format: int32
+    UpdateStatus:
+      type: object
+      properties:
+        installedVersion:
+          type: string
+        minimumCompatibleVersion:
+          type: string
+        state:
+          type: string
+          enum:
+          - IDLE
+          - INSTALL
+          - UPLOAD
+        progressInfo:
+          nullable: true
+          oneOf:
+          - type: string
+          - $ref: '#/components/schemas/UpdateProgressInfo'
+    StorageSpace:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        available:
+          type: integer
+          format: int64
+      required:
+      - size
+      - available
+    StorageUsbSpace:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        available:
+          type: integer
+          format: int64
+        changeCount:
+          type: integer
+          format: int32
+        required:
+          type: boolean
+      required:
+      - size
+      - available
+      - changeCount
+      - required
+    StoragePublicSpace:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        available:
+          type: integer
+          format: int64
+        system:
+          type: boolean
+        user:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - size
+      - available
+      - system
+      - user
+      - required
+    StorageStatus:
+      type: object
+      properties:
+        system:
+          $ref: '#/components/schemas/StorageSpace'
+        data:
+          $ref: '#/components/schemas/StorageSpace'
+        usb:
+          $ref: '#/components/schemas/StorageUsbSpace'
+          nullable: true
+        public:
+          $ref: '#/components/schemas/StoragePublicSpace'
+          nullable: true
+      required:
+      - system
+      - data
+    InternalBatteryStatus:
+      type: object
+      properties:
+        chargeAlert:
+          type: string
+          enum:
+          - NONE
+          - TOO_COLD
+          - TOO_HOT
+        chargeStatus:
+          type: string
+          enum:
+          - 'OFF'
+          - CHARGING
+          - CONNECTED
+        chargeLevel:
+          type: integer
+          format: int32
+        TS:
+          type: integer
+          format: int32
+    SensorsStatus:
+      type: object
+      properties:
+        temperature:
+          type: number
+          format: double
+          nullable: true
+        temperatureDelta:
+          type: number
+          format: double
+          nullable: true
+        humidity:
+          type: number
+          format: double
+          nullable: true
+        humidityDelta:
+          type: number
+          format: double
+          nullable: true
+        defogStatus:
+          type: string
+          enum:
+          - 'OFF'
+          - LOW_DD
+          - LOW_TEMP
+          - 'ON'
+          nullable: true
+        dewpointDepression:
+          type: number
+          format: double
+          nullable: true
+    MotorAxisStatus:
+      type: object
+      properties:
+        position:
+          type: integer
+          format: int32
+        state:
+          type: string
+        atStop:
+          type: boolean
+        calibrated:
+          type: boolean
+    MotorsStatus:
+      type: object
+      properties:
+        AZ:
+          $ref: '#/components/schemas/MotorAxisStatus'
+        ALT:
+          $ref: '#/components/schemas/MotorAxisStatus'
+        DER:
+          $ref: '#/components/schemas/MotorAxisStatus'
+        MAP:
+          $ref: '#/components/schemas/MotorAxisStatus'
+    NetworkAppStatus:
+      type: object
+      properties:
+        channel:
+          type: integer
+          format: int32
+        band:
+          type: string
+          enum:
+          - BAND_2_4_GHZ
+          - BAND_5_GHZ
+    StoredCapture:
+      type: object
+      properties:
+        storeId:
+          type: string
+        filter:
+          type: string
+          enum: *id001
+          nullable: true
+        exposureMicroSec:
+          type: integer
+          format: int32
+          nullable: true
+        gain:
+          type: integer
+          format: int32
+          nullable: true
+        dark:
+          type: boolean
+          nullable: true
+        target:
+          $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationTarget'
+          nullable: true
+        mosaic:
+          $ref: '#/components/schemas/MosaicBody'
+          nullable: true
+        startTime:
+          type: string
+          nullable: true
+        totalStackingCount:
+          type: integer
+          format: int32
+          nullable: true
+        lastImage:
+          type: object
+          nullable: true
+        error:
+          nullable: true
+      additionalProperties: true
+    CaptureStoreStatus:
+      type: object
+      properties:
+        storedCaptures:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoredCaptureSummary'
+    OperationStatus:
+      type: object
+      properties:
+        id:
+          type: string
+        ctx:
+          type: string
+          nullable: true
+        type:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+          nullable: true
+        endTime:
+          type: integer
+          format: int64
+          nullable: true
+        stopped:
+          type: boolean
+          nullable: true
+        error:
+          $ref: '#/components/schemas/StellinaError'
+          nullable: true
+        deviceId:
+          type: string
+          nullable: true
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        appVersion:
+          type: string
+          nullable: true
+      additionalProperties: true
+    SettingsStatus:
+      type: object
+      properties:
+        algoHdrBackground:
+          $ref: '#/components/schemas/StellinaSettings_BalensMode'
+          nullable: true
+        buttonBrightness:
+          type: string
+          nullable: true
+        enableDarkUsage:
+          type: boolean
+          nullable: true
+        enableDithering:
+          type: boolean
+          nullable: true
+        enableFullResolution:
+          type: boolean
+          nullable: true
+        enableHdrBackground:
+          type: boolean
+          nullable: true
+        enableLiveFocus:
+          type: boolean
+          nullable: true
+        storageFileCategories:
+          type: array
+          items:
+            type: string
+          nullable: true
+        telescopeName:
+          type: string
+          nullable: true
+        usbFileTypes:
+          type: array
+          items:
+            type: string
+          nullable: true
+        hasFilterDetection:
+          type: boolean
+          nullable: true
+      additionalProperties: true
+    CaptureImage:
+      type: object
+      description: Single captured image summary as serialized in STATUS_UPDATED /
+        capture store.
+      properties:
+        index:
+          type: integer
+        url:
+          type: string
+        hasUrl:
+          type: boolean
+        isSaved:
+          type: boolean
+        width:
+          type: integer
+        height:
+          type: integer
+        timestamp:
+          type: integer
+        score:
+          type: number
+        starsCount:
+          type: integer
+        fwhmX:
+          type: number
+        fwhmY:
+          type: number
+        fwhm:
+          type: number
+        stackingCount:
+          type: integer
+        totalStackingCount:
+          type: integer
+        cropX:
+          type: integer
+        cropY:
+          type: integer
+        cropWidth:
+          type: integer
+        cropHeight:
+          type: integer
+        metadata:
+          type: object
+          additionalProperties: true
+      additionalProperties: true
+    StoredCaptureSummary:
+      type: object
+      description: Summary of a stored capture (capture store entry).
+      properties:
+        storeId:
+          type: string
+        filter:
+          $ref: '#/components/schemas/InstrumentFilter'
+        exposureMicroSec:
+          type: integer
+        gain:
+          type: integer
+        dark:
+          type: boolean
+        target:
+          oneOf:
+          - $ref: '#/components/schemas/StellinaObservationOperation_StellinaObservationTarget'
+          - type: 'null'
+        mosaic:
+          oneOf:
+          - $ref: '#/components/schemas/MosaicBody'
+          - type: 'null'
+        startTime: {}
+        totalStackingCount:
+          type: integer
+        lastImage:
+          oneOf:
+          - $ref: '#/components/schemas/CaptureImage'
+          - type: 'null'
+        error: {}
+      additionalProperties: true

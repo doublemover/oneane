@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StoredCaptureSummary",
+  "type": "object",
+  "description": "Summary of a stored capture (capture store entry).",
+  "properties": {
+    "storeId": {
+      "type": "string"
+    },
+    "filter": {
+      "$ref": "./InstrumentFilter.json"
+    },
+    "exposureMicroSec": {
+      "type": "integer"
+    },
+    "gain": {
+      "type": "integer"
+    },
+    "dark": {
+      "type": "boolean"
+    },
+    "target": {
+      "oneOf": [
+        {
+          "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mosaic": {
+      "oneOf": [
+        {
+          "$ref": "./MosaicBody.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "startTime": {},
+    "totalStackingCount": {
+      "type": "integer"
+    },
+    "lastImage": {
+      "oneOf": [
+        {
+          "$ref": "./CaptureImage.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error": {}
+  },
+  "additionalProperties": true
+}

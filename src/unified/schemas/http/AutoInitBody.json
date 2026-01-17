@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoInitBody",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "observatoryId": {
+      "type": "string"
+    },
+    "observatoryName": {
+      "type": "string"
+    },
+    "skipAutoFocus": {
+      "type": "boolean"
+    },
+    "time": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "latitude",
+    "longitude",
+    "skipAutoFocus",
+    "time"
+  ]
+}

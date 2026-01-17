@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "getStatus response",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "../http/StellinaStatus.json"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "../http/StelError.json"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "$ref": "../http/StelError.json"
+    }
+  ]
+}

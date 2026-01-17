@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/http/PublicStorageSpace.json",
+  "title": "PublicStorageSpace",
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "size": {
+      "type": "integer"
+    },
+    "available": {
+      "type": "integer"
+    },
+    "system": {
+      "type": "integer",
+      "description": "System partition bytes"
+    },
+    "user": {
+      "type": "integer",
+      "description": "User partition bytes"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}

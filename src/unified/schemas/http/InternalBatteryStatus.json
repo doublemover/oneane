@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InternalBatteryStatus",
+  "type": "object",
+  "properties": {
+    "chargeAlert": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "TOO_COLD",
+        "TOO_HOT"
+      ]
+    },
+    "chargeStatus": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "CHARGING",
+        "CONNECTED"
+      ]
+    },
+    "chargeLevel": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "TS": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

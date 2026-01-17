@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CONNECTION_ERROR payload",
+  "description": "Payload for Socket.IO event CONNECTION_ERROR (when handshake query is invalid/missing id).",
+  "type": "string"
+}
