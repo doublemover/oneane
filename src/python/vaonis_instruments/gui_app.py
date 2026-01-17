@@ -345,15 +345,17 @@ class BarnardControlApp:
         )
 
     def _apply_theme(self) -> Optional[Dict[str, str]]:
-        """Apply a sane default ttk theme and a small amount of spacing polish.
-
-        This keeps the UI looking consistent across platforms without forcing a
-        custom color palette (tk.Text widgets are not ttk-themed).
-        """
+        """Apply a sane default ttk theme and a small amount of spacing polish."""
         style = ttk.Style(self.root)
 
-        # Pick the best available theme for the platform.
-        for candidate in ("vista", "xpnative", "clam", "default"):
+        windowing_system = self.root.tk.call("tk", "windowingsystem")
+        preferred = {
+            "win32": ("vista", "xpnative"),
+            "aqua": ("aqua",),
+            "x11": ("clam",),
+        }.get(windowing_system, ("clam",))
+
+        for candidate in (*preferred, "clam", "default"):
             if candidate in style.theme_names():
                 try:
                     style.theme_use(candidate)
@@ -361,19 +363,14 @@ class BarnardControlApp:
                 except tk.TclError:
                     continue
 
-        # Global spacing/typography tweaks.
-        try:
-            style.configure("TNotebook.Tab", padding=(12, 6))
-        except tk.TclError:
-            pass
+        style.configure("TNotebook.Tab", padding=(12, 6))
         style.configure("TLabelframe", padding=(10, 8))
         style.configure("TLabelframe.Label", font=("TkDefaultFont", 9, "bold"))
+        style.configure("TButton", padding=(10, 4))
 
         style.configure("Header.TFrame", padding=(10, 8, 10, 6))
         style.configure("HeaderTitle.TLabel", font=("TkDefaultFont", 10, "bold"))
         style.configure("Muted.TLabel", foreground="#555555")
-
-        # Quick-start buttons should align with the left edge of their label text.
         style.configure("Quick.TButton", anchor="w")
 
         return None
@@ -483,9 +480,13 @@ class BarnardControlApp:
             textvariable=self.status_summary_var,
             justify="left",
             anchor="w",
-            wraplength=420,
         )
         self.status_summary_label.grid(row=0, column=0, sticky="ew")
+
+        def _wrap_summary(event: tk.Event) -> None:
+            self.status_summary_label.configure(wraplength=max(200, event.width - 12))
+
+        summary_frame.bind("<Configure>", _wrap_summary)
 
         # Tooltips
         self._add_tooltip(
@@ -641,7 +642,9 @@ class BarnardControlApp:
 
         right = ttk.Frame(bar)
         right.grid(row=0, column=1, sticky="e")
-        fetch_button = ttk.Button(right, text="Fetch status", command=self._fetch_status)
+        fetch_button = ttk.Button(
+            right, text="Fetch status", command=self._fetch_status
+        )
         fetch_button.grid(row=0, column=0)
 
         # Tooltips
@@ -700,8 +703,8 @@ class BarnardControlApp:
         ops.columnconfigure(1, weight=0)
         ops.columnconfigure(3, weight=1)
 
-        operation_group_label = ttk.Label(ops, text="Operation group")
-        operation_group_label.grid(row=0, column=0, sticky="w")
+        operation_group_label = ttk.Label(ops, text="Operation group:")
+        operation_group_label.grid(row=0, column=0, sticky="e", padx=(0, 8))
         self.operation_group_var = tk.StringVar()
         self.operation_group_combo = ttk.Combobox(
             ops,
@@ -714,15 +717,15 @@ class BarnardControlApp:
             "<<ComboboxSelected>>", self._on_operation_group_selected
         )
 
-        operation_label = ttk.Label(ops, text="Operation")
-        operation_label.grid(row=0, column=2, sticky="w", padx=(12, 0))
+        operation_label = ttk.Label(ops, text="Operation:")
+        operation_label.grid(row=0, column=2, sticky="e", padx=(12, 8))
         self.operation_var = tk.StringVar()
         self.operation_combo = ttk.Combobox(ops, textvariable=self.operation_var)
         self.operation_combo.grid(row=0, column=3, sticky="ew")
         self.operation_combo.bind("<<ComboboxSelected>>", self._on_operation_selected)
 
-        debug_group_label = ttk.Label(ops, text="Debug group")
-        debug_group_label.grid(row=1, column=0, sticky="w", pady=(6, 0))
+        debug_group_label = ttk.Label(ops, text="Debug group:")
+        debug_group_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=(6, 0))
         self.debug_group_var = tk.StringVar()
         self.debug_group_combo = ttk.Combobox(
             ops,
@@ -735,8 +738,8 @@ class BarnardControlApp:
             "<<ComboboxSelected>>", self._on_debug_group_selected
         )
 
-        debug_label = ttk.Label(ops, text="Debug operation")
-        debug_label.grid(row=1, column=2, sticky="w", padx=(12, 0), pady=(6, 0))
+        debug_label = ttk.Label(ops, text="Debug operation:")
+        debug_label.grid(row=1, column=2, sticky="e", padx=(12, 8), pady=(6, 0))
         self.debug_operation_var = tk.StringVar()
         self.debug_operation_combo = ttk.Combobox(
             ops, textvariable=self.debug_operation_var
@@ -747,7 +750,9 @@ class BarnardControlApp:
         )
 
         self.operation_detail_var = tk.StringVar(value="")
-        operation_detail = ttk.Label(ops, textvariable=self.operation_detail_var, style="Muted.TLabel")
+        operation_detail = ttk.Label(
+            ops, textvariable=self.operation_detail_var, style="Muted.TLabel"
+        )
         operation_detail.grid(row=2, column=1, columnspan=3, sticky="w", pady=(6, 0))
 
         # Request editors
@@ -757,11 +762,15 @@ class BarnardControlApp:
 
         request_nb = ttk.Notebook(request)
         request_nb.grid(row=0, column=0, sticky="ew")
+        self.request_nb = request_nb
+        self._params_tab_title = "Query params (JSON)"
+        self._body_tab_title = "Body (JSON)"
 
         # Query params tab
         params_tab = ttk.Frame(request_nb, padding=(6, 6))
         params_tab.columnconfigure(0, weight=1)
         params_tab.rowconfigure(0, weight=1)
+        self.params_tab = params_tab
 
         self.params_text = tk.Text(
             params_tab,
@@ -783,11 +792,14 @@ class BarnardControlApp:
         self.params_text.grid(row=0, column=0, sticky="nsew")
         params_scroll.grid(row=0, column=1, sticky="ns")
         params_hscroll.grid(row=1, column=0, sticky="ew")
+        self.params_text.bind("<<Modified>>", self._on_request_text_modified)
+        self.params_text.edit_modified(False)
 
         # Body tab
         body_tab = ttk.Frame(request_nb, padding=(6, 6))
         body_tab.columnconfigure(0, weight=1)
         body_tab.rowconfigure(0, weight=1)
+        self.body_tab = body_tab
 
         self.body_text = tk.Text(
             body_tab,
@@ -809,9 +821,12 @@ class BarnardControlApp:
         self.body_text.grid(row=0, column=0, sticky="nsew")
         body_scroll.grid(row=0, column=1, sticky="ns")
         body_hscroll.grid(row=1, column=0, sticky="ew")
+        self.body_text.bind("<<Modified>>", self._on_request_text_modified)
+        self.body_text.edit_modified(False)
 
-        request_nb.add(params_tab, text="Query params (JSON)")
-        request_nb.add(body_tab, text="Body (JSON)")
+        request_nb.add(params_tab, text=self._params_tab_title)
+        request_nb.add(body_tab, text=self._body_tab_title)
+        self._update_request_tab_counts()
 
         # Actions row
         actions = ttk.Frame(outer)
@@ -819,7 +834,9 @@ class BarnardControlApp:
         actions.columnconfigure(0, weight=1)
 
         send_button = ttk.Button(actions, text="Send", command=self._send_operation)
-        clear_button = ttk.Button(actions, text="Clear", command=self._clear_operation_fields)
+        clear_button = ttk.Button(
+            actions, text="Clear", command=self._clear_operation_fields
+        )
         clear_button.grid(row=0, column=2, sticky="e")
         send_button.grid(row=0, column=1, sticky="e", padx=(0, 10))
 
@@ -947,8 +964,8 @@ class BarnardControlApp:
 
         socket_path_label = ttk.Label(conn, text="Path:")
         socket_path_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=2)
-        socket_path_entry = ttk.Entry(conn, textvariable=self.socket_path_var, width=14)
-        socket_path_entry.grid(row=1, column=1, sticky="w", pady=2)
+        socket_path_entry = ttk.Entry(conn, textvariable=self.socket_path_var)
+        socket_path_entry.grid(row=1, column=1, sticky="ew", pady=2)
 
         device_label = ttk.Label(conn, text="Device ID:")
         device_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=2)
@@ -957,8 +974,12 @@ class BarnardControlApp:
 
         btn_row = ttk.Frame(conn)
         btn_row.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
-        connect_button = ttk.Button(btn_row, text="Connect", command=self._connect_socket)
-        disconnect_button = ttk.Button(btn_row, text="Disconnect", command=self._disconnect_socket)
+        connect_button = ttk.Button(
+            btn_row, text="Connect", command=self._connect_socket
+        )
+        disconnect_button = ttk.Button(
+            btn_row, text="Disconnect", command=self._disconnect_socket
+        )
         connect_button.grid(row=0, column=0, padx=(0, 10))
         disconnect_button.grid(row=0, column=1)
 
@@ -982,16 +1003,24 @@ class BarnardControlApp:
         self.socket_user_var = tk.StringVar(value="")
         user_entry = ttk.Entry(reg, textvariable=self.socket_user_var)
         user_entry.grid(row=2, column=1, sticky="ew", pady=(10, 2))
-        send_user_button = ttk.Button(reg, text="Send user", command=self._set_user_name)
+        send_user_button = ttk.Button(
+            reg, text="Send user", command=self._set_user_name
+        )
         send_user_button.grid(row=3, column=1, sticky="e", pady=(6, 0))
 
         # Commands
         commands = ttk.Labelframe(outer, text="Commands", padding=(10, 8))
         commands.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(0, 10))
 
-        take_button = ttk.Button(commands, text="Take control", command=self._take_control)
-        release_button = ttk.Button(commands, text="Release control", command=self._release_control)
-        restart_button = ttk.Button(commands, text="Restart app", command=self._restart_app)
+        take_button = ttk.Button(
+            commands, text="Take control", command=self._take_control
+        )
+        release_button = ttk.Button(
+            commands, text="Release control", command=self._release_control
+        )
+        restart_button = ttk.Button(
+            commands, text="Restart app", command=self._restart_app
+        )
         shutdown_button = ttk.Button(commands, text="Shutdown", command=self._shutdown)
 
         take_button.grid(row=0, column=0, padx=(0, 10), pady=2)
@@ -999,8 +1028,12 @@ class BarnardControlApp:
         restart_button.grid(row=0, column=2, padx=(0, 10), pady=2)
         shutdown_button.grid(row=0, column=3, pady=2)
 
-        self.time_sync_notice_label = ttk.Label(commands, textvariable=self.time_sync_notice_var, style="Muted.TLabel")
-        self.time_sync_notice_label.grid(row=1, column=0, columnspan=4, sticky="w", pady=(8, 0))
+        self.time_sync_notice_label = ttk.Label(
+            commands, textvariable=self.time_sync_notice_var, style="Muted.TLabel"
+        )
+        self.time_sync_notice_label.grid(
+            row=1, column=0, columnspan=4, sticky="w", pady=(8, 0)
+        )
         self.time_sync_notice_label.grid_remove()
 
         # Raw events
@@ -1025,11 +1058,19 @@ class BarnardControlApp:
         payload_frame.columnconfigure(0, weight=1)
         payload_frame.rowconfigure(0, weight=1)
 
-        self.socket_payload_text = tk.Text(payload_frame, height=6, width=60, wrap="none", font=("TkFixedFont", 9))
+        self.socket_payload_text = tk.Text(
+            payload_frame, height=6, width=60, wrap="none", font=("TkFixedFont", 9)
+        )
         self._style_text(self.socket_payload_text)
-        payload_scroll = ttk.Scrollbar(payload_frame, orient="vertical", command=self.socket_payload_text.yview)
-        payload_hscroll = ttk.Scrollbar(payload_frame, orient="horizontal", command=self.socket_payload_text.xview)
-        self.socket_payload_text.configure(yscrollcommand=payload_scroll.set, xscrollcommand=payload_hscroll.set)
+        payload_scroll = ttk.Scrollbar(
+            payload_frame, orient="vertical", command=self.socket_payload_text.yview
+        )
+        payload_hscroll = ttk.Scrollbar(
+            payload_frame, orient="horizontal", command=self.socket_payload_text.xview
+        )
+        self.socket_payload_text.configure(
+            yscrollcommand=payload_scroll.set, xscrollcommand=payload_hscroll.set
+        )
         self.socket_payload_text.grid(row=0, column=0, sticky="nsew")
         payload_scroll.grid(row=0, column=1, sticky="ns")
         payload_hscroll.grid(row=1, column=0, sticky="ew")
@@ -1088,7 +1129,9 @@ class BarnardControlApp:
 
         fetch_button = ttk.Button(controls, text="Fetch", command=self._fetch_image)
         save_button = ttk.Button(controls, text="Save", command=self._save_image)
-        live_button = ttk.Button(controls, text="Start live view", command=self._start_live_view)
+        live_button = ttk.Button(
+            controls, text="Start live view", command=self._start_live_view
+        )
         stop_button = ttk.Button(controls, text="Stop", command=self._stop_live_view)
 
         fetch_button.grid(row=1, column=1, sticky="w", pady=(8, 0))
@@ -1098,7 +1141,9 @@ class BarnardControlApp:
 
         interval_label = ttk.Label(controls, text="Live interval (s):")
         interval_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=(10, 2))
-        interval_entry = ttk.Entry(controls, textvariable=self.live_interval_var, width=8)
+        interval_entry = ttk.Entry(
+            controls, textvariable=self.live_interval_var, width=8
+        )
         interval_entry.grid(row=2, column=1, sticky="w", pady=(10, 2))
         auto_check = ttk.Checkbutton(
             controls,
@@ -1138,7 +1183,9 @@ class BarnardControlApp:
         toolbar.pack(fill=tk.X)
         ttk.Label(toolbar, text="Logs", style="HeaderTitle.TLabel").pack(side=tk.LEFT)
 
-        clear_btn = ttk.Button(toolbar, text="Clear", command=lambda: self._clear_console())
+        clear_btn = ttk.Button(
+            toolbar, text="Clear", command=lambda: self._clear_console()
+        )
         clear_btn.pack(side=tk.RIGHT)
 
         console_frame = ttk.Frame(frame)
@@ -1156,9 +1203,14 @@ class BarnardControlApp:
         )
         self._style_text(self.console_text)
         self.console_text.grid(row=0, column=0, sticky="nsew")
-        scrollbar = ttk.Scrollbar(console_frame, command=self.console_text.yview)
-        scrollbar.grid(row=0, column=1, sticky="ns")
-        self.console_text.configure(yscrollcommand=scrollbar.set)
+        self.console_scrollbar = ttk.Scrollbar(
+            console_frame, command=self.console_text.yview
+        )
+        self.console_scrollbar.grid(row=0, column=1, sticky="ns")
+        self.console_text.configure(yscrollcommand=self._on_console_scroll)
+        console_frame.bind(
+            "<Configure>", lambda _event: self._update_console_scrollbar()
+        )
 
         # Log tag colors tuned for a light background.
         self.console_text.tag_configure("log_info", foreground="#006100")
@@ -1174,6 +1226,7 @@ class BarnardControlApp:
         self.console_text.configure(state="normal")
         self.console_text.delete("1.0", tk.END)
         self.console_text.configure(state="disabled")
+        self._update_console_scrollbar()
 
     def _schedule_log_pump(self) -> None:
         while True:
@@ -1200,6 +1253,29 @@ class BarnardControlApp:
             self.console_text.tag_add(tag, line_start, line_end)
         self.console_text.see(tk.END)
         self.console_text.configure(state="disabled")
+        self._update_console_scrollbar()
+
+    def _on_console_scroll(self, first: str, last: str) -> None:
+        if hasattr(self, "console_scrollbar"):
+            self.console_scrollbar.set(first, last)
+        self._toggle_console_scrollbar(float(first), float(last))
+
+    def _toggle_console_scrollbar(self, first: float, last: float) -> None:
+        if not hasattr(self, "console_scrollbar"):
+            return
+        if first <= 0.0 and last >= 1.0:
+            self.console_scrollbar.grid_remove()
+        else:
+            self.console_scrollbar.grid()
+
+    def _update_console_scrollbar(self) -> None:
+        if not hasattr(self, "console_text"):
+            return
+        try:
+            first, last = self.console_text.yview()
+        except tk.TclError:
+            return
+        self._toggle_console_scrollbar(first, last)
 
     def _run_in_thread(
         self, action: Callable[[], Any], on_success: Callable[[Any], None]
@@ -1421,6 +1497,33 @@ class BarnardControlApp:
     def _on_debug_group_selected(self, event: Optional[Any] = None) -> None:
         self._update_operation_combo(from_debug=True)
 
+    def _on_request_text_modified(self, event: tk.Event) -> None:
+        widget = event.widget
+        if not isinstance(widget, tk.Text):
+            return
+        if not widget.edit_modified():
+            return
+        widget.edit_modified(False)
+        self._update_request_tab_counts()
+
+    def _update_request_tab_counts(self) -> None:
+        if not hasattr(self, "request_nb"):
+            return
+        params_text = ""
+        body_text = ""
+        if hasattr(self, "params_text"):
+            params_text = self.params_text.get("1.0", "end-1c")
+        if hasattr(self, "body_text"):
+            body_text = self.body_text.get("1.0", "end-1c")
+        params_count = len(params_text)
+        body_count = len(body_text)
+        params_label = f"{self._params_tab_title} [{params_count}]"
+        body_label = f"{self._body_tab_title} [{body_count}]"
+        if hasattr(self, "params_tab"):
+            self.request_nb.tab(self.params_tab, text=params_label)
+        if hasattr(self, "body_tab"):
+            self.request_nb.tab(self.body_tab, text=body_label)
+
     def _select_operation(self, label: str, *, from_debug: bool) -> None:
         route = self._operation_lookup.get(label)
         if not route:
@@ -1437,6 +1540,7 @@ class BarnardControlApp:
     def _clear_operation_fields(self) -> None:
         self.params_text.delete("1.0", tk.END)
         self.body_text.delete("1.0", tk.END)
+        self._update_request_tab_counts()
 
     def _route_group(self, path: str) -> str:
         trimmed = path.strip("/")
@@ -1733,6 +1837,7 @@ class BarnardControlApp:
 
         if method != "GET":
             self.body_text.insert(tk.END, "{}")
+        self._update_request_tab_counts()
 
     def _send_operation(self) -> None:
         route_label = self.operation_var.get()
