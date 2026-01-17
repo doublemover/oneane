@@ -345,11 +345,37 @@ class BarnardControlApp:
         )
 
     def _apply_theme(self) -> Optional[Dict[str, str]]:
-        style = ttk.Style()
+        """Apply a sane default ttk theme and a small amount of spacing polish.
+
+        This keeps the UI looking consistent across platforms without forcing a
+        custom color palette (tk.Text widgets are not ttk-themed).
+        """
+        style = ttk.Style(self.root)
+
+        # Pick the best available theme for the platform.
+        for candidate in ("vista", "xpnative", "clam", "default"):
+            if candidate in style.theme_names():
+                try:
+                    style.theme_use(candidate)
+                    break
+                except tk.TclError:
+                    continue
+
+        # Global spacing/typography tweaks.
         try:
-            style.theme_use("default")
+            style.configure("TNotebook.Tab", padding=(12, 6))
         except tk.TclError:
             pass
+        style.configure("TLabelframe", padding=(10, 8))
+        style.configure("TLabelframe.Label", font=("TkDefaultFont", 9, "bold"))
+
+        style.configure("Header.TFrame", padding=(10, 8, 10, 6))
+        style.configure("HeaderTitle.TLabel", font=("TkDefaultFont", 10, "bold"))
+        style.configure("Muted.TLabel", foreground="#555555")
+
+        # Quick-start buttons should align with the left edge of their label text.
+        style.configure("Quick.TButton", anchor="w")
+
         return None
 
     def _style_text(self, widget: tk.Text) -> None:
@@ -379,7 +405,8 @@ class BarnardControlApp:
         main_pane.add(top_frame, weight=3)
         main_pane.add(console_frame, weight=1)
 
-        header_frame = ttk.Frame(top_frame, padding=(10, 8, 10, 4))
+        # Header
+        header_frame = ttk.Frame(top_frame, style="Header.TFrame")
         header_frame.pack(fill=tk.X)
         header_frame.columnconfigure(0, weight=2)
         header_frame.columnconfigure(1, weight=1)
@@ -397,21 +424,24 @@ class BarnardControlApp:
             quick_frame,
             text="Set Host/Port + API base path (instrument IP).",
             font=quick_font,
+            style="Muted.TLabel",
         )
-        step0_label.grid(row=0, column=0, sticky="w")
+        step0_label.grid(row=0, column=0, sticky="w", columnspan=2)
+
         step1_label = ttk.Label(
             quick_frame, text="1) Load/extract auth key from APK/ZIP.", font=quick_font
         )
-        step1_label.grid(row=1, column=0, sticky="w", pady=(4, 0))
+        step1_label.grid(row=1, column=0, sticky="w", pady=(6, 0))
         load_key_button = ttk.Button(
             quick_frame,
-            text="1) Load key",
+            text="Load/Extract key",
             command=self._auto_load_auth_key,
             width=24,
             style="Quick.TButton",
         )
-        load_key_button.grid(row=1, column=1, sticky="e", padx=(8, 0))
+        load_key_button.grid(row=1, column=1, sticky="e", padx=(8, 0), pady=(6, 0))
         self.load_key_button = load_key_button
+
         step2_label = ttk.Label(
             quick_frame,
             text="2) Refresh auth + status (reads challenge).",
@@ -420,12 +450,13 @@ class BarnardControlApp:
         step2_label.grid(row=2, column=0, sticky="w", pady=(4, 0))
         refresh_button = ttk.Button(
             quick_frame,
-            text="2) Refresh auth + status",
+            text="Refresh auth + status",
             command=self._refresh_auth_and_status,
             width=24,
             style="Quick.TButton",
         )
-        refresh_button.grid(row=2, column=1, sticky="e", padx=(8, 0))
+        refresh_button.grid(row=2, column=1, sticky="e", padx=(8, 0), pady=(4, 0))
+
         step3_label = ttk.Label(
             quick_frame,
             text="3) Connect socket for live updates.",
@@ -434,22 +465,29 @@ class BarnardControlApp:
         step3_label.grid(row=3, column=0, sticky="w", pady=(4, 0))
         socket_button = ttk.Button(
             quick_frame,
-            text="3) Connect socket",
+            text="Connect socket",
             command=self._connect_socket,
             width=24,
             style="Quick.TButton",
         )
-        socket_button.grid(row=3, column=1, sticky="e", padx=(8, 0))
+        socket_button.grid(row=3, column=1, sticky="e", padx=(8, 0), pady=(4, 0))
 
-        summary_frame = ttk.LabelFrame(
-            header_frame, text="Status summary", padding=(8, 4)
-        )
+        # Status summary: use a Label rather than a Text widget.
+        summary_frame = ttk.LabelFrame(header_frame, text="Status", padding=(8, 6))
         summary_frame.grid(row=0, column=1, sticky="nsew")
-        self.status_summary_text = tk.Text(
-            summary_frame, height=3, width=50, state="disabled", wrap="word"
+        summary_frame.columnconfigure(0, weight=1)
+
+        self.status_summary_var = tk.StringVar(value="(no status yet)")
+        self.status_summary_label = ttk.Label(
+            summary_frame,
+            textvariable=self.status_summary_var,
+            justify="left",
+            anchor="w",
+            wraplength=420,
         )
-        self._style_text(self.status_summary_text)
-        self.status_summary_text.pack(fill=tk.X, expand=False)
+        self.status_summary_label.grid(row=0, column=0, sticky="ew")
+
+        # Tooltips
         self._add_tooltip(
             step0_label, "Set the instrument IP/port and base path before anything."
         )
@@ -466,9 +504,10 @@ class BarnardControlApp:
         self._add_tooltip(step3_label, "Connect Socket.IO to stream status updates.")
         self._add_tooltip(socket_button, "Connect Socket.IO for live updates.")
         self._add_tooltip(
-            self.status_summary_text, "Live highlights from the most recent status."
+            self.status_summary_label, "Live highlights from the most recent status."
         )
 
+        # Tabs
         self._notebook = ttk.Notebook(top_frame)
         self._notebook.pack(fill=tk.BOTH, expand=True, padx=6, pady=(2, 6))
 
@@ -492,9 +531,14 @@ class BarnardControlApp:
         self._build_console_tab(console_frame)
 
     def _build_connection_tab(self) -> None:
-        frame = ttk.Frame(self.connection_tab, padding=10)
-        frame.pack(fill=tk.BOTH, expand=True)
+        outer = ttk.Frame(self.connection_tab, padding=10)
+        outer.pack(fill=tk.BOTH, expand=True)
+        outer.columnconfigure(0, weight=1)
+        outer.columnconfigure(1, weight=1)
+        outer.rowconfigure(0, weight=0)
+        outer.rowconfigure(1, weight=0)
 
+        # State variables used by the rest of the app.
         self.host_var = tk.StringVar(value="10.0.0.1")
         self.port_var = tk.StringVar(value="8082")
         self.api_path_var = tk.StringVar(value="/v1")
@@ -503,62 +547,104 @@ class BarnardControlApp:
         self.auth_key_var = tk.StringVar(value="")
         self.auth_header_var = tk.StringVar(value="")
 
-        host_label = ttk.Label(frame, text="Host")
-        host_label.grid(row=0, column=0, sticky="w")
-        host_entry = ttk.Entry(frame, textvariable=self.host_var, width=18)
-        host_entry.grid(row=0, column=1, sticky="w")
-        port_label = ttk.Label(frame, text="Port")
-        port_label.grid(row=0, column=2, sticky="w", padx=(10, 0))
-        port_entry = ttk.Entry(frame, textvariable=self.port_var, width=8)
-        port_entry.grid(row=0, column=3, sticky="w")
-        api_label = ttk.Label(frame, text="API base path")
-        api_label.grid(row=0, column=4, sticky="w", padx=(10, 0))
-        api_entry = ttk.Entry(frame, textvariable=self.api_path_var, width=12)
-        api_entry.grid(row=0, column=5, sticky="w")
+        show_advanced_var = tk.BooleanVar(value=False)
 
-        prefixes_label = ttk.Label(frame, text="Prefixes")
-        prefixes_label.grid(row=1, column=0, sticky="w", pady=6)
-        prefixes_entry = ttk.Entry(frame, textvariable=self.prefixes_var, width=40)
-        prefixes_entry.grid(row=1, column=1, columnspan=3, sticky="w")
+        def toggle_advanced() -> None:
+            if show_advanced_var.get():
+                advanced_row.grid()
+            else:
+                advanced_row.grid_remove()
+
+        # Instrument section
+        instrument = ttk.Labelframe(outer, text="Instrument", padding=(10, 8))
+        instrument.grid(row=0, column=0, sticky="nsew", padx=(0, 10), pady=(0, 10))
+        instrument.columnconfigure(1, weight=1)
+
+        host_label = ttk.Label(instrument, text="Host:")
+        host_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
+        host_entry = ttk.Entry(instrument, textvariable=self.host_var)
+        host_entry.grid(row=0, column=1, sticky="ew", pady=2)
+
+        port_label = ttk.Label(instrument, text="Port:")
+        port_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=2)
+        port_entry = ttk.Entry(instrument, textvariable=self.port_var, width=8)
+        port_entry.grid(row=1, column=1, sticky="w", pady=2)
+
+        api_label = ttk.Label(instrument, text="API base path:")
+        api_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=2)
+        api_entry = ttk.Entry(instrument, textvariable=self.api_path_var, width=12)
+        api_entry.grid(row=2, column=1, sticky="w", pady=2)
+
+        advanced_toggle = ttk.Checkbutton(
+            instrument,
+            text="Show advanced settings",
+            variable=show_advanced_var,
+            command=toggle_advanced,
+        )
+        advanced_toggle.grid(row=3, column=0, columnspan=2, sticky="w", pady=(6, 0))
+
+        advanced_row = ttk.Frame(instrument)
+        advanced_row.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(6, 0))
+        advanced_row.columnconfigure(1, weight=1)
+
+        prefixes_label = ttk.Label(advanced_row, text="Prefixes:")
+        prefixes_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
+        prefixes_entry = ttk.Entry(advanced_row, textvariable=self.prefixes_var)
+        prefixes_entry.grid(row=0, column=1, sticky="ew", pady=2)
+        advanced_row.grid_remove()
+
+        # Authorization section
+        auth = ttk.Labelframe(outer, text="Authorization", padding=(10, 8))
+        auth.grid(row=0, column=1, sticky="nsew", padx=(10, 0), pady=(0, 10))
+        auth.columnconfigure(1, weight=1)
 
         auth_check = ttk.Checkbutton(
-            frame,
+            auth,
             text="Include Authorization header by default",
             variable=self.use_auth_var,
         )
-        auth_check.grid(row=1, column=4, columnspan=2, sticky="w")
+        auth_check.grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 6))
 
-        key_label = ttk.Label(frame, text="Auth key path")
-        key_label.grid(row=3, column=0, sticky="w")
-        key_entry = ttk.Entry(
-            frame, textvariable=self.auth_key_var, width=60, state="readonly"
-        )
-        key_entry.grid(row=3, column=1, columnspan=4, sticky="w")
+        key_label = ttk.Label(auth, text="Auth key path:")
+        key_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=2)
+        key_entry = ttk.Entry(auth, textvariable=self.auth_key_var, state="readonly")
+        key_entry.grid(row=1, column=1, sticky="ew", pady=2)
         key_button = ttk.Button(
-            frame, text="Load/Extract key", command=self._auto_load_auth_key
+            auth, text="Load/Extract", command=self._auto_load_auth_key
         )
-        key_button.grid(row=3, column=5, sticky="w")
+        key_button.grid(row=1, column=2, sticky="e", padx=(8, 0), pady=2)
 
-        header_label = ttk.Label(frame, text="Auth header")
-        header_label.grid(row=4, column=0, sticky="w", pady=6)
+        header_label = ttk.Label(auth, text="Auth header:")
+        header_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=2)
         header_entry = ttk.Entry(
-            frame, textvariable=self.auth_header_var, width=80, state="readonly"
+            auth, textvariable=self.auth_header_var, state="readonly"
         )
-        header_entry.grid(row=4, column=1, columnspan=4, sticky="w")
-        header_button = ttk.Button(
-            frame, text="Refresh auth header", command=self._refresh_auth
-        )
-        header_button.grid(row=4, column=5, sticky="w")
+        header_entry.grid(row=2, column=1, sticky="ew", pady=2)
+        header_button = ttk.Button(auth, text="Refresh", command=self._refresh_auth)
+        header_button.grid(row=2, column=2, sticky="e", padx=(8, 0), pady=2)
 
-        fetch_button = ttk.Button(
-            frame, text="Fetch status", command=self._fetch_status
-        )
-        fetch_button.grid(row=5, column=0, sticky="w", pady=8)
+        # Actions section
+        actions = ttk.Labelframe(outer, text="Actions", padding=(10, 8))
+        actions.grid(row=1, column=0, columnspan=2, sticky="ew")
+        actions.columnconfigure(0, weight=1)
+
+        bar = ttk.Frame(actions)
+        bar.grid(row=0, column=0, sticky="ew")
+        bar.columnconfigure(0, weight=1)
+
+        left = ttk.Frame(bar)
+        left.grid(row=0, column=0, sticky="w")
         detect_button = ttk.Button(
-            frame, text="Detect base URL", command=self._detect_base_url
+            left, text="Detect base URL", command=self._detect_base_url
         )
-        detect_button.grid(row=5, column=1, sticky="w")
+        detect_button.grid(row=0, column=0, padx=(0, 10))
 
+        right = ttk.Frame(bar)
+        right.grid(row=0, column=1, sticky="e")
+        fetch_button = ttk.Button(right, text="Fetch status", command=self._fetch_status)
+        fetch_button.grid(row=0, column=0)
+
+        # Tooltips
         self._add_tooltip(
             host_label, "Instrument IP or hostname (default: 10.0.0.1 on device AP)."
         )
@@ -574,8 +660,11 @@ class BarnardControlApp:
             "Prefixes are URL path probes used to find the device (e.g., /stellina/http).",
         )
         self._add_tooltip(
-            prefixes_entry,
-            "Comma-separated prefixes to probe when detecting base URL.",
+            prefixes_entry, "Comma-separated prefixes to probe when detecting base URL."
+        )
+        self._add_tooltip(
+            advanced_toggle,
+            "Show/hide advanced connection settings (prefix probing).",
         )
         self._add_tooltip(
             auth_check, "Include Authorization header automatically on HTTP requests."
@@ -586,7 +675,8 @@ class BarnardControlApp:
             "Local auth key (base64). This is stored in src/python/.auth_key.",
         )
         self._add_tooltip(
-            key_button, "Extract key from APK/ZIP if missing, or reload from disk."
+            key_button,
+            "Extract key from APK/ZIP if missing, or reload from disk.",
         )
         self._add_tooltip(
             header_label, "Authorization header built from /app/status challenge."
@@ -599,46 +689,22 @@ class BarnardControlApp:
         self._add_tooltip(detect_button, "Probe prefixes to find a working base URL.")
 
     def _build_http_tab(self) -> None:
-        container = ttk.Frame(self.http_tab)
-        container.pack(fill=tk.BOTH, expand=True)
-        canvas = tk.Canvas(container, highlightthickness=0)
-        vscroll = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
-        canvas.configure(yscrollcommand=vscroll.set)
-        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        outer = ttk.Frame(self.http_tab, padding=10)
+        outer.pack(fill=tk.BOTH, expand=True)
+        outer.columnconfigure(0, weight=1)
+        outer.rowconfigure(3, weight=1)
 
-        frame = ttk.Frame(canvas, padding=10)
-        canvas_window = canvas.create_window((0, 0), window=frame, anchor="nw")
+        # Operation selectors
+        ops = ttk.Labelframe(outer, text="Operation", padding=(10, 8))
+        ops.grid(row=0, column=0, sticky="ew")
+        ops.columnconfigure(1, weight=0)
+        ops.columnconfigure(3, weight=1)
 
-        scrollbar_visible = {"value": False}
-
-        def _set_scrollbar_visible(visible: bool) -> None:
-            if visible and not scrollbar_visible["value"]:
-                vscroll.pack(side=tk.RIGHT, fill=tk.Y)
-                scrollbar_visible["value"] = True
-            elif not visible and scrollbar_visible["value"]:
-                vscroll.pack_forget()
-                scrollbar_visible["value"] = False
-
-        def _sync_scroll_region(_: Optional[Any] = None) -> None:
-            bbox = canvas.bbox("all")
-            canvas.configure(scrollregion=bbox)
-            if not bbox:
-                _set_scrollbar_visible(False)
-                return
-            needs_scroll = bbox[3] > canvas.winfo_height() + 2
-            _set_scrollbar_visible(needs_scroll)
-
-        def _sync_width(event: tk.Event) -> None:
-            canvas.itemconfigure(canvas_window, width=event.width)
-
-        frame.bind("<Configure>", _sync_scroll_region)
-        canvas.bind("<Configure>", _sync_width)
-
-        operation_group_label = ttk.Label(frame, text="Operation group")
+        operation_group_label = ttk.Label(ops, text="Operation group")
         operation_group_label.grid(row=0, column=0, sticky="w")
         self.operation_group_var = tk.StringVar()
         self.operation_group_combo = ttk.Combobox(
-            frame,
+            ops,
             textvariable=self.operation_group_var,
             width=self._group_label_width,
             font=("TkFixedFont", 9),
@@ -648,20 +714,18 @@ class BarnardControlApp:
             "<<ComboboxSelected>>", self._on_operation_group_selected
         )
 
-        operation_label = ttk.Label(frame, text="Operation")
+        operation_label = ttk.Label(ops, text="Operation")
         operation_label.grid(row=0, column=2, sticky="w", padx=(12, 0))
         self.operation_var = tk.StringVar()
-        self.operation_combo = ttk.Combobox(
-            frame, textvariable=self.operation_var, width=60
-        )
+        self.operation_combo = ttk.Combobox(ops, textvariable=self.operation_var)
         self.operation_combo.grid(row=0, column=3, sticky="ew")
         self.operation_combo.bind("<<ComboboxSelected>>", self._on_operation_selected)
 
-        debug_group_label = ttk.Label(frame, text="Debug group")
+        debug_group_label = ttk.Label(ops, text="Debug group")
         debug_group_label.grid(row=1, column=0, sticky="w", pady=(6, 0))
         self.debug_group_var = tk.StringVar()
         self.debug_group_combo = ttk.Combobox(
-            frame,
+            ops,
             textvariable=self.debug_group_var,
             width=self._group_label_width,
             font=("TkFixedFont", 9),
@@ -671,11 +735,11 @@ class BarnardControlApp:
             "<<ComboboxSelected>>", self._on_debug_group_selected
         )
 
-        debug_label = ttk.Label(frame, text="Debug operation")
+        debug_label = ttk.Label(ops, text="Debug operation")
         debug_label.grid(row=1, column=2, sticky="w", padx=(12, 0), pady=(6, 0))
         self.debug_operation_var = tk.StringVar()
         self.debug_operation_combo = ttk.Combobox(
-            frame, textvariable=self.debug_operation_var, width=60
+            ops, textvariable=self.debug_operation_var
         )
         self.debug_operation_combo.grid(row=1, column=3, sticky="ew", pady=(6, 0))
         self.debug_operation_combo.bind(
@@ -683,31 +747,35 @@ class BarnardControlApp:
         )
 
         self.operation_detail_var = tk.StringVar(value="")
-        operation_detail = ttk.Label(frame, textvariable=self.operation_detail_var)
-        operation_detail.grid(row=2, column=1, columnspan=3, sticky="w")
+        operation_detail = ttk.Label(ops, textvariable=self.operation_detail_var, style="Muted.TLabel")
+        operation_detail.grid(row=2, column=1, columnspan=3, sticky="w", pady=(6, 0))
 
-        frame.columnconfigure(1, weight=0)
-        frame.columnconfigure(2, weight=0)
-        frame.columnconfigure(3, weight=1)
-        frame.rowconfigure(3, weight=0)
-        frame.rowconfigure(4, weight=0)
-        frame.rowconfigure(6, weight=1)
+        # Request editors
+        request = ttk.Labelframe(outer, text="Request", padding=(10, 8))
+        request.grid(row=1, column=0, sticky="ew", pady=(10, 0))
+        request.columnconfigure(0, weight=1)
 
-        params_label = ttk.Label(frame, text="Query params (JSON)")
-        params_label.grid(row=3, column=0, sticky="w", pady=(10, 0))
-        params_frame = ttk.Frame(frame)
-        params_frame.grid(row=3, column=1, columnspan=3, sticky="nsew", pady=(10, 0))
-        params_frame.columnconfigure(0, weight=1)
-        params_frame.rowconfigure(0, weight=1)
+        request_nb = ttk.Notebook(request)
+        request_nb.grid(row=0, column=0, sticky="ew")
+
+        # Query params tab
+        params_tab = ttk.Frame(request_nb, padding=(6, 6))
+        params_tab.columnconfigure(0, weight=1)
+        params_tab.rowconfigure(0, weight=1)
+
         self.params_text = tk.Text(
-            params_frame, height=3, width=70, wrap="none", font=("TkFixedFont", 9)
+            params_tab,
+            height=6,
+            width=70,
+            wrap="none",
+            font=("TkFixedFont", 9),
         )
         self._style_text(self.params_text)
         params_scroll = ttk.Scrollbar(
-            params_frame, orient="vertical", command=self.params_text.yview
+            params_tab, orient="vertical", command=self.params_text.yview
         )
         params_hscroll = ttk.Scrollbar(
-            params_frame, orient="horizontal", command=self.params_text.xview
+            params_tab, orient="horizontal", command=self.params_text.xview
         )
         self.params_text.configure(
             yscrollcommand=params_scroll.set, xscrollcommand=params_hscroll.set
@@ -716,21 +784,24 @@ class BarnardControlApp:
         params_scroll.grid(row=0, column=1, sticky="ns")
         params_hscroll.grid(row=1, column=0, sticky="ew")
 
-        body_label = ttk.Label(frame, text="Body (JSON)")
-        body_label.grid(row=4, column=0, sticky="w", pady=(10, 0))
-        body_frame = ttk.Frame(frame)
-        body_frame.grid(row=4, column=1, columnspan=3, sticky="nsew", pady=(10, 0))
-        body_frame.columnconfigure(0, weight=1)
-        body_frame.rowconfigure(0, weight=1)
+        # Body tab
+        body_tab = ttk.Frame(request_nb, padding=(6, 6))
+        body_tab.columnconfigure(0, weight=1)
+        body_tab.rowconfigure(0, weight=1)
+
         self.body_text = tk.Text(
-            body_frame, height=6, width=70, wrap="none", font=("TkFixedFont", 9)
+            body_tab,
+            height=10,
+            width=70,
+            wrap="none",
+            font=("TkFixedFont", 9),
         )
         self._style_text(self.body_text)
         body_scroll = ttk.Scrollbar(
-            body_frame, orient="vertical", command=self.body_text.yview
+            body_tab, orient="vertical", command=self.body_text.yview
         )
         body_hscroll = ttk.Scrollbar(
-            body_frame, orient="horizontal", command=self.body_text.xview
+            body_tab, orient="horizontal", command=self.body_text.xview
         )
         self.body_text.configure(
             yscrollcommand=body_scroll.set, xscrollcommand=body_hscroll.set
@@ -739,22 +810,28 @@ class BarnardControlApp:
         body_scroll.grid(row=0, column=1, sticky="ns")
         body_hscroll.grid(row=1, column=0, sticky="ew")
 
-        send_button = ttk.Button(frame, text="Send", command=self._send_operation)
-        send_button.grid(row=5, column=1, sticky="w", pady=10)
-        clear_button = ttk.Button(
-            frame, text="Clear", command=self._clear_operation_fields
-        )
-        clear_button.grid(row=5, column=2, sticky="w", pady=10)
+        request_nb.add(params_tab, text="Query params (JSON)")
+        request_nb.add(body_tab, text="Body (JSON)")
 
-        response_label = ttk.Label(frame, text="Response")
-        response_label.grid(row=6, column=0, sticky="nw")
-        response_frame = ttk.Frame(frame)
-        response_frame.grid(row=6, column=1, columnspan=3, sticky="nsew")
-        response_frame.columnconfigure(0, weight=1)
-        response_frame.rowconfigure(0, weight=1)
+        # Actions row
+        actions = ttk.Frame(outer)
+        actions.grid(row=2, column=0, sticky="ew", pady=(10, 0))
+        actions.columnconfigure(0, weight=1)
+
+        send_button = ttk.Button(actions, text="Send", command=self._send_operation)
+        clear_button = ttk.Button(actions, text="Clear", command=self._clear_operation_fields)
+        clear_button.grid(row=0, column=2, sticky="e")
+        send_button.grid(row=0, column=1, sticky="e", padx=(0, 10))
+
+        # Response
+        response = ttk.Labelframe(outer, text="Response", padding=(10, 8))
+        response.grid(row=3, column=0, sticky="nsew", pady=(10, 0))
+        response.columnconfigure(0, weight=1)
+        response.rowconfigure(0, weight=1)
+
         self.response_text = tk.Text(
-            response_frame,
-            height=8,
+            response,
+            height=10,
             width=90,
             state="disabled",
             wrap="none",
@@ -762,10 +839,10 @@ class BarnardControlApp:
         )
         self._style_text(self.response_text)
         response_scroll = ttk.Scrollbar(
-            response_frame, orient="vertical", command=self.response_text.yview
+            response, orient="vertical", command=self.response_text.yview
         )
         response_hscroll = ttk.Scrollbar(
-            response_frame, orient="horizontal", command=self.response_text.xview
+            response, orient="horizontal", command=self.response_text.xview
         )
         self.response_text.configure(
             yscrollcommand=response_scroll.set, xscrollcommand=response_hscroll.set
@@ -773,11 +850,14 @@ class BarnardControlApp:
         self.response_text.grid(row=0, column=0, sticky="nsew")
         response_scroll.grid(row=0, column=1, sticky="ns")
         response_hscroll.grid(row=1, column=0, sticky="ew")
-        self.response_text.tag_configure("json_key", foreground="#9fd1ff")
-        self.response_text.tag_configure("json_string", foreground="#9fe3a1")
-        self.response_text.tag_configure("json_number", foreground="#f1d48a")
-        self.response_text.tag_configure("json_bool", foreground="#f2b27e")
 
+        # Response syntax highlight colors tuned for a light background.
+        self.response_text.tag_configure("json_key", foreground="#1f4e79")
+        self.response_text.tag_configure("json_string", foreground="#006100")
+        self.response_text.tag_configure("json_number", foreground="#7f6000")
+        self.response_text.tag_configure("json_bool", foreground="#7f0000")
+
+        # Tooltips
         self._add_tooltip(
             operation_group_label, "Filter operations by the first route segment."
         )
@@ -804,21 +884,12 @@ class BarnardControlApp:
             operation_detail, "Shows HTTP method and route for the selection."
         )
         self._add_tooltip(
-            params_label,
+            self.params_text,
             "Query params JSON. Use {} if no parameters are required.",
         )
-        self._add_tooltip(
-            self.params_text,
-            "Optional query params JSON.",
-        )
-        self._add_tooltip(body_label, "Request body JSON for POST/PUT endpoints.")
-        self._add_tooltip(
-            self.body_text,
-            "Request body JSON.",
-        )
+        self._add_tooltip(self.body_text, "Request body JSON for POST/PUT endpoints.")
         self._add_tooltip(send_button, "Send the selected API request.")
         self._add_tooltip(clear_button, "Clear params/body editor fields.")
-        self._add_tooltip(response_label, "Formatted response from the last request.")
         self._add_tooltip(self.response_text, "Response data (read-only).")
 
         self._load_operations()
@@ -836,7 +907,7 @@ class BarnardControlApp:
         self.status_tree.heading("value", text="Value")
         self.status_tree.column("key", width=300, anchor="w")
         self.status_tree.column("value", width=700, anchor="w")
-        self.status_tree.tag_configure("changed", background="#3b3822")
+        self.status_tree.tag_configure("changed", background="#fff2cc")
         self.status_tree.pack(fill=tk.BOTH, expand=True)
 
         scrollbar = ttk.Scrollbar(
@@ -852,8 +923,11 @@ class BarnardControlApp:
         )
 
     def _build_socket_tab(self) -> None:
-        frame = ttk.Frame(self.socket_tab, padding=10)
-        frame.pack(fill=tk.BOTH, expand=True)
+        outer = ttk.Frame(self.socket_tab, padding=10)
+        outer.pack(fill=tk.BOTH, expand=True)
+        outer.columnconfigure(0, weight=1)
+        outer.columnconfigure(1, weight=1)
+        outer.rowconfigure(2, weight=1)
 
         self.socket_url_var = tk.StringVar(value="http://10.0.0.1:8083")
         self.socket_path_var = tk.StringVar(value="/socket.io")
@@ -861,81 +935,106 @@ class BarnardControlApp:
         self.socket_name_var = tk.StringVar(value="")
         self.socket_country_var = tk.StringVar(value="")
 
-        socket_url_label = ttk.Label(frame, text="Socket URL")
-        socket_url_label.grid(row=0, column=0, sticky="w")
-        socket_url_entry = ttk.Entry(frame, textvariable=self.socket_url_var, width=30)
-        socket_url_entry.grid(row=0, column=1, sticky="w")
-        socket_path_label = ttk.Label(frame, text="Path")
-        socket_path_label.grid(row=0, column=2, sticky="w", padx=(10, 0))
-        socket_path_entry = ttk.Entry(
-            frame, textvariable=self.socket_path_var, width=12
-        )
-        socket_path_entry.grid(row=0, column=3, sticky="w")
+        # Connection
+        conn = ttk.Labelframe(outer, text="Socket connection", padding=(10, 8))
+        conn.grid(row=0, column=0, sticky="nsew", padx=(0, 10), pady=(0, 10))
+        conn.columnconfigure(1, weight=1)
 
-        device_label = ttk.Label(frame, text="Device ID")
-        device_label.grid(row=1, column=0, sticky="w", pady=6)
-        device_entry = ttk.Entry(frame, textvariable=self.socket_device_var, width=30)
-        device_entry.grid(row=1, column=1, sticky="w", pady=6)
-        name_label = ttk.Label(frame, text="Name")
-        name_label.grid(row=1, column=2, sticky="w", padx=(10, 0))
-        name_entry = ttk.Entry(frame, textvariable=self.socket_name_var, width=16)
-        name_entry.grid(row=1, column=3, sticky="w")
-        country_label = ttk.Label(frame, text="Country")
-        country_label.grid(row=1, column=4, sticky="w", padx=(10, 0))
-        country_entry = ttk.Entry(frame, textvariable=self.socket_country_var, width=10)
-        country_entry.grid(row=1, column=5, sticky="w")
+        socket_url_label = ttk.Label(conn, text="Socket URL:")
+        socket_url_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
+        socket_url_entry = ttk.Entry(conn, textvariable=self.socket_url_var)
+        socket_url_entry.grid(row=0, column=1, sticky="ew", pady=2)
 
-        connect_button = ttk.Button(frame, text="Connect", command=self._connect_socket)
-        connect_button.grid(row=2, column=0, sticky="w", pady=8)
-        disconnect_button = ttk.Button(
-            frame, text="Disconnect", command=self._disconnect_socket
-        )
-        disconnect_button.grid(row=2, column=1, sticky="w")
+        socket_path_label = ttk.Label(conn, text="Path:")
+        socket_path_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=2)
+        socket_path_entry = ttk.Entry(conn, textvariable=self.socket_path_var, width=14)
+        socket_path_entry.grid(row=1, column=1, sticky="w", pady=2)
 
-        commands_label = ttk.Label(frame, text="Commands")
-        commands_label.grid(row=3, column=0, sticky="w", pady=6)
-        take_button = ttk.Button(frame, text="Take control", command=self._take_control)
-        take_button.grid(row=3, column=1, sticky="w")
-        release_button = ttk.Button(
-            frame, text="Release control", command=self._release_control
-        )
-        release_button.grid(row=3, column=2, sticky="w")
-        restart_button = ttk.Button(
-            frame, text="Restart app", command=self._restart_app
-        )
-        restart_button.grid(row=3, column=3, sticky="w")
-        shutdown_button = ttk.Button(frame, text="Shutdown", command=self._shutdown)
-        shutdown_button.grid(row=3, column=4, sticky="w")
+        device_label = ttk.Label(conn, text="Device ID:")
+        device_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=2)
+        device_entry = ttk.Entry(conn, textvariable=self.socket_device_var)
+        device_entry.grid(row=2, column=1, sticky="ew", pady=2)
 
-        self.time_sync_notice_label = ttk.Label(
-            frame, textvariable=self.time_sync_notice_var
-        )
-        self.time_sync_notice_label.grid(row=4, column=0, columnspan=6, sticky="w")
+        btn_row = ttk.Frame(conn)
+        btn_row.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
+        connect_button = ttk.Button(btn_row, text="Connect", command=self._connect_socket)
+        disconnect_button = ttk.Button(btn_row, text="Disconnect", command=self._disconnect_socket)
+        connect_button.grid(row=0, column=0, padx=(0, 10))
+        disconnect_button.grid(row=0, column=1)
+
+        # Registration
+        reg = ttk.Labelframe(outer, text="Registration", padding=(10, 8))
+        reg.grid(row=0, column=1, sticky="nsew", padx=(10, 0), pady=(0, 10))
+        reg.columnconfigure(1, weight=1)
+
+        name_label = ttk.Label(reg, text="Name:")
+        name_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
+        name_entry = ttk.Entry(reg, textvariable=self.socket_name_var)
+        name_entry.grid(row=0, column=1, sticky="ew", pady=2)
+
+        country_label = ttk.Label(reg, text="Country:")
+        country_label.grid(row=1, column=0, sticky="e", padx=(0, 8), pady=2)
+        country_entry = ttk.Entry(reg, textvariable=self.socket_country_var, width=10)
+        country_entry.grid(row=1, column=1, sticky="w", pady=2)
+
+        user_label = ttk.Label(reg, text="User name:")
+        user_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=(10, 2))
+        self.socket_user_var = tk.StringVar(value="")
+        user_entry = ttk.Entry(reg, textvariable=self.socket_user_var)
+        user_entry.grid(row=2, column=1, sticky="ew", pady=(10, 2))
+        send_user_button = ttk.Button(reg, text="Send user", command=self._set_user_name)
+        send_user_button.grid(row=3, column=1, sticky="e", pady=(6, 0))
+
+        # Commands
+        commands = ttk.Labelframe(outer, text="Commands", padding=(10, 8))
+        commands.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(0, 10))
+
+        take_button = ttk.Button(commands, text="Take control", command=self._take_control)
+        release_button = ttk.Button(commands, text="Release control", command=self._release_control)
+        restart_button = ttk.Button(commands, text="Restart app", command=self._restart_app)
+        shutdown_button = ttk.Button(commands, text="Shutdown", command=self._shutdown)
+
+        take_button.grid(row=0, column=0, padx=(0, 10), pady=2)
+        release_button.grid(row=0, column=1, padx=(0, 10), pady=2)
+        restart_button.grid(row=0, column=2, padx=(0, 10), pady=2)
+        shutdown_button.grid(row=0, column=3, pady=2)
+
+        self.time_sync_notice_label = ttk.Label(commands, textvariable=self.time_sync_notice_var, style="Muted.TLabel")
+        self.time_sync_notice_label.grid(row=1, column=0, columnspan=4, sticky="w", pady=(8, 0))
         self.time_sync_notice_label.grid_remove()
 
-        user_label = ttk.Label(frame, text="Set user name")
-        user_label.grid(row=5, column=0, sticky="w", pady=6)
-        self.socket_user_var = tk.StringVar(value="")
-        user_entry = ttk.Entry(frame, textvariable=self.socket_user_var, width=20)
-        user_entry.grid(row=5, column=1, sticky="w")
-        send_user_button = ttk.Button(
-            frame, text="Send user", command=self._set_user_name
-        )
-        send_user_button.grid(row=5, column=2, sticky="w")
+        # Raw events
+        raw = ttk.Labelframe(outer, text="Raw event", padding=(10, 8))
+        raw.grid(row=2, column=0, columnspan=2, sticky="nsew")
+        raw.columnconfigure(1, weight=1)
+        raw.rowconfigure(1, weight=1)
 
-        raw_label = ttk.Label(frame, text="Raw command")
-        raw_label.grid(row=6, column=0, sticky="w", pady=6)
+        raw_label = ttk.Label(raw, text="Event name:")
+        raw_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
         self.socket_command_var = tk.StringVar(value="")
-        raw_entry = ttk.Entry(frame, textvariable=self.socket_command_var, width=20)
-        raw_entry.grid(row=6, column=1, sticky="w")
-        self.socket_payload_text = tk.Text(frame, height=4, width=40)
-        self._style_text(self.socket_payload_text)
-        self.socket_payload_text.grid(row=6, column=2, columnspan=2, sticky="w")
-        send_raw_button = ttk.Button(
-            frame, text="Send raw", command=self._send_raw_socket
-        )
-        send_raw_button.grid(row=6, column=4, sticky="w")
+        raw_entry = ttk.Entry(raw, textvariable=self.socket_command_var)
+        raw_entry.grid(row=0, column=1, sticky="ew", pady=2)
+        send_raw_button = ttk.Button(raw, text="Send", command=self._send_raw_socket)
+        send_raw_button.grid(row=0, column=2, sticky="e", padx=(8, 0), pady=2)
 
+        payload_label = ttk.Label(raw, text="Payload (JSON):")
+        payload_label.grid(row=1, column=0, sticky="ne", padx=(0, 8), pady=(8, 0))
+
+        payload_frame = ttk.Frame(raw)
+        payload_frame.grid(row=1, column=1, columnspan=2, sticky="nsew", pady=(8, 0))
+        payload_frame.columnconfigure(0, weight=1)
+        payload_frame.rowconfigure(0, weight=1)
+
+        self.socket_payload_text = tk.Text(payload_frame, height=6, width=60, wrap="none", font=("TkFixedFont", 9))
+        self._style_text(self.socket_payload_text)
+        payload_scroll = ttk.Scrollbar(payload_frame, orient="vertical", command=self.socket_payload_text.yview)
+        payload_hscroll = ttk.Scrollbar(payload_frame, orient="horizontal", command=self.socket_payload_text.xview)
+        self.socket_payload_text.configure(yscrollcommand=payload_scroll.set, xscrollcommand=payload_hscroll.set)
+        self.socket_payload_text.grid(row=0, column=0, sticky="nsew")
+        payload_scroll.grid(row=0, column=1, sticky="ns")
+        payload_hscroll.grid(row=1, column=0, sticky="ew")
+
+        # Tooltips
         self._add_tooltip(
             socket_url_label, "Socket.IO server URL (default: http://10.0.0.1:8083)."
         )
@@ -952,9 +1051,6 @@ class BarnardControlApp:
         self._add_tooltip(country_entry, "ISO country code (e.g., US).")
         self._add_tooltip(connect_button, "Open the Socket.IO connection.")
         self._add_tooltip(disconnect_button, "Close the Socket.IO connection.")
-        self._add_tooltip(
-            commands_label, "Standard commands exposed via socket events."
-        )
         self._add_tooltip(take_button, "Request control of the instrument.")
         self._add_tooltip(release_button, "Release control of the instrument.")
         self._add_tooltip(restart_button, "Restart the device app.")
@@ -972,46 +1068,53 @@ class BarnardControlApp:
         self._add_tooltip(send_raw_button, "Send raw socket event with payload.")
 
     def _build_image_tab(self) -> None:
-        frame = ttk.Frame(self.image_tab, padding=10)
-        frame.pack(fill=tk.BOTH, expand=True)
+        outer = ttk.Frame(self.image_tab, padding=10)
+        outer.pack(fill=tk.BOTH, expand=True)
+        outer.columnconfigure(0, weight=1)
+        outer.rowconfigure(1, weight=1)
 
         self.image_url_var = tk.StringVar(value="")
         self.live_interval_var = tk.StringVar(value="2.0")
         self.auto_live_var = tk.BooleanVar(value=True)
 
-        image_label = ttk.Label(frame, text="Image URL or path")
-        image_label.grid(row=0, column=0, sticky="w")
-        image_entry = ttk.Entry(frame, textvariable=self.image_url_var, width=80)
-        image_entry.grid(row=0, column=1, columnspan=3, sticky="w")
+        controls = ttk.Labelframe(outer, text="Controls", padding=(10, 8))
+        controls.grid(row=0, column=0, sticky="ew")
+        controls.columnconfigure(1, weight=1)
 
-        fetch_button = ttk.Button(frame, text="Fetch image", command=self._fetch_image)
-        fetch_button.grid(row=1, column=1, sticky="w", pady=8)
-        save_button = ttk.Button(frame, text="Save image", command=self._save_image)
-        save_button.grid(row=1, column=2, sticky="w", pady=8)
-        live_button = ttk.Button(
-            frame, text="Start live view", command=self._start_live_view
-        )
-        live_button.grid(row=1, column=3, sticky="w", pady=8)
-        stop_button = ttk.Button(
-            frame, text="Stop live view", command=self._stop_live_view
-        )
-        stop_button.grid(row=1, column=4, sticky="w", pady=8)
+        image_label = ttk.Label(controls, text="Image URL or path:")
+        image_label.grid(row=0, column=0, sticky="e", padx=(0, 8), pady=2)
+        image_entry = ttk.Entry(controls, textvariable=self.image_url_var)
+        image_entry.grid(row=0, column=1, columnspan=4, sticky="ew", pady=2)
 
-        interval_label = ttk.Label(frame, text="Live interval (s)")
-        interval_label.grid(row=2, column=0, sticky="w")
-        interval_entry = ttk.Entry(frame, textvariable=self.live_interval_var, width=8)
-        interval_entry.grid(row=2, column=1, sticky="w")
+        fetch_button = ttk.Button(controls, text="Fetch", command=self._fetch_image)
+        save_button = ttk.Button(controls, text="Save", command=self._save_image)
+        live_button = ttk.Button(controls, text="Start live view", command=self._start_live_view)
+        stop_button = ttk.Button(controls, text="Stop", command=self._stop_live_view)
+
+        fetch_button.grid(row=1, column=1, sticky="w", pady=(8, 0))
+        save_button.grid(row=1, column=2, sticky="w", pady=(8, 0), padx=(10, 0))
+        live_button.grid(row=1, column=3, sticky="w", pady=(8, 0), padx=(10, 0))
+        stop_button.grid(row=1, column=4, sticky="w", pady=(8, 0), padx=(10, 0))
+
+        interval_label = ttk.Label(controls, text="Live interval (s):")
+        interval_label.grid(row=2, column=0, sticky="e", padx=(0, 8), pady=(10, 2))
+        interval_entry = ttk.Entry(controls, textvariable=self.live_interval_var, width=8)
+        interval_entry.grid(row=2, column=1, sticky="w", pady=(10, 2))
         auto_check = ttk.Checkbutton(
-            frame,
+            controls,
             text="Auto-start live view when image updates",
             variable=self.auto_live_var,
         )
-        auto_check.grid(row=2, column=2, columnspan=3, sticky="w")
+        auto_check.grid(row=2, column=2, columnspan=3, sticky="w", pady=(10, 2))
 
-        self.image_label = ttk.Label(
-            frame, text="No image loaded", style="Image.TLabel"
-        )
-        self.image_label.grid(row=3, column=0, columnspan=5, sticky="w")
+        preview = ttk.Labelframe(outer, text="Preview", padding=(10, 8))
+        preview.grid(row=1, column=0, sticky="nsew", pady=(10, 0))
+        preview.columnconfigure(0, weight=1)
+        preview.rowconfigure(0, weight=1)
+
+        self.image_label = ttk.Label(preview, text="No image loaded", anchor="center")
+        self.image_label.grid(row=0, column=0, sticky="nsew")
+
         self._add_tooltip(
             image_label, "Image URL/path (auto-populated from status when available)."
         )
@@ -1031,8 +1134,15 @@ class BarnardControlApp:
         frame = ttk.Frame(parent, padding=(10, 6, 10, 10))
         frame.pack(fill=tk.BOTH, expand=True)
 
+        toolbar = ttk.Frame(frame)
+        toolbar.pack(fill=tk.X)
+        ttk.Label(toolbar, text="Logs", style="HeaderTitle.TLabel").pack(side=tk.LEFT)
+
+        clear_btn = ttk.Button(toolbar, text="Clear", command=lambda: self._clear_console())
+        clear_btn.pack(side=tk.RIGHT)
+
         console_frame = ttk.Frame(frame)
-        console_frame.pack(fill=tk.BOTH, expand=True)
+        console_frame.pack(fill=tk.BOTH, expand=True, pady=(6, 0))
         console_frame.columnconfigure(0, weight=1)
         console_frame.rowconfigure(0, weight=1)
 
@@ -1049,10 +1159,21 @@ class BarnardControlApp:
         scrollbar = ttk.Scrollbar(console_frame, command=self.console_text.yview)
         scrollbar.grid(row=0, column=1, sticky="ns")
         self.console_text.configure(yscrollcommand=scrollbar.set)
-        self.console_text.tag_configure("log_info", foreground="#9fe3a1")
-        self.console_text.tag_configure("log_warning", foreground="#f1d48a")
-        self.console_text.tag_configure("log_error", foreground="#ff9b9b")
+
+        # Log tag colors tuned for a light background.
+        self.console_text.tag_configure("log_info", foreground="#006100")
+        self.console_text.tag_configure("log_warning", foreground="#7f6000")
+        self.console_text.tag_configure("log_error", foreground="#7f0000")
+
         self._add_tooltip(self.console_text, "Logs for HTTP, socket, and GUI actions.")
+        self._add_tooltip(clear_btn, "Clear the log output.")
+
+    def _clear_console(self) -> None:
+        if not hasattr(self, "console_text"):
+            return
+        self.console_text.configure(state="normal")
+        self.console_text.delete("1.0", tk.END)
+        self.console_text.configure(state="disabled")
 
     def _schedule_log_pump(self) -> None:
         while True:
@@ -1144,11 +1265,11 @@ class BarnardControlApp:
             return
         if loaded:
             self.load_key_button.configure(
-                text="1) Key Loaded", state="disabled", style="Quick.TButton"
+                text="Key loaded", state="disabled", style="Quick.TButton"
             )
         else:
             self.load_key_button.configure(
-                text="1) Load key", state="normal", style="Quick.TButton"
+                text="Load/Extract key", state="normal", style="Quick.TButton"
             )
 
     def _build_auth_from_status(self, status: Any) -> Optional[str]:
@@ -2112,10 +2233,15 @@ class BarnardControlApp:
         lines = self._build_status_summary_lines(status, max_lines=5)
         if not lines:
             lines = ["(no status yet)"]
-        self.status_summary_text.configure(state="normal")
-        self.status_summary_text.delete("1.0", tk.END)
-        self.status_summary_text.insert(tk.END, "\n".join(lines))
-        self.status_summary_text.configure(state="disabled")
+        if hasattr(self, "status_summary_var"):
+            self.status_summary_var.set("\n".join(lines))
+            return
+        # Fallback for older widget structure.
+        if hasattr(self, "status_summary_text"):
+            self.status_summary_text.configure(state="normal")
+            self.status_summary_text.delete("1.0", tk.END)
+            self.status_summary_text.insert(tk.END, "\n".join(lines))
+            self.status_summary_text.configure(state="disabled")
 
     def _stringify_value(self, value: Any, max_len: int = 200) -> str:
         if isinstance(value, str):
