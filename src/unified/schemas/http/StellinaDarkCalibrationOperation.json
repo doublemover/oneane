@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaDarkCalibrationOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "ctx": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "steps": {
+      "type": "array",
+      "items": {}
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "startTime",
+    "stopped"
+  ]
+}

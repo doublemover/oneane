@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaPlanOperation_StellinaPlanOperationState",
+  "type": "string",
+  "enum": [
+    "AUTO_INIT",
+    "FINISHED",
+    "OBSERVATION",
+    "WAITING_FOR_OBSERVATION_START",
+    "WAITING_FOR_RETRY",
+    "WAITING_UNTIL_START"
+  ]
+}

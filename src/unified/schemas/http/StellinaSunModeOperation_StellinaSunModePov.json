@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSunModeOperation_StellinaSunModePov",
+  "type": "string",
+  "enum": [
+    "earth",
+    "jupiter",
+    "mars",
+    "mercury",
+    "neptune",
+    "raw",
+    "saturn",
+    "uranus",
+    "venus"
+  ]
+}

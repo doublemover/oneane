@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UpdateStatus",
+  "type": "object",
+  "properties": {
+    "installedVersion": {
+      "type": "string"
+    },
+    "minimumCompatibleVersion": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "IDLE",
+        "INSTALL",
+        "UPLOAD"
+      ]
+    },
+    "progressInfo": {
+      "nullable": true,
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "./UpdateProgressInfo.json"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaStorage_StellinaStorageSpace",
+  "type": "object",
+  "properties": {
+    "available": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "changeCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "required": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "system": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "user": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "required": [
+    "available",
+    "size"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HdrBackgroundBody",
+  "type": "object",
+  "properties": {
+    "curve": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "polynomialOrder": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "ratioParam": {
+      "type": "number",
+      "format": "double"
+    },
+    "ratioParamLocal": {
+      "type": "number",
+      "format": "double"
+    },
+    "saturation": {
+      "type": "number",
+      "format": "double"
+    },
+    "whiteMeanNoiseRatio": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "curve",
+    "polynomialOrder",
+    "ratioParam",
+    "ratioParamLocal",
+    "saturation",
+    "whiteMeanNoiseRatio"
+  ]
+}

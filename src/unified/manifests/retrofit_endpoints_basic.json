@@ -1,0 +1,2640 @@
+[
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OpenWeatherAPI",
+    "method": "get5DaysWeatherForecast",
+    "http_verb": "GET",
+    "path": "",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method": "getArticles",
+    "http_verb": "GET",
+    "path": "/articles/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "X_API_VERSION"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "language"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionArticlesAPI",
+    "method": "getArticleImage",
+    "http_verb": "GET",
+    "path": "/articles/{article_id}/image/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "article_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendLogsV2",
+    "http_verb": "POST",
+    "path": "",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendDeviceInfo",
+    "http_verb": "POST",
+    "path": "devices/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendDeviceFCMToken",
+    "http_verb": "POST",
+    "path": "devices/gcm/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendAutoInitReports",
+    "http_verb": "POST",
+    "path": "instruments/autoinit/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionDeviceInstrumentAPI",
+    "method": "sendInstrumentsConnexion",
+    "http_verb": "POST",
+    "path": "instruments/connexions/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "getManualTargets",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "createManualTarget",
+    "http_verb": "POST",
+    "path": "/profiles/{profile_id}/manualTargets/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "deleteManualTarget",
+    "http_verb": "DELETE",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionManualTargetAPI",
+    "method": "updateManualTarget",
+    "http_verb": "PATCH",
+    "path": "/profiles/{profile_id}/manualTargets/{id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getSavedObservationV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "sendSavedObservation",
+    "http_verb": "POST",
+    "path": "/profiles/{profile_id}/observationImages/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "data"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "deleteSavedObservation",
+    "http_verb": "DELETE",
+    "path": "/profiles/{profile_id}/observationImages/{id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getObservationImageV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/image/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "getObservationThumbnailV2",
+    "http_verb": "GET",
+    "path": "/profiles/{profile_id}/observationImages/{id}/thumbnail/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionObservationAPI",
+    "method": "sendObservationReport",
+    "http_verb": "POST",
+    "path": "profiles/{profile_id}/observations/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "getAllPlannedNight",
+    "http_verb": "GET",
+    "path": "profiles/{profile_id}/plans/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "postPlannedNight",
+    "http_verb": "POST",
+    "path": "profiles/{profile_id}/plans/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "deletePlan",
+    "http_verb": "DELETE",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "plan_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionPlanMyNightAPI",
+    "method": "patchPlannedNight",
+    "http_verb": "PATCH",
+    "path": "profiles/{profile_id}/plans/{plan_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "profile_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "plan_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "login",
+    "http_verb": "POST",
+    "path": "auth/login/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "logout",
+    "http_verb": "POST",
+    "path": "auth/logout/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "sendPasswordResetEmail",
+    "http_verb": "POST",
+    "path": "auth/password-reset/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "register",
+    "http_verb": "POST",
+    "path": "auth/register/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "email"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "password"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "getProfile",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "updateProfile",
+    "http_verb": "PATCH",
+    "path": "profiles/{user_id}/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "interests"
+            }
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "eula_version"
+            }
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "privacy_policy_version"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "getObjectPreferences",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "createObjectPreference",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/objectPreferences/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPI",
+    "method": "createObservatory",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "deleteProfile",
+    "http_verb": "DELETE",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getProfile",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "updateProfile",
+    "http_verb": "PATCH",
+    "path": "profiles/{user_id}/",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "username"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "first_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "last_name"
+            }
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "interests"
+            }
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "eula_version"
+            }
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {
+              "value": "privacy_policy_version"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getAvatar",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/avatar/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "getObservatories",
+    "http_verb": "GET",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "createObservatory",
+    "http_verb": "POST",
+    "path": "profiles/{user_id}/observatories/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.OrionUserAPIV2",
+    "method": "deleteObservatory",
+    "http_verb": "DELETE",
+    "path": "profiles/{user_id}/observatories/{observatory_id}/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Path",
+            "elements": {
+              "value": "observatory_id"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.barnard.data.api.StoreAPI",
+    "method": "getAccessories",
+    "http_verb": "GET",
+    "path": "accessories/",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "language"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "downloadImage",
+    "http_verb": "GET",
+    "path": "",
+    "modifiers": [
+      {
+        "type": "Streaming",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Url",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "updateSettings",
+    "http_verb": "POST",
+    "path": "app/setSettings",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStatus",
+    "http_verb": "GET",
+    "path": "app/status",
+    "modifiers": [],
+    "params": []
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestShutdown",
+    "http_verb": "POST",
+    "path": "board/requestShutdown",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "exportTiff",
+    "http_verb": "POST",
+    "path": "capture/exportImageTiff",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setToBeResumable",
+    "http_verb": "POST",
+    "path": "capture/setToBeResumable",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/deleteStoredCapture",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStoredCaptureObservation",
+    "http_verb": "GET",
+    "path": "captureStore/getObservation",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "storeId"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservationFromStoredCapture",
+    "http_verb": "POST",
+    "path": "captureStore/startObservationFromStoredCapture",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "generateDark",
+    "http_verb": "POST",
+    "path": "darkManager/generateDark",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopGenerateDark",
+    "http_verb": "POST",
+    "path": "darkManager/stopGenerateDark",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/startStorageAcquisition",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopStorageAcquisition",
+    "http_verb": "POST",
+    "path": "expertMode/stopStorageAcquisition",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFocus",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFocus",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "adjustObservationFraming",
+    "http_verb": "POST",
+    "path": "general/adjustObservationFraming",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "openArm",
+    "http_verb": "POST",
+    "path": "general/openForMaintenance",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "parkArm",
+    "http_verb": "POST",
+    "path": "general/park",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startAutoInit",
+    "http_verb": "POST",
+    "path": "general/startAutoInit",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startObservation",
+    "http_verb": "POST",
+    "path": "general/startObservation",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopAutoInit",
+    "http_verb": "POST",
+    "path": "general/stopAutoInit",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopObservation",
+    "http_verb": "POST",
+    "path": "general/stopObservation",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "consumeLogs",
+    "http_verb": "POST",
+    "path": "logs/consume",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "switchFrequency",
+    "http_verb": "POST",
+    "path": "network/switchFrequency",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getPlanObservation",
+    "http_verb": "GET",
+    "path": "planner/getPlanObservation",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "observationId"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlan",
+    "http_verb": "POST",
+    "path": "planner/startPlan",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlan",
+    "http_verb": "POST",
+    "path": "planner/stopPlan",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/startPlaylist",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopPlaylist",
+    "http_verb": "POST",
+    "path": "playlist/stopPlaylist",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getAvailableReport",
+    "http_verb": "GET",
+    "path": "reporter/getAvailableReports",
+    "modifiers": [],
+    "params": []
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "markReportsAsSynced",
+    "http_verb": "POST",
+    "path": "reporter/markReportsAsSynced",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "deleteUserStorageFolder",
+    "http_verb": "POST",
+    "path": "storage/deleteUserStorageFolders",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "getStorageFolderContent",
+    "http_verb": "GET",
+    "path": "storage/userStorageFolderContent",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "folderPath"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "changePov",
+    "http_verb": "POST",
+    "path": "sun/changePov",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "sendSunModeAction",
+    "http_verb": "POST",
+    "path": "sun/handleUserAction",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "restartSunAutofocus",
+    "http_verb": "POST",
+    "path": "sun/restartAutofocus",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "setSunModeParams",
+    "http_verb": "POST",
+    "path": "sun/setUserParams",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "startSunMode",
+    "http_verb": "POST",
+    "path": "sun/startSunMode",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "stopSunObservation",
+    "http_verb": "POST",
+    "path": "sun/stopObservation",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "uploadUpdateFile",
+    "http_verb": "POST",
+    "path": "updates/uploadUpdateFile",
+    "modifiers": [
+      {
+        "type": "Multipart",
+        "elements": {}
+      }
+    ],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Part",
+            "elements": {}
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "fileName"
+            }
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "annotations": [
+          {
+            "type": "Query",
+            "elements": {
+              "value": "model"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "applyResetCode",
+    "http_verb": "POST",
+    "path": "userManager/applyResetResponse",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "annotations": [
+          {
+            "type": "Body",
+            "elements": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dex": "classes2.dex",
+    "interface": "com.vaonis.instruments.sdk.StellinaAPI",
+    "method": "requestResetCode",
+    "http_verb": "POST",
+    "path": "userManager/makeResetRequest",
+    "modifiers": [],
+    "params": [
+      {
+        "index": 0,
+        "annotations": [
+          {
+            "type": "Header",
+            "elements": {
+              "value": "Authorization"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

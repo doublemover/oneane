@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSkyPosition",
+  "type": "object",
+  "properties": {
+    "de": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "ra": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "rot": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  }
+}

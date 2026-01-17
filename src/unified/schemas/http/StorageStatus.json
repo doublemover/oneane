@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StorageStatus",
+  "type": "object",
+  "properties": {
+    "system": {
+      "$ref": "./StorageSpace.json"
+    },
+    "data": {
+      "$ref": "./StorageSpace.json"
+    },
+    "usb": {
+      "$ref": "./StorageUsbSpace.json",
+      "nullable": true
+    },
+    "public": {
+      "$ref": "./StoragePublicSpace.json",
+      "nullable": true
+    }
+  },
+  "required": [
+    "system",
+    "data"
+  ]
+}

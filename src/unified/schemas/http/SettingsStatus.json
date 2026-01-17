@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SettingsStatus",
+  "type": "object",
+  "properties": {
+    "algoHdrBackground": {
+      "$ref": "./StellinaSettings_BalensMode.json",
+      "nullable": true
+    },
+    "buttonBrightness": {
+      "type": "string",
+      "nullable": true
+    },
+    "enableDarkUsage": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableDithering": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableFullResolution": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableHdrBackground": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableLiveFocus": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "storageFileCategories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "telescopeName": {
+      "type": "string",
+      "nullable": true
+    },
+    "usbFileTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "hasFilterDetection": {
+      "type": "boolean",
+      "nullable": true
+    }
+  },
+  "additionalProperties": true
+}

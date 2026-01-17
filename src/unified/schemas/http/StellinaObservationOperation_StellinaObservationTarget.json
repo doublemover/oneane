@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_StellinaObservationTarget",
+  "type": "object",
+  "properties": {
+    "coords": {
+      "$ref": "./StellinaSkyPosition.json"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "objectName": {
+      "type": "string"
+    },
+    "objectType": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "./StellinaObservationOperation_ObservationTargetType.json"
+    }
+  }
+}

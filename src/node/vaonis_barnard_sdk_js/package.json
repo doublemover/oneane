@@ -1,0 +1,14 @@
+{
+  "name": "vaonis-barnard-instrument-sdk-extracted",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Best-effort extracted socket event payload schemas and HTTP body/response DTOs from com.vaonis.barnard Android app.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./schemas": "./src/schemas.js"
+  },
+  "types": "./index.d.ts",
+  "license": "UNLICENSED"
+}

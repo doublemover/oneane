@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaCapture_StellinaCameraParams",
+  "type": "object",
+  "properties": {
+    "exposureMicroSec": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "gain": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "height": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "width": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "exposureMicroSec",
+    "gain"
+  ]
+}

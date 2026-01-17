@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TiffData",
+  "type": "object",
+  "properties": {
+    "savedOnUsbStorage": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "stackingCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

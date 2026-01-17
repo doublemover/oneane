@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlanMyNightBody",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double"
+    },
+    "observatoryId": {
+      "type": "string"
+    },
+    "observatoryName": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "string"
+    },
+    "planName": {
+      "type": "string"
+    },
+    "planVersion": {
+      "type": "string"
+    },
+    "targets": {
+      "type": "array",
+      "items": {}
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "latitude",
+    "longitude",
+    "userId"
+  ]
+}

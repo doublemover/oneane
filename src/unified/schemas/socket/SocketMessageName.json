@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SocketMessageName",
+  "type": "string",
+  "enum": [
+    "takeControl",
+    "releaseControl",
+    "getStatus",
+    "setSystemTime",
+    "sendUserName"
+  ]
+}

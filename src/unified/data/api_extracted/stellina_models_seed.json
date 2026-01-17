@@ -1,0 +1,876 @@
+[
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AdjustFocusBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36084,
+        "name": "restartCapture",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AdjustFramingBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36085,
+        "name": "rot",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36086,
+        "name": "x",
+        "type": "I",
+        "json_name": null
+      },
+      {
+        "field_idx": 36087,
+        "name": "y",
+        "type": "I",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/AutoInitBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36088,
+        "name": "latitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36089,
+        "name": "longitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36090,
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36091,
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36092,
+        "name": "skipAutoFocus",
+        "type": "Z",
+        "json_name": null
+      },
+      {
+        "field_idx": 36093,
+        "name": "time",
+        "type": "J",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/DeleteStoredCaptureBody;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36094,
+        "name": "storeId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/DeleteUserStorageFolderBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36095,
+        "name": "folderPaths",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/NetworkBody;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36102,
+        "name": "band",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/PlaylistBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Ldalvik/annotation/MemberClasses;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36104,
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36105,
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36106,
+        "name": "playlistType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaPlaylistOperation$PlaylistType;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36107,
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36108,
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/ReportsBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Ldalvik/annotation/MemberClasses;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36111,
+        "name": "reports",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/RequestCodeBody;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36112,
+        "name": "response",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SettingsBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36113,
+        "name": "algoHdrBackground",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSettings$BalensMode;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36114,
+        "name": "buttonBrightness",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36115,
+        "name": "enableDarkUsage",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36116,
+        "name": "enableDithering",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36117,
+        "name": "enableFullResolution",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36118,
+        "name": "enableHdrBackground",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36119,
+        "name": "enableLiveFocus",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36120,
+        "name": "storageFileCategories",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36121,
+        "name": "telescopeName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36122,
+        "name": "usbFileTypes",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StartObservationBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Ldalvik/annotation/MemberClasses;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36124,
+        "name": "algorithm",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaPointingAlgorithm;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36125,
+        "name": "backgroundEnabled",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36126,
+        "name": "backgroundPolyorder",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36127,
+        "name": "brightZoneOffset",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaBrightZoneOffset;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36128,
+        "name": "de",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36129,
+        "name": "doStacking",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36130,
+        "name": "exposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36131,
+        "name": "gain",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36132,
+        "name": "hdrBackground",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/HdrBackgroundBody;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36133,
+        "name": "histogramEnabled",
+        "type": "Ljava/lang/Boolean;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36134,
+        "name": "histogramHigh",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36135,
+        "name": "histogramLow",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36136,
+        "name": "histogramMedium",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36137,
+        "name": "mosaicBody",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/mosaic/MosaicBody;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36138,
+        "name": "objectId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36139,
+        "name": "objectName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36140,
+        "name": "objectType",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36141,
+        "name": "observationType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellinaObservationType;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36142,
+        "name": "ra",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36143,
+        "name": "rot",
+        "type": "Ljava/lang/Double;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36144,
+        "name": "store",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$StellingCaptureStore;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36145,
+        "name": "targetType",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$ObservationTargetType;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StartObservationFromStoredCaptureBody;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36146,
+        "name": "storeId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Ldalvik/annotation/MemberClasses;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36152,
+        "name": "exposureMicroSec",
+        "type": "I",
+        "json_name": null
+      },
+      {
+        "field_idx": 36153,
+        "name": "flip",
+        "type": "Lcom/vaonis/instruments/sdk/models/body/StorageAcquisitionBody$StellinaAcquisitionFlip;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36154,
+        "name": "gain",
+        "type": "I",
+        "json_name": null
+      },
+      {
+        "field_idx": 36155,
+        "name": "numExposures",
+        "type": "I",
+        "json_name": null
+      },
+      {
+        "field_idx": 36156,
+        "name": "overwrite",
+        "type": "Z",
+        "json_name": null
+      },
+      {
+        "field_idx": 36157,
+        "name": "path",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeActionBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36158,
+        "name": "action",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaSunModeAction;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36159,
+        "name": "pov",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModePov;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36160,
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36161,
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36162,
+        "name": "eclipse",
+        "type": "Z",
+        "json_name": null
+      },
+      {
+        "field_idx": 36163,
+        "name": "latitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36164,
+        "name": "longitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36165,
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36166,
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36167,
+        "name": "skipAutoFocus",
+        "type": "Z",
+        "json_name": null
+      },
+      {
+        "field_idx": 36168,
+        "name": "time",
+        "type": "J",
+        "json_name": null
+      },
+      {
+        "field_idx": 36169,
+        "name": "userId",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModeParamsBody;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36170,
+        "name": "MAP",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36171,
+        "name": "exposureMicroSec",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36172,
+        "name": "exposureMode",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation$CurrentParams$ExposureMode;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36173,
+        "name": "gain",
+        "type": "Ljava/lang/Integer;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/SunModePovBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36174,
+        "name": "pov",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaSunModeOperation$StellinaSunModePov;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/TiffBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36175,
+        "name": "captureId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/body/planmynight/PlanMyNightBody;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36178,
+        "name": "appVersion",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36179,
+        "name": "deviceId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36180,
+        "name": "latitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36181,
+        "name": "longitude",
+        "type": "D",
+        "json_name": null
+      },
+      {
+        "field_idx": 36182,
+        "name": "observatoryId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36183,
+        "name": "observatoryName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36184,
+        "name": "planId",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36185,
+        "name": "planName",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36186,
+        "name": "planVersion",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36187,
+        "name": "targets",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36188,
+        "name": "userId",
+        "type": "I",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/FolderContentResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36211,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaStorageFolderContent;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/LogResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Ldalvik/annotation/MemberClasses;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36214,
+        "name": "file",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36215,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/response/LogResponse$Result;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36216,
+        "name": "success",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/OrderResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36217,
+        "name": "success",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/PlanObservationResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36218,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36219,
+        "name": "success",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/ReportsResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36220,
+        "name": "result",
+        "type": "Ljava/util/List;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/ResetCodeResponse;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36221,
+        "name": "result",
+        "type": "Ljava/lang/String;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/StatusResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36222,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/StellinaStatus;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36223,
+        "name": "success",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/StoredObservationResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36224,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/status/operations/StellinaObservationOperation;",
+        "json_name": null
+      },
+      {
+        "field_idx": 36225,
+        "name": "success",
+        "type": "Z",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lcom/vaonis/instruments/sdk/models/response/TiffResponse;",
+    "class_annotations": [
+      "Lcom/squareup/moshi/JsonClass;",
+      "Lkotlin/Metadata;"
+    ],
+    "fields": [
+      {
+        "field_idx": 36229,
+        "name": "result",
+        "type": "Lcom/vaonis/instruments/sdk/models/response/TiffData;",
+        "json_name": null
+      }
+    ]
+  },
+  {
+    "descriptor": "Lkotlin/Unit;",
+    "class_annotations": [
+      "Lkotlin/Metadata;"
+    ],
+    "fields": []
+  },
+  {
+    "descriptor": "Lokhttp3/ResponseBody;",
+    "error": "class_not_found"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_StellinaPointingAlgorithm",
+  "type": "string",
+  "enum": [
+    "AUTO",
+    "BRIGHT_ZONE",
+    "DEEP_SKY",
+    "DEEP_SKY_THEN_BRIGHT_ZONE"
+  ]
+}

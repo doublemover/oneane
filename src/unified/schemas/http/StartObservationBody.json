@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StartObservationBody",
+  "type": "object",
+  "properties": {
+    "algorithm": {
+      "$ref": "./StellinaObservationOperation_StellinaPointingAlgorithm.json"
+    },
+    "backgroundEnabled": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "backgroundPolyorder": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "brightZoneOffset": {
+      "$ref": "./StellinaObservationOperation_StellinaBrightZoneOffset.json"
+    },
+    "de": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "doStacking": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "exposureMicroSec": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "gain": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "hdrBackground": {
+      "$ref": "./HdrBackgroundBody.json"
+    },
+    "histogramEnabled": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "histogramHigh": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "histogramLow": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "histogramMedium": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "mosaicBody": {
+      "$ref": "./MosaicBody.json"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "objectName": {
+      "type": "string"
+    },
+    "objectType": {
+      "type": "string"
+    },
+    "observationType": {
+      "$ref": "./StellinaObservationOperation_StellinaObservationType.json"
+    },
+    "ra": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "rot": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "store": {
+      "$ref": "./StellinaObservationOperation_StellingCaptureStore.json"
+    },
+    "targetType": {
+      "$ref": "./StellinaObservationOperation_ObservationTargetType.json"
+    }
+  }
+}

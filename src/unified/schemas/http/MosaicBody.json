@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MosaicBody",
+  "type": "object",
+  "properties": {
+    "heightDegree": {
+      "type": "number",
+      "format": "float"
+    },
+    "widthDegree": {
+      "type": "number",
+      "format": "float"
+    }
+  },
+  "required": [
+    "heightDegree",
+    "widthDegree"
+  ]
+}

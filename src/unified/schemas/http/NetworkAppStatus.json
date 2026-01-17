@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NetworkAppStatus",
+  "type": "object",
+  "properties": {
+    "channel": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "band": {
+      "type": "string",
+      "enum": [
+        "BAND_2_4_GHZ",
+        "BAND_5_GHZ"
+      ]
+    }
+  }
+}

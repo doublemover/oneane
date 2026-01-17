@@ -1,0 +1,1925 @@
+[
+  {
+    "method": "POST",
+    "path": "/app/abortAllOperations",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostAbortAllOperations"
+  },
+  {
+    "method": "POST",
+    "path": "/app/abortAllOperationsAndRestart",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostAbortAllOperationsAndRestart"
+  },
+  {
+    "method": "POST",
+    "path": "/app/abortOperation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostAbortOperation"
+  },
+  {
+    "method": "POST",
+    "path": "/app/cleanInstrument",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostCleanInstrument"
+  },
+  {
+    "method": "GET",
+    "path": "/app/debugStatus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appGetDebugStatus"
+  },
+  {
+    "method": "POST",
+    "path": "/app/debug_causeSegfault",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostDebugCauseSegfault"
+  },
+  {
+    "method": "POST",
+    "path": "/app/debug_freeze",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostDebugFreeze"
+  },
+  {
+    "method": "GET",
+    "path": "/app/getConfig",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appGetGetConfig"
+  },
+  {
+    "method": "POST",
+    "path": "/app/setConfig",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostSetConfig"
+  },
+  {
+    "method": "POST",
+    "path": "/app/setSettings",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appPostSetSettings"
+  },
+  {
+    "method": "GET",
+    "path": "/app/status",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "appGetStatus"
+  },
+  {
+    "method": "POST",
+    "path": "/astrometry/computeAstrometry",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "astrometryPostComputeAstrometry"
+  },
+  {
+    "method": "POST",
+    "path": "/astrometry/debug_convertImagePoint",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "astrometryPostDebugConvertImagePoint"
+  },
+  {
+    "method": "POST",
+    "path": "/astrometry/debug_setAstrometryResult",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "astrometryPostDebugSetAstrometryResult"
+  },
+  {
+    "method": "POST",
+    "path": "/astrometry/singleAstrometry",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "astrometryPostSingleAstrometry"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/findObservationTarget",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostFindObservationTarget"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/monitorTracking",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostMonitorTracking"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/processAstrometryFolders",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostProcessAstrometryFolders"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/processAutoFocusFolders",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostProcessAutoFocusFolders"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/runObservationProgram",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostRunObservationProgram"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/startHighConsomation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostStartHighConsomation"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/startObservationProgram",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostStartObservationProgram"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/startTestingProgram",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostStartTestingProgram"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/takeSamples",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTakeSamples"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testAngularCorrection",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestAngularCorrection"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testAngularCorrectionDerivation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestAngularCorrectionDerivation"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testAutoFocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestAutoFocus"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testComputations",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestComputations"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testMovements",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestMovements"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testPointing",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestPointing"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testPointingWithAstrometry",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestPointingWithAstrometry"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/testTracking",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostTestTracking"
+  },
+  {
+    "method": "POST",
+    "path": "/automator/writeMosaicProgram",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "automatorPostWriteMosaicProgram"
+  },
+  {
+    "method": "POST",
+    "path": "/battery/cancelAssociation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "batteryPostCancelAssociation"
+  },
+  {
+    "method": "POST",
+    "path": "/battery/proposeAssociation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "batteryPostProposeAssociation"
+  },
+  {
+    "method": "POST",
+    "path": "/board/causeCrash",
+    "models": [
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostCauseCrash__board_causeCrash"
+  },
+  {
+    "method": "POST",
+    "path": "/board/causeFreeze",
+    "models": [
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostCauseFreeze__board_causeFreeze"
+  },
+  {
+    "method": "POST",
+    "path": "/board/cause_crash",
+    "models": [
+      "stellina"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostCauseCrash__board_cause_crash"
+  },
+  {
+    "method": "POST",
+    "path": "/board/cause_freeze",
+    "models": [
+      "stellina"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostCauseFreeze__board_cause_freeze"
+  },
+  {
+    "method": "POST",
+    "path": "/board/debug_failOnNextFrame",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostDebugFailOnNextFrame"
+  },
+  {
+    "method": "POST",
+    "path": "/board/debug_pollRegister",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostDebugPollRegister"
+  },
+  {
+    "method": "POST",
+    "path": "/board/debug_readTime",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostDebugReadTime"
+  },
+  {
+    "method": "POST",
+    "path": "/board/debug_testTime",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostDebugTestTime"
+  },
+  {
+    "method": "POST",
+    "path": "/board/flash",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostFlash"
+  },
+  {
+    "method": "POST",
+    "path": "/board/forceState",
+    "models": [
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostForceState"
+  },
+  {
+    "method": "POST",
+    "path": "/board/position",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostPosition"
+  },
+  {
+    "method": "POST",
+    "path": "/board/ready",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostReady"
+  },
+  {
+    "method": "POST",
+    "path": "/board/ref",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostRef"
+  },
+  {
+    "method": "POST",
+    "path": "/board/refreshRef",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostRefreshRef"
+  },
+  {
+    "method": "POST",
+    "path": "/board/requestShutdown",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostRequestShutdown"
+  },
+  {
+    "method": "POST",
+    "path": "/board/reset",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostReset"
+  },
+  {
+    "method": "POST",
+    "path": "/board/sendFrame",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostSendFrame"
+  },
+  {
+    "method": "POST",
+    "path": "/board/sim_powerButtonPush",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostSimPowerButtonPush"
+  },
+  {
+    "method": "POST",
+    "path": "/board/target",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostTarget"
+  },
+  {
+    "method": "POST",
+    "path": "/board/time",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardPostTime"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/goHome",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostGoHome"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/sendCommand",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostSendCommand"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/testButton",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostTestButton"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/testCamera",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostTestCamera"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/testSens",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostTestSens"
+  },
+  {
+    "method": "POST",
+    "path": "/boardDebug/testTorque",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugPostTestTorque"
+  },
+  {
+    "method": "GET",
+    "path": "/boardDebug/torqueChart",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugGetTorqueChart"
+  },
+  {
+    "method": "GET",
+    "path": "/boardDebug/torqueCsv",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "boardDebugGetTorqueCsv"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/changeSunPov",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostChangeSunPov"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/debug_readParams",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostDebugReadParams"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/debug_stressTest",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostDebugStressTest"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/pauseAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostPauseAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/restartAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostRestartAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/resumeAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostResumeAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/setAcquisitionFolder2",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostSetAcquisitionFolder2"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/singleAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostSingleAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/startAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostStartAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/updateAcquisitionExposure",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostUpdateAcquisitionExposure"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/updateAcquisitionExposureMode",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostUpdateAcquisitionExposureMode"
+  },
+  {
+    "method": "POST",
+    "path": "/camera/updateAcquisitionGain",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "cameraPostUpdateAcquisitionGain"
+  },
+  {
+    "method": "POST",
+    "path": "/capture/exportImageHdr",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "capturePostExportImageHdr"
+  },
+  {
+    "method": "POST",
+    "path": "/capture/exportImageTiff",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "capturePostExportImageTiff"
+  },
+  {
+    "method": "POST",
+    "path": "/capture/setToBeResumable",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "capturePostSetToBeResumable"
+  },
+  {
+    "method": "POST",
+    "path": "/capture/startCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "capturePostStartCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/capture/stopCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "capturePostStopCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/captureStore/deleteAllStoredCaptures",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "captureStorePostDeleteAllStoredCaptures"
+  },
+  {
+    "method": "POST",
+    "path": "/captureStore/deleteStoredCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "captureStorePostDeleteStoredCapture"
+  },
+  {
+    "method": "GET",
+    "path": "/captureStore/getObservation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "captureStoreGetGetObservation"
+  },
+  {
+    "method": "POST",
+    "path": "/captureStore/startObservationFromStoredCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "captureStorePostStartObservationFromStoredCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/darkManager/deleteDark",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "darkManagerPostDeleteDark"
+  },
+  {
+    "method": "POST",
+    "path": "/darkManager/generateDark",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "darkManagerPostGenerateDark"
+  },
+  {
+    "method": "POST",
+    "path": "/darkManager/stopGenerateDark",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "darkManagerPostStopGenerateDark"
+  },
+  {
+    "method": "POST",
+    "path": "/debug/copyFile",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "debugPostCopyFile"
+  },
+  {
+    "method": "POST",
+    "path": "/debug/motors/fakeCalibration",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "debugPostFakeCalibration"
+  },
+  {
+    "method": "POST",
+    "path": "/debug/motors/readAllStatusRegisters",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "debugPostReadAllStatusRegisters"
+  },
+  {
+    "method": "POST",
+    "path": "/expertMode/startStorageAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "expertModePostStartStorageAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/expertMode/stopStorageAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "expertModePostStopStorageAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/externalProcess/debug_setSimSettings",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "externalProcessPostDebugSetSimSettings"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/clearHistory",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostClearHistory"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/computeFocusValue",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostComputeFocusValue"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/computeInitialSequence",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostComputeInitialSequence"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/debug_setFocusValueResult",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostDebugSetFocusValueResult"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/processCurrentHistory",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostProcessCurrentHistory"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/processHistory",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostProcessHistory"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/singleFocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostSingleFocus"
+  },
+  {
+    "method": "POST",
+    "path": "/focus/startAutoFocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "focusPostStartAutoFocus"
+  },
+  {
+    "method": "POST",
+    "path": "/general/adjustObservationFocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostAdjustObservationFocus"
+  },
+  {
+    "method": "POST",
+    "path": "/general/adjustObservationFraming",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostAdjustObservationFraming"
+  },
+  {
+    "method": "POST",
+    "path": "/general/debug_fakeAutoInit",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostDebugFakeAutoInit"
+  },
+  {
+    "method": "POST",
+    "path": "/general/openForMaintenance",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostOpenForMaintenance"
+  },
+  {
+    "method": "POST",
+    "path": "/general/park",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostPark"
+  },
+  {
+    "method": "POST",
+    "path": "/general/pointBrightZone",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostPointBrightZone"
+  },
+  {
+    "method": "POST",
+    "path": "/general/pointDeepSky",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostPointDeepSky"
+  },
+  {
+    "method": "POST",
+    "path": "/general/startAutoInit",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStartAutoInit"
+  },
+  {
+    "method": "POST",
+    "path": "/general/startManualInit",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStartManualInit"
+  },
+  {
+    "method": "POST",
+    "path": "/general/startObservation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStartObservation"
+  },
+  {
+    "method": "POST",
+    "path": "/general/startObservationCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStartObservationCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/general/startObservationPointing",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStartObservationPointing"
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopAutoInit",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStopAutoInit"
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopObservation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStopObservation"
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopObservationCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStopObservationCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/general/stopObservationPointing",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "generalPostStopObservationPointing"
+  },
+  {
+    "method": "POST",
+    "path": "/internalBattery/debug_setFakeBatteryLevel",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "internalBatteryPostDebugSetFakeBatteryLevel"
+  },
+  {
+    "method": "POST",
+    "path": "/leds/setColor",
+    "models": [
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "ledsPostSetColor"
+  },
+  {
+    "method": "POST",
+    "path": "/leds/setIntensity",
+    "models": [
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "ledsPostSetIntensity"
+  },
+  {
+    "method": "POST",
+    "path": "/logs/consume",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "logsPostConsume"
+  },
+  {
+    "method": "POST",
+    "path": "/logs/debug_fakeState",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "logsPostDebugFakeState"
+  },
+  {
+    "method": "POST",
+    "path": "/misc/setTimeForSunAlt",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "miscPostSetTimeForSunAlt"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/applyAngularCorrection",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostApplyAngularCorrection"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/applyReframeCorrection",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostApplyReframeCorrection"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/defineZenithAngleForDer0FromAcquisition",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostDefineZenithAngleForDer0FromAcquisition"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/getPlay",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostGetPlay"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/goAbsolute",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostGoAbsolute"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/goRelative",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostGoRelative"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/goTarget",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostGoTarget"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/pointTarget",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostPointTarget"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/pointTargetWithPixelOffset",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostPointTargetWithPixelOffset"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/putZenithUp",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostPutZenithUp"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/saveZenithAngleForDer0",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostSaveZenithAngleForDer0"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/seekStop",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostSeekStop"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/setFactoryFocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostSetFactoryFocus"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/setPlay",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostSetPlay"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/stop",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostStop"
+  },
+  {
+    "method": "POST",
+    "path": "/motors/track",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "motorsPostTrack"
+  },
+  {
+    "method": "POST",
+    "path": "/network/certif",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "networkPostCertif"
+  },
+  {
+    "method": "POST",
+    "path": "/network/disableNetworkInterface",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "networkPostDisableNetworkInterface"
+  },
+  {
+    "method": "POST",
+    "path": "/network/getInterfaceStatus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "networkPostGetInterfaceStatus"
+  },
+  {
+    "method": "POST",
+    "path": "/network/selectChannel",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "networkPostSelectChannel"
+  },
+  {
+    "method": "POST",
+    "path": "/network/switchFrequency",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "networkPostSwitchFrequency"
+  },
+  {
+    "method": "POST",
+    "path": "/planner/clearPreviousPlanOperation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "plannerPostClearPreviousPlanOperation"
+  },
+  {
+    "method": "GET",
+    "path": "/planner/getPlanObservation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "plannerGetGetPlanObservation"
+  },
+  {
+    "method": "POST",
+    "path": "/planner/startPlan",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "plannerPostStartPlan"
+  },
+  {
+    "method": "POST",
+    "path": "/planner/stopPlan",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "plannerPostStopPlan"
+  },
+  {
+    "method": "POST",
+    "path": "/playlist/startPlaylist",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "playlistPostStartPlaylist"
+  },
+  {
+    "method": "POST",
+    "path": "/playlist/stopPlaylist",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "playlistPostStopPlaylist"
+  },
+  {
+    "method": "POST",
+    "path": "/region/setCountryCode",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "regionPostSetCountryCode"
+  },
+  {
+    "method": "GET",
+    "path": "/reporter/getAvailableReports",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "reporterGetGetAvailableReports"
+  },
+  {
+    "method": "POST",
+    "path": "/reporter/markReportsAsSynced",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "reporterPostMarkReportsAsSynced"
+  },
+  {
+    "method": "POST",
+    "path": "/sensors/debug_setFilter",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sensorsPostDebugSetFilter"
+  },
+  {
+    "method": "POST",
+    "path": "/sensors/debug_setSensor",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sensorsPostDebugSetSensor"
+  },
+  {
+    "method": "POST",
+    "path": "/sensors/debug_setTemperature",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sensorsPostDebugSetTemperature"
+  },
+  {
+    "method": "POST",
+    "path": "/sensors/read",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sensorsPostRead"
+  },
+  {
+    "method": "POST",
+    "path": "/sensors/setDefogMode",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sensorsPostSetDefogMode"
+  },
+  {
+    "method": "POST",
+    "path": "/sequence/armOrientation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sequencePostArmOrientation"
+  },
+  {
+    "method": "POST",
+    "path": "/sequence/startSequence",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sequencePostStartSequence"
+  },
+  {
+    "method": "POST",
+    "path": "/sequence/stopSequence",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sequencePostStopSequence"
+  },
+  {
+    "method": "POST",
+    "path": "/socket/debug_setMasterDeviceId",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "socketPostDebugSetMasterDeviceId"
+  },
+  {
+    "method": "POST",
+    "path": "/stacking/liveStackFolder",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "stackingPostLiveStackFolder"
+  },
+  {
+    "method": "POST",
+    "path": "/stacking/processLiveRegistrationResult",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "stackingPostProcessLiveRegistrationResult"
+  },
+  {
+    "method": "POST",
+    "path": "/stellarium/setOffsets",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "stellariumPostSetOffsets"
+  },
+  {
+    "method": "POST",
+    "path": "/storage/clearRamDisk",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "storagePostClearRamDisk"
+  },
+  {
+    "method": "GET",
+    "path": "/storage/content",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "storageGetContent"
+  },
+  {
+    "method": "POST",
+    "path": "/storage/deleteUserStorageFolders",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "storagePostDeleteUserStorageFolders"
+  },
+  {
+    "method": "POST",
+    "path": "/storage/sim_setStorageSizeAvailable",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "storagePostSimSetStorageSizeAvailable"
+  },
+  {
+    "method": "GET",
+    "path": "/storage/userStorageFolderContent",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "storageGetUserStorageFolderContent"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/applyManualGuidingCorrection",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostApplyManualGuidingCorrection"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/changePov",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostChangePov"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/debug_simShortcut",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostDebugSimShortcut"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/disableGuidingCorrections",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostDisableGuidingCorrections"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/enableGuidingCorrections",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostEnableGuidingCorrections"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/handleUserAction",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostHandleUserAction"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/pointSun",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostPointSun"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/restartAutofocus",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostRestartAutofocus"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/restartCapture",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostRestartCapture"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/setUserParams",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostSetUserParams"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/startSunMode",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostStartSunMode"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/stopObservation",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostStopObservation"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/stopSunMode",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostStopSunMode"
+  },
+  {
+    "method": "POST",
+    "path": "/sun/sunManuallyDetected",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "sunPostSunManuallyDetected"
+  },
+  {
+    "method": "GET",
+    "path": "/test",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "testGetTest"
+  },
+  {
+    "method": "GET",
+    "path": "/test/sink",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "testGetSink"
+  },
+  {
+    "method": "GET",
+    "path": "/test/sink-no-timeout",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "testGetSinkNoTimeout"
+  },
+  {
+    "method": "GET",
+    "path": "/test/sink-timeout",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "testGetSinkTimeout"
+  },
+  {
+    "method": "POST",
+    "path": "/userManager/applyResetResponse",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "userManagerPostApplyResetResponse"
+  },
+  {
+    "method": "POST",
+    "path": "/userManager/makeResetRequest",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "userManagerPostMakeResetRequest"
+  },
+  {
+    "method": "POST",
+    "path": "/updates/clearUpdateFolder",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "updatesPostClearUpdateFolder"
+  },
+  {
+    "method": "POST",
+    "path": "/updates/installUpdate",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "updatesPostInstallUpdate"
+  },
+  {
+    "method": "POST",
+    "path": "/updates/uploadUpdateFile",
+    "models": [
+      "stellina",
+      "vespera"
+    ],
+    "handlerCount": 1,
+    "operationId": "updatesPostUploadUpdateFile"
+  }
+]

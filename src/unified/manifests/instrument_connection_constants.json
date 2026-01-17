@@ -1,0 +1,7 @@
+{
+  "Lcom/vaonis/instruments/sdk/models/StellinaContext;->DEFAULT_HTTP_PORT:I": 8082,
+  "Lcom/vaonis/instruments/sdk/models/StellinaContext;->DEFAULT_HTTP_ROOT:Ljava/lang/String;": "",
+  "Lcom/vaonis/instruments/sdk/models/StellinaContext;->DEFAULT_IP:Ljava/lang/String;": "10.0.0.1",
+  "Lcom/vaonis/instruments/sdk/models/StellinaContext;->DEFAULT_SOCKET_IO_PATH:Ljava/lang/String;": "/socket.io",
+  "Lcom/vaonis/instruments/sdk/models/StellinaContext;->DEFAULT_SOCKET_PORT:I": 8083
+}

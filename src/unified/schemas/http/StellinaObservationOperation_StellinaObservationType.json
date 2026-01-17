@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaObservationOperation_StellinaObservationType",
+  "type": "string",
+  "enum": [
+    "DEBUG_UI",
+    "MANUAL",
+    "PLAN",
+    "PLAYLIST",
+    "STANDARD",
+    "STORE",
+    "SUN"
+  ]
+}

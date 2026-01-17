@@ -1,0 +1,58 @@
+{
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.<init>": [
+    "listener",
+    "moshi"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.connect$lambda$1": [
+    "$context",
+    "this$0"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.connect$lambda$2": [
+    "$context",
+    "this$0"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.connect$lambda$3": [
+    "$context",
+    "this$0"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.connect$lambda$5": [
+    "$context",
+    "this$0"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.connect": [
+    "CONTROL_ERROR",
+    "STATUS_UPDATED",
+    "connect",
+    "disconnect",
+    "error",
+    "reconnect"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.getQuery": [
+    "&countryCode=",
+    "&name=",
+    "id="
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.getUrlFromContext": [
+    "http://"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.releaseControl": [
+    "message",
+    "releaseControl"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.setSystemTime": [
+    "message",
+    "setSystemTime"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.setUserName": [
+    "device",
+    "deviceId",
+    "message",
+    "null",
+    "setUserName",
+    "user"
+  ],
+  "com.vaonis.instruments.sdk.socket.StellinaSocketV2.takeControl": [
+    "message",
+    "takeControl"
+  ]
+}

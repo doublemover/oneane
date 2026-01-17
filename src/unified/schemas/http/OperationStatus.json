@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OperationStatus",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ctx": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "stopped": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json",
+      "nullable": true
+    },
+    "deviceId": {
+      "type": "string",
+      "nullable": true
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "userName": {
+      "type": "string",
+      "nullable": true
+    },
+    "appVersion": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StorageUsbSpace",
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "available": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "changeCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "size",
+    "available",
+    "changeCount",
+    "required"
+  ]
+}

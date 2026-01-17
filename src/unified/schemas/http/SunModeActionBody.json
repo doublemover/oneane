@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SunModeActionBody",
+  "type": "object",
+  "properties": {
+    "action": {
+      "$ref": "./StellinaSunModeAction.json"
+    },
+    "pov": {
+      "$ref": "./StellinaSunModeOperation_StellinaSunModePov.json"
+    }
+  }
+}

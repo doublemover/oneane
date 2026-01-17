@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StorageSpace",
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "available": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "size",
+    "available"
+  ]
+}

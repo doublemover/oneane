@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSettings_BalensMode",
+  "type": "string",
+  "enum": [
+    "HARD",
+    "OLD",
+    "RECOMMENDED",
+    "SOFT"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaCapture",
+  "type": "object",
+  "properties": {
+    "acquisitionCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "cameraParams": {
+      "$ref": "./StellinaCapture_StellinaCameraParams.json"
+    },
+    "captureType": {
+      "$ref": "./StellinaCapture_StellinaCaptureType.json"
+    },
+    "dark": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "debayerInterpolation": {
+      "$ref": "./StellinaCapture_StellinaDebayerInterpolation.json"
+    },
+    "endHumidity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "endTemperature": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "hasStacking": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "string"
+    },
+    "images": {
+      "type": "array",
+      "items": {}
+    },
+    "outputImageCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "outputImageErrorCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "stackingCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "stackingErrorCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "stackingErrorMap": {
+      "$ref": "./StellinaCapture_StellinaStackingErrorMap.json"
+    },
+    "startHumidity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "startTemperature": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "target": {
+      "$ref": "./StellinaObservationOperation_StellinaObservationTarget.json"
+    },
+    "totalStackingCount": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "userExposureMicroSec": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "userGain": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "hasStacking"
+  ]
+}

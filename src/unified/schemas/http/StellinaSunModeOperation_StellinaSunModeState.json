@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaSunModeOperation_StellinaSunModeState",
+  "type": "string",
+  "enum": [
+    "CLOSING_ARM",
+    "OBSERVATION",
+    "OPENING_ARM",
+    "WAITING_AFTER_OBSERVATION_FAILED",
+    "WAITING_FOR_FILTER_INSTALLATION",
+    "WAITING_FOR_FILTER_REMOVAL",
+    "WAITING_FOR_ORIENTATION"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaAutoInitOperation_StellinaAutoInitArmPosition",
+  "type": "object",
+  "properties": {
+    "ALT": {
+      "type": "number",
+      "format": "double"
+    },
+    "AZ": {
+      "type": "number",
+      "format": "double"
+    },
+    "index": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "ALT",
+    "AZ",
+    "index"
+  ]
+}

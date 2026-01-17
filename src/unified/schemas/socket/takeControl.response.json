@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "takeControl response",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "status": {
+          "$ref": "../http/StellinaStatus.json"
+        }
+      },
+      "required": [
+        "success",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "../http/StelError.json"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "$ref": "../http/StelError.json"
+    }
+  ]
+}

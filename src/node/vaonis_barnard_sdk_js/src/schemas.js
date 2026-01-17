@@ -1,0 +1,2850 @@
+export const schemas = {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "definitions": {
+    "com.vaonis.instruments.sdk.models.body.AdjustFocusBody": {
+      "properties": {
+        "restartCapture": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.AdjustFramingBody": {
+      "properties": {
+        "rot": {
+          "type": "number"
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.AutoInitBody": {
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "observatoryName": {
+          "type": "string"
+        },
+        "skipAutoFocus": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.DeleteStoredCaptureBody": {
+      "properties": {
+        "storeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.DeleteUserStorageFolderBody": {
+      "properties": {
+        "folderPaths": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.HdrBackgroundBody": {
+      "properties": {
+        "curve": {
+          "type": "integer"
+        },
+        "polynomialOrder": {
+          "type": "integer"
+        },
+        "ratioParam": {
+          "type": "number"
+        },
+        "ratioParamLocal": {
+          "type": "number"
+        },
+        "saturation": {
+          "type": "number"
+        },
+        "whiteMeanNoiseRatio": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.NetworkBody": {
+      "properties": {
+        "band": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.PlaylistBody": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "playlistType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$PlaylistType"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.PlaylistBody$TargetsParam"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.PlaylistBody$TargetsParam": {
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.StartObservationBody"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.ReportsBody": {
+      "properties": {
+        "reports": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.ReportsBody$Report"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.ReportsBody$Report": {
+      "properties": {
+        "operationEnded": {
+          "type": "boolean"
+        },
+        "operationId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.RequestCodeBody": {
+      "properties": {
+        "response": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.SettingsBody": {
+      "properties": {
+        "algoHdrBackground": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSettings$BalensMode"
+        },
+        "buttonBrightness": {
+          "type": "string"
+        },
+        "enableDarkUsage": {
+          "type": "boolean"
+        },
+        "enableDithering": {
+          "type": "boolean"
+        },
+        "enableFullResolution": {
+          "type": "boolean"
+        },
+        "enableHdrBackground": {
+          "type": "boolean"
+        },
+        "enableLiveFocus": {
+          "type": "boolean"
+        },
+        "storageFileCategories": {
+          "items": {},
+          "type": "array"
+        },
+        "telescopeName": {
+          "type": "string"
+        },
+        "usbFileTypes": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.StartObservationBody": {
+      "properties": {
+        "algorithm": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaPointingAlgorithm"
+        },
+        "backgroundEnabled": {
+          "type": "boolean"
+        },
+        "backgroundPolyorder": {
+          "type": "number"
+        },
+        "brightZoneOffset": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaBrightZoneOffset"
+        },
+        "de": {
+          "type": "number"
+        },
+        "doStacking": {
+          "type": "boolean"
+        },
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "gain": {
+          "type": "integer"
+        },
+        "hdrBackground": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.HdrBackgroundBody"
+        },
+        "histogramEnabled": {
+          "type": "boolean"
+        },
+        "histogramHigh": {
+          "type": "number"
+        },
+        "histogramLow": {
+          "type": "number"
+        },
+        "histogramMedium": {
+          "type": "number"
+        },
+        "mosaicBody": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "objectName": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string"
+        },
+        "observationType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationType"
+        },
+        "ra": {
+          "type": "number"
+        },
+        "rot": {
+          "type": "number"
+        },
+        "store": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore"
+        },
+        "targetType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$ObservationTargetType"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.StartObservationFromStoredCaptureBody": {
+      "properties": {
+        "storeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody": {
+      "properties": {
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "flip": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody$StellinaAcquisitionFlip"
+        },
+        "gain": {
+          "type": "integer"
+        },
+        "numExposures": {
+          "type": "integer"
+        },
+        "overwrite": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.StorageAcquisitionBody$StellinaAcquisitionFlip": {
+      "enum": [
+        "BOTH",
+        "FLIP",
+        "NO_FLIP"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.body.SunModeActionBody": {
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSunModeAction"
+        },
+        "pov": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.SunModeBody": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "eclipse": {
+          "type": "boolean"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "observatoryName": {
+          "type": "string"
+        },
+        "skipAutoFocus": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.SunModeParamsBody": {
+      "properties": {
+        "MAP": {
+          "type": "integer"
+        },
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "exposureMode": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams$ExposureMode"
+        },
+        "gain": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.SunModePovBody": {
+      "properties": {
+        "pov": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.TiffBody": {
+      "properties": {
+        "captureId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody": {
+      "properties": {
+        "heightDegree": {
+          "type": "number"
+        },
+        "widthDegree": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.planmynight.PlanMyNightBody": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "observatoryName": {
+          "type": "string"
+        },
+        "planId": {
+          "type": "string"
+        },
+        "planName": {
+          "type": "string"
+        },
+        "planVersion": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {},
+          "type": "array"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.body.planmynight.PlanMyNightTargetBody": {
+      "properties": {
+        "endTime": {
+          "type": "integer"
+        },
+        "params": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.StartObservationBody"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "storeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.FolderContentResponse": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorageFolderContent"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.LogResponse": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.response.LogResponse$Result"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.LogResponse$Result": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.OrderResponse": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.PlanObservationResponse": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.ReportsResponse": {
+      "properties": {
+        "result": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.ResetCodeResponse": {
+      "properties": {
+        "result": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.StatusResponse": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.StoredObservationResponse": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.TiffData": {
+      "properties": {
+        "savedOnUsbStorage": {
+          "type": "boolean"
+        },
+        "stackingCount": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.response.TiffResponse": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.response.TiffData"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.InstrumentFilter": {
+      "enum": [
+        "CLS",
+        "DUAL",
+        "DUST",
+        "IR",
+        "NONE",
+        "SOLAR"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.InstrumentModel": {
+      "enum": [
+        "stellina",
+        "vespera",
+        "vespera1ed",
+        "vespera2",
+        "vesperapro"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.InstrumentModelSettings": {
+      "enum": [
+        "BTN_BRIGHTNESS",
+        "DARKS",
+        "DITHERING",
+        "FULL_RESOLUTION",
+        "HDR_BACKGROUND",
+        "LIVE_FOCUS",
+        "WIFI_5GHZ"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.InternalBattery": {
+      "properties": {
+        "chargeAlert": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InternalBattery$ChargeAlert"
+        },
+        "chargeLevel": {
+          "type": "integer"
+        },
+        "chargeStatus": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InternalBattery$ChargeStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.InternalBattery$ChargeAlert": {
+      "enum": [
+        "NONE",
+        "TOO_COLD",
+        "TOO_HOT"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.InternalBattery$ChargeStatus": {
+      "enum": [
+        "CHARGING",
+        "CONNECTED",
+        "OFF"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.InternalBattery$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCameraInfo": {
+      "properties": {
+        "heightDeg": {
+          "type": "number"
+        },
+        "heightPx": {
+          "type": "integer"
+        },
+        "maxDegreesField": {
+          "type": "number"
+        },
+        "maxInstrumentField": {
+          "type": "number"
+        },
+        "minInstrumentField": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "widthDeg": {
+          "type": "number"
+        },
+        "widthPx": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCameraInfo$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture": {
+      "properties": {
+        "acquisitionCount": {
+          "type": "integer"
+        },
+        "cameraParams": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCameraParams"
+        },
+        "captureType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureType"
+        },
+        "dark": {
+          "type": "boolean"
+        },
+        "debayerInterpolation": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaDebayerInterpolation"
+        },
+        "endHumidity": {
+          "type": "number"
+        },
+        "endTemperature": {
+          "type": "number"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "hasStacking": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage"
+          },
+          "type": "array"
+        },
+        "outputImageCount": {
+          "type": "integer"
+        },
+        "outputImageErrorCount": {
+          "type": "integer"
+        },
+        "stackingCount": {
+          "type": "integer"
+        },
+        "stackingErrorCount": {
+          "type": "integer"
+        },
+        "stackingErrorMap": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaStackingErrorMap"
+        },
+        "startHumidity": {
+          "type": "number"
+        },
+        "startTemperature": {
+          "type": "number"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "target": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationTarget"
+        },
+        "totalStackingCount": {
+          "type": "integer"
+        },
+        "userExposureMicroSec": {
+          "type": "integer"
+        },
+        "userGain": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StackingDuration": {
+      "properties": {
+        "captureStackingDuration": {
+          "type": "integer"
+        },
+        "totalStackingDuration": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCameraParams": {
+      "properties": {
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "gain": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage": {
+      "properties": {
+        "cropHeight": {
+          "type": "integer"
+        },
+        "cropWidth": {
+          "type": "integer"
+        },
+        "cropX": {
+          "type": "integer"
+        },
+        "cropY": {
+          "type": "integer"
+        },
+        "exifSize": {
+          "type": "integer"
+        },
+        "index": {
+          "type": "integer"
+        },
+        "metadata": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata"
+        },
+        "stackingCount": {
+          "type": "integer"
+        },
+        "stackingErrorCount": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata": {
+      "properties": {
+        "MAP": {
+          "type": "integer"
+        },
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "gain": {
+          "type": "integer"
+        },
+        "hdrBackground": {
+          "type": "string"
+        },
+        "mosaic": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata$Mosaic"
+        },
+        "solar": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata$Solar"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata$Mosaic": {
+      "properties": {
+        "turnCount": {
+          "type": "integer"
+        },
+        "turnProgress": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage$Metadata$Solar": {
+      "properties": {
+        "pov": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureType": {
+      "enum": [
+        "ADJUST_FOCUS",
+        "ADJUST_FRAMING",
+        "INITIAL",
+        "MANUAL"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaDebayerInterpolation": {
+      "enum": [
+        "SUPER_PIXEL",
+        "VNG"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaStackingErrorMap": {
+      "properties": {
+        "StackingBadRegistration": {
+          "type": "integer"
+        },
+        "StackingError": {
+          "type": "integer"
+        },
+        "StackingFitError": {
+          "type": "integer"
+        },
+        "StackingLackOfStar": {
+          "type": "integer"
+        },
+        "StackingMatchingError": {
+          "type": "integer"
+        },
+        "StackingRoundnessError": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaConnectedDevice": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaError": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "rawError": {
+          "type": "string"
+        },
+        "unknownName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaError$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaGeoPosition": {
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaGeoPosition$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaLogs": {
+      "properties": {
+        "bufferPosition": {
+          "type": "integer"
+        },
+        "bufferSize": {
+          "type": "integer"
+        },
+        "numFiles": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaMotors": {
+      "properties": {
+        "ALT": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors$StellinaMotorStatus"
+        },
+        "AZ": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors$StellinaMotorStatus"
+        },
+        "DER": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors$StellinaMotorStatus"
+        },
+        "MAP": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors$StellinaMotorStatus"
+        },
+        "isParked": {
+          "type": "boolean"
+        },
+        "isPointingAboveHorizon": {
+          "type": "boolean"
+        },
+        "isTracking": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaMotors$MotorState": {
+      "enum": [
+        "IDLE",
+        "MOVING",
+        "TRACKING"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaMotors$StellinaMotorStatus": {
+      "properties": {
+        "atStop": {
+          "type": "boolean"
+        },
+        "calibrated": {
+          "type": "boolean"
+        },
+        "position": {
+          "type": "number"
+        },
+        "state": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors$MotorState"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaNetwork": {
+      "properties": {
+        "band": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaReport": {
+      "properties": {
+        "bootCount": {
+          "type": "integer"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "operation": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperation"
+        },
+        "operationEnded": {
+          "type": "boolean"
+        },
+        "position": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaGeoPosition"
+        },
+        "telescopeId": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaReport$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSensors": {
+      "properties": {
+        "defogStatus": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSensors$DefogStatus"
+        },
+        "dewpointDepression": {
+          "type": "number"
+        },
+        "humidity": {
+          "type": "number"
+        },
+        "humidityDelta": {
+          "type": "number"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "temperatureDelta": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSensors$DefogStatus": {
+      "enum": [
+        "LOW_DD",
+        "LOW_TEMP",
+        "OFF",
+        "ON"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings": {
+      "properties": {
+        "algoHdrBackground": {
+          "type": "string"
+        },
+        "buttonBrightness": {
+          "type": "string"
+        },
+        "enableDarkUsage": {
+          "type": "boolean"
+        },
+        "enableDithering": {
+          "type": "boolean"
+        },
+        "enableFullResolution": {
+          "type": "boolean"
+        },
+        "enableHdrBackground": {
+          "type": "boolean"
+        },
+        "enableLiveFocus": {
+          "type": "boolean"
+        },
+        "storageFileCategories": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSettings$StellinaStorageFileCategory"
+          },
+          "type": "array"
+        },
+        "telescopeName": {
+          "type": "string"
+        },
+        "usbFileTypes": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings$BalensMode": {
+      "enum": [
+        "HARD",
+        "OLD",
+        "RECOMMENDED",
+        "SOFT"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings$BalensMode$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings$ButonLuminosity": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "MEDIUM"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings$ButonLuminosity$Companion": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSettings$StellinaStorageFileCategory": {
+      "enum": [
+        "DEBUG",
+        "DIRECT",
+        "OUTPUT",
+        "RAW",
+        "TIFF"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSkyPosition": {
+      "properties": {
+        "de": {
+          "type": "number"
+        },
+        "ra": {
+          "type": "number"
+        },
+        "rot": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus": {
+      "properties": {
+        "apiVersion": {
+          "type": "string"
+        },
+        "autofocusPosition": {
+          "type": "integer"
+        },
+        "autofocusTemperature": {
+          "type": "number"
+        },
+        "availableReports": {
+          "type": "integer"
+        },
+        "boardError": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "boardInDebugMode": {
+          "type": "boolean"
+        },
+        "boardInitError": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "bootCount": {
+          "type": "integer"
+        },
+        "captureStore": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaCaptureStore"
+        },
+        "challenge": {
+          "type": "string"
+        },
+        "connectedDevices": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaConnectedDevice"
+          },
+          "type": "array"
+        },
+        "currentOperation": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperation"
+        },
+        "dark": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaDark"
+        },
+        "elapsedTime": {
+          "type": "integer"
+        },
+        "filter": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InstrumentFilter"
+        },
+        "initError": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "initialized": {
+          "type": "boolean"
+        },
+        "internalBattery": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InternalBattery"
+        },
+        "logs": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaLogs"
+        },
+        "masterDeviceId": {
+          "type": "string"
+        },
+        "model": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InstrumentModel"
+        },
+        "motors": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaMotors"
+        },
+        "network": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaNetwork"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "otherCurrentOperations": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperation"
+          },
+          "type": "array"
+        },
+        "position": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaGeoPosition"
+        },
+        "previousBootError": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "previousOperations": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationMap"
+        },
+        "sensors": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSensors"
+        },
+        "settings": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSettings"
+        },
+        "shuttingDown": {
+          "type": "boolean"
+        },
+        "storage": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorage"
+        },
+        "telescopeId": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "update": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus"
+        },
+        "version": {
+          "type": "string"
+        },
+        "versionNumber": {
+          "$ref": "#/definitions/io.github.g00fy2.versioncompare.Version"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$WhenMappings": {
+      "properties": {},
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$apiVersion$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$autofocusPosition$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$autofocusTemperature$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$availableReports$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$boardError$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$boardInDebugMode$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$boardInitError$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$bootCount$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$captureStore$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$challenge$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$connectedDevices$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$currentOperation$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$dark$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$elapsedTime$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$filter$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$initError$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$initialized$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$internalBattery$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$logs$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$masterDeviceId$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$model$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$motors$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$network$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$observatoryId$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$otherCurrentOperations$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$position$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$previousBootError$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$previousOperations$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$sensors$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$settings$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$shuttingDown$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$storage$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$telescopeId$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$timestamp$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$update$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$version$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStatus$versionNumber$2": {
+      "properties": {
+        "this$0": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStorage": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorage$StellinaStorageSpace"
+        },
+        "public": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorage$StellinaStorageSpace"
+        },
+        "system": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorage$StellinaStorageSpace"
+        },
+        "usb": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorage$StellinaStorageSpace"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStorage$StellinaStorageSpace": {
+      "properties": {
+        "available": {
+          "type": "integer"
+        },
+        "changeCount": {
+          "type": "integer"
+        },
+        "required": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "system": {
+          "type": "integer"
+        },
+        "user": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStorageFolderContent": {
+      "properties": {
+        "fileCountPerType": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "folders": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStorageFolderContent"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaStorageFolderContent$FileType": {
+      "enum": [
+        "FITS",
+        "JPEG",
+        "JSON",
+        "OTHER",
+        "TIFF"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaSunModeAction": {
+      "enum": [
+        "CANCEL_FILTER_REMOVAL",
+        "CONFIRM_ARM_ORIENTATION",
+        "CONFIRM_FILTER_INSTALLATION",
+        "CONFIRM_FILTER_REMOVED",
+        "DISABLE_SAFETY",
+        "ENABLE_SAFETY",
+        "PREPARE_FILTER_REMOVAL",
+        "RETRY_AFTER_FAILURE"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus": {
+      "properties": {
+        "installedVersion": {
+          "type": "string"
+        },
+        "minimumCompatibleVersion": {
+          "type": "string"
+        },
+        "progressInfo": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus$StellinaUpdateProgressInfo"
+        },
+        "state": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus$StellinaUpdateState"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus$StellinaUpdateProgressInfo": {
+      "properties": {
+        "progressPercent": {
+          "type": "integer"
+        },
+        "step": {
+          "type": "integer"
+        },
+        "stepTotal": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.StellinaUpdateStatus$StellinaUpdateState": {
+      "enum": [
+        "IDLE",
+        "INSTALL",
+        "UPLOAD"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.CalibrationStep": {
+      "enum": [
+        "BIAS_ACQUISITION",
+        "DARK_ACQUISITION",
+        "MASTER_DARK_GENERATION"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.DarkCalibrationStep": {
+      "properties": {
+        "progress": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "armPosition": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitArmPosition"
+        },
+        "astrometry": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSkyPosition"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "focusResult": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$AutofocusResult"
+        },
+        "id": {
+          "type": "string"
+        },
+        "observatoryId": {
+          "type": "string"
+        },
+        "observatoryName": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaGeoPosition"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitStep"
+          },
+          "type": "array"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$AutofocusResult": {
+      "properties": {
+        "focusValue": {
+          "type": "number"
+        },
+        "map": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitArmPosition": {
+      "properties": {
+        "ALT": {
+          "type": "number"
+        },
+        "AZ": {
+          "type": "number"
+        },
+        "index": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitStep": {
+      "properties": {
+        "progress": {
+          "type": "number"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.CalibrationStep"
+          },
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitStepType"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation$StellinaAutoInitStepType": {
+      "enum": [
+        "ASTROMETRY",
+        "AUTO_FOCUS",
+        "MOVING",
+        "OPEN_ARM",
+        "PREPARE_MC_BOARD",
+        "RETRY_ASTROMETRY",
+        "SEEK_STOP",
+        "START_TRACKING",
+        "TRY_POSITION",
+        "WIDE_AUTOFOCUS_FAILED_ASTROMETRY",
+        "WIDE_AUTOFOCUS_NO_FACTORY"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaCaptureStore": {
+      "properties": {
+        "storedCaptures": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaCaptureStore$StellinaStoredCapture"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaCaptureStore$StellinaStoredCapture": {
+      "properties": {
+        "dark": {
+          "type": "boolean"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "filter": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InstrumentFilter"
+        },
+        "lastImage": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage"
+        },
+        "mosaic": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "storeId": {
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationTarget"
+        },
+        "totalStackingCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaDark": {
+      "properties": {
+        "date": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaDarkCalibrationOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "ctx": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.DarkCalibrationStep"
+          },
+          "type": "array"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaDeleteFoldersOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deletedFolderCount": {
+          "type": "integer"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "totalFolderCount": {
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation": {
+      "properties": {
+        "actionInProgress": {
+          "type": "boolean"
+        },
+        "appVersion": {
+          "type": "string"
+        },
+        "capture": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture"
+        },
+        "currentParams": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "eclipse": {
+          "type": "boolean"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "filter": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.InstrumentFilter"
+        },
+        "focusWarning": {
+          "type": "boolean"
+        },
+        "framing": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSkyPosition"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isRestored": {
+          "type": "boolean"
+        },
+        "mosaic": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody"
+        },
+        "observationType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationType"
+        },
+        "povErrorRatio": {
+          "type": "number"
+        },
+        "previousCaptures": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture"
+          },
+          "type": "array"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationStep"
+          },
+          "type": "array"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "store": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore"
+        },
+        "target": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationTarget"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams": {
+      "properties": {
+        "MAP": {
+          "type": "integer"
+        },
+        "exposureMicroSec": {
+          "type": "integer"
+        },
+        "exposureMode": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams$ExposureMode"
+        },
+        "gain": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$CurrentParams$ExposureMode": {
+      "enum": [
+        "antique",
+        "auto",
+        "init",
+        "static",
+        "user"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$ObservationTargetType": {
+      "enum": [
+        "CATALOG",
+        "DEBUG_UI",
+        "MANUAL"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaBrightZoneOffset": {
+      "enum": [
+        "AUTO",
+        "FAR",
+        "NEAR"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaCaptureStoreState": {
+      "enum": [
+        "NON_RESUMABLE",
+        "PLAN",
+        "RESUME",
+        "TO_BE_RESUMABLE"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaHdrBackgroundParams": {
+      "properties": {
+        "curve": {
+          "type": "integer"
+        },
+        "polynomialOrder": {
+          "type": "integer"
+        },
+        "ratioParam": {
+          "type": "number"
+        },
+        "ratioParamLocal": {
+          "type": "number"
+        },
+        "saturation": {
+          "type": "number"
+        },
+        "whiteMeanNoiseRatio": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationAutofocusStepType": {
+      "enum": [
+        "LIVE",
+        "MANUAL_CONTINUE",
+        "MANUAL_RESTART",
+        "START_AUTO",
+        "START_FORCE",
+        "START_ON"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationParams": {
+      "properties": {
+        "algorithm": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaPointingAlgorithm"
+        },
+        "brightZoneOffset": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaBrightZoneOffset"
+        },
+        "cameraParams": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCameraParams"
+        },
+        "hdrBackgroundParams": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaHdrBackgroundParams"
+        },
+        "stackingParams": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaStackingParams"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationStep": {
+      "properties": {
+        "autofocusType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationAutofocusStepType"
+        },
+        "name": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "number"
+        },
+        "steps": {
+          "items": {},
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationStepType"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationStepType": {
+      "enum": [
+        "ASTROMETRY",
+        "AUTO_FOCUS",
+        "CAPTURE",
+        "CENTERING",
+        "GO_RELATIVE",
+        "GO_TARGET",
+        "LOOKING_FOR_SUN",
+        "POINTING_SUN",
+        "POINT_AT_OFFSET",
+        "POINT_AT_SECOND_OFFSET",
+        "POINT_BRIGHT_ZONE",
+        "POINT_DEEP_SKY",
+        "POINT_TARGET",
+        "SEEK_STOP_ALT",
+        "START_TRACKING",
+        "TRACKING",
+        "undefined"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationTarget": {
+      "properties": {
+        "coords": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaSkyPosition"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "objectName": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$ObservationTargetType"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationType": {
+      "enum": [
+        "DEBUG_UI",
+        "MANUAL",
+        "PLAN",
+        "PLAYLIST",
+        "STANDARD",
+        "STORE",
+        "SUN"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaPointingAlgorithm": {
+      "enum": [
+        "AUTO",
+        "BRIGHT_ZONE",
+        "DEEP_SKY",
+        "DEEP_SKY_THEN_BRIGHT_ZONE"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaSolarObservationTarget": {
+      "enum": [
+        "jupiter",
+        "mars",
+        "mercury",
+        "moon",
+        "neptune",
+        "saturn",
+        "uranus",
+        "venus"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaStackingParams": {
+      "properties": {
+        "backgroundEnabled": {
+          "type": "boolean"
+        },
+        "backgroundPolyorder": {
+          "type": "number"
+        },
+        "histogramEnabled": {
+          "type": "boolean"
+        },
+        "histogramHigh": {
+          "type": "number"
+        },
+        "histogramLow": {
+          "type": "number"
+        },
+        "histogramMedium": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore": {
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaCaptureStoreState"
+        },
+        "step": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore$Step"
+        },
+        "storeId": {
+          "type": "string"
+        },
+        "totalStackingCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellingCaptureStore$Step": {
+      "enum": [
+        "EXPORT_TIFF",
+        "SAVE_CGS"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaOpenOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaOperation": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaDarkCalibrationOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaDeleteFoldersOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOpenOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaParkOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaStorageAcquisitionOperation"
+        },
+        {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation"
+        }
+      ]
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaOperationMap": {
+      "properties": {
+        "autoInit": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaAutoInitOperation"
+        },
+        "deleteFolders": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaDeleteFoldersOperation"
+        },
+        "generateDark": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaDarkCalibrationOperation"
+        },
+        "observation": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation"
+        },
+        "open": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOpenOperation"
+        },
+        "park": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaParkOperation"
+        },
+        "plan": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation"
+        },
+        "playlist": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation"
+        },
+        "storageAcquisition": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaStorageAcquisitionOperation"
+        },
+        "sunMode": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType": {
+      "enum": [
+        "AUTO_INIT",
+        "DELETE_FOLDERS",
+        "GENERATE_DARK",
+        "OBSERVATION",
+        "OPEN",
+        "PARK",
+        "PLAN",
+        "PLAYLIST",
+        "STORAGE_ACQUISITION",
+        "SUN_MODE",
+        "SUN_OBSERVATION"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaParkOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "planId": {
+          "type": "string"
+        },
+        "planName": {
+          "type": "string"
+        },
+        "planVersion": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "state": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$StellinaPlanOperationState"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$Target"
+          },
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$StellinaPlanOperationState": {
+      "enum": [
+        "AUTO_INIT",
+        "FINISHED",
+        "OBSERVATION",
+        "WAITING_FOR_OBSERVATION_START",
+        "WAITING_FOR_RETRY",
+        "WAITING_UNTIL_START"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$Target": {
+      "properties": {
+        "attempts": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$Target$Attempt"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "mosaic": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.body.mosaic.MosaicBody"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "storeId": {
+          "type": "string"
+        },
+        "storeState": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaCaptureStoreState"
+        },
+        "target": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaObservationOperation$StellinaObservationTarget"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlanOperation$Target$Attempt": {
+      "properties": {
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "lastImage": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaCapture$StellinaCaptureImage"
+        },
+        "observationId": {
+          "type": "string"
+        },
+        "stackingCount": {
+          "type": "integer"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "totalStackingCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$Observation"
+          },
+          "type": "array"
+        },
+        "playlistType": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$PlaylistType"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "targets": {
+          "items": {},
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$Observation": {
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "operationId": {
+          "type": "string"
+        },
+        "succeeded": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaPlaylistOperation$PlaylistType": {
+      "enum": [
+        "RANDOM"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaStorageAcquisitionOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "requiredCount": {
+          "type": "integer"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "eclipse": {
+          "type": "boolean"
+        },
+        "endTime": {
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "filterDetected": {
+          "type": "boolean"
+        },
+        "filterDetectionSafetyTimeout": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "meanIndicatesFilterIsInstalled": {
+          "type": "boolean"
+        },
+        "meanOverSafetyThreshold": {
+          "type": "boolean"
+        },
+        "meanSafetyTimeout": {
+          "type": "boolean"
+        },
+        "observationCount": {
+          "type": "integer"
+        },
+        "observationError": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaError"
+        },
+        "safetyEnabled": {
+          "type": "boolean"
+        },
+        "startTime": {
+          "type": "integer"
+        },
+        "state": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModeState"
+        },
+        "stopped": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.operations.StellinaOperationType"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModePov": {
+      "enum": [
+        "earth",
+        "jupiter",
+        "mars",
+        "mercury",
+        "neptune",
+        "raw",
+        "saturn",
+        "uranus",
+        "venus"
+      ],
+      "type": "string"
+    },
+    "com.vaonis.instruments.sdk.models.status.operations.StellinaSunModeOperation$StellinaSunModeState": {
+      "enum": [
+        "CLOSING_ARM",
+        "OBSERVATION",
+        "OPENING_ARM",
+        "WAITING_AFTER_OBSERVATION_FAILED",
+        "WAITING_FOR_FILTER_INSTALLATION",
+        "WAITING_FOR_FILTER_REMOVAL",
+        "WAITING_FOR_ORIENTATION"
+      ],
+      "type": "string"
+    },
+    "io.github.g00fy2.versioncompare.Version": {
+      "properties": {
+        "originalString": {
+          "type": "string"
+        },
+        "preReleaseVersion": {
+          "type": "integer"
+        },
+        "releaseType": {
+          "$ref": "#/definitions/io.github.g00fy2.versioncompare.VersionComparator$ReleaseType"
+        },
+        "subversionNumbers": {
+          "items": {},
+          "type": "array"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "trimmedSubversionNumbers": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "io.github.g00fy2.versioncompare.VersionComparator$ReleaseType": {
+      "enum": [
+        "ALPHA",
+        "BETA",
+        "PRE_ALPHA",
+        "RC",
+        "SNAPSHOT",
+        "STABLE"
+      ],
+      "type": "string"
+    }
+  },
+  "events": {
+    "CONTROL_ERROR": {
+      "payload": {
+        "items": {},
+        "type": "array"
+      }
+    },
+    "STATUS_UPDATED": {
+      "payload": {
+        "$ref": "#/definitions/com.vaonis.instruments.sdk.models.status.StellinaStatus"
+      }
+    }
+  },
+  "meta": {
+    "notes": [
+      "This is generated by static analysis of the Android DEX. It is best-effort and may not cover undocumented firmware-side fields.",
+      "All properties are treated as optional because the instrument may omit fields depending on state/firmware version.",
+      "Generic List/Map element types are inferred heuristically where possible; if missing, items/additionalProperties are left empty."
+    ],
+    "source": {
+      "apk": "com.vaonis.barnard (provided zip)",
+      "dex_files": [
+        "classes.dex",
+        "classes2.dex",
+        "classes3.dex"
+      ]
+    }
+  },
+  "title": "Vaonis Barnard Instrument SDK \u2013 extracted schemas"
+}
+
+export default schemas

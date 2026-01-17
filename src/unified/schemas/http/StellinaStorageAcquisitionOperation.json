@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaStorageAcquisitionOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "requiredCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "count",
+    "requiredCount",
+    "startTime",
+    "stopped"
+  ]
+}

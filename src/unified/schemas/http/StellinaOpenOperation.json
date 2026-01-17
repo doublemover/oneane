@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaOpenOperation",
+  "type": "object",
+  "properties": {
+    "appVersion": {
+      "type": "string"
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "error": {
+      "$ref": "./StellinaError.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "stopped": {
+      "type": "boolean"
+    },
+    "type": {
+      "$ref": "./StellinaOperationType.json"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "startTime",
+    "stopped"
+  ]
+}

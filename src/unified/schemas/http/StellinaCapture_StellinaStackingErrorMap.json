@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StellinaCapture_StellinaStackingErrorMap",
+  "type": "object",
+  "properties": {
+    "StackingBadRegistration": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "StackingError": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "StackingFitError": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "StackingLackOfStar": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "StackingMatchingError": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "StackingRoundnessError": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "total": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "total"
+  ]
+}
