@@ -475,18 +475,22 @@ class BarnardControlApp:
         summary_frame.columnconfigure(0, weight=1)
 
         self.status_summary_var = tk.StringVar(value="(no status yet)")
-        self.status_summary_label = ttk.Label(
+        bg = self._theme["panel"] if self._theme else self.root.cget("bg")
+        self.status_canvas = tk.Canvas(
             summary_frame,
-            textvariable=self.status_summary_var,
-            justify="left",
-            anchor="w",
+            highlightthickness=0,
+            bd=0,
+            background=bg,
         )
-        self.status_summary_label.grid(row=0, column=0, sticky="ew")
+        self.status_canvas.grid(row=0, column=0, sticky="nsew")
+        summary_frame.rowconfigure(0, weight=1)
 
-        def _wrap_summary(event: tk.Event) -> None:
-            self.status_summary_label.configure(wraplength=max(200, event.width - 12))
-
-        summary_frame.bind("<Configure>", _wrap_summary)
+        self._status_preview_tk = None
+        self._status_preview_last_state: Optional[Tuple[int, int, int, str, bool]] = (
+            None
+        )
+        self.status_canvas.bind("<Configure>", lambda _e: self._render_status_card())
+        self.status_canvas.bind("<Button-1>", lambda _e: self._open_images_tab())
 
         # Tooltips
         self._add_tooltip(
@@ -505,7 +509,8 @@ class BarnardControlApp:
         self._add_tooltip(step3_label, "Connect Socket.IO to stream status updates.")
         self._add_tooltip(socket_button, "Connect Socket.IO for live updates.")
         self._add_tooltip(
-            self.status_summary_label, "Live highlights from the most recent status."
+            self.status_canvas,
+            "Live highlights from the most recent status. Click to open Images.",
         )
 
         # Tabs
@@ -523,6 +528,9 @@ class BarnardControlApp:
         self._notebook.add(self.http_tab, text="HTTP")
         self._notebook.add(self.socket_tab, text="Socket")
         self._notebook.add(self.image_tab, text="Images")
+        self._notebook.bind(
+            "<<NotebookTabChanged>>", lambda _e: self._render_status_card()
+        )
 
         self._build_connection_tab()
         self._build_status_tab()
@@ -759,32 +767,32 @@ class BarnardControlApp:
         request = ttk.Labelframe(outer, text="Request", padding=(10, 8))
         request.grid(row=1, column=0, sticky="ew", pady=(10, 0))
         request.columnconfigure(0, weight=1)
+        request.rowconfigure(0, weight=1)
 
-        request_nb = ttk.Notebook(request)
-        request_nb.grid(row=0, column=0, sticky="ew")
-        self.request_nb = request_nb
+        split = ttk.PanedWindow(request, orient=tk.HORIZONTAL)
+        split.grid(row=0, column=0, sticky="nsew")
+        self.request_split = split
         self._params_tab_title = "Query params (JSON)"
         self._body_tab_title = "Body (JSON)"
 
-        # Query params tab
-        params_tab = ttk.Frame(request_nb, padding=(6, 6))
-        params_tab.columnconfigure(0, weight=1)
-        params_tab.rowconfigure(0, weight=1)
-        self.params_tab = params_tab
+        params_pane = ttk.Labelframe(split, text=self._params_tab_title, padding=(6, 6))
+        params_pane.columnconfigure(0, weight=1)
+        params_pane.rowconfigure(0, weight=1)
+        self.params_pane = params_pane
 
         self.params_text = tk.Text(
-            params_tab,
-            height=6,
-            width=70,
+            params_pane,
+            height=10,
+            width=50,
             wrap="none",
             font=("TkFixedFont", 9),
         )
         self._style_text(self.params_text)
         params_scroll = ttk.Scrollbar(
-            params_tab, orient="vertical", command=self.params_text.yview
+            params_pane, orient="vertical", command=self.params_text.yview
         )
         params_hscroll = ttk.Scrollbar(
-            params_tab, orient="horizontal", command=self.params_text.xview
+            params_pane, orient="horizontal", command=self.params_text.xview
         )
         self.params_text.configure(
             yscrollcommand=params_scroll.set, xscrollcommand=params_hscroll.set
@@ -795,14 +803,13 @@ class BarnardControlApp:
         self.params_text.bind("<<Modified>>", self._on_request_text_modified)
         self.params_text.edit_modified(False)
 
-        # Body tab
-        body_tab = ttk.Frame(request_nb, padding=(6, 6))
-        body_tab.columnconfigure(0, weight=1)
-        body_tab.rowconfigure(0, weight=1)
-        self.body_tab = body_tab
+        body_pane = ttk.Labelframe(split, text=self._body_tab_title, padding=(6, 6))
+        body_pane.columnconfigure(0, weight=1)
+        body_pane.rowconfigure(0, weight=1)
+        self.body_pane = body_pane
 
         self.body_text = tk.Text(
-            body_tab,
+            body_pane,
             height=10,
             width=70,
             wrap="none",
@@ -810,10 +817,10 @@ class BarnardControlApp:
         )
         self._style_text(self.body_text)
         body_scroll = ttk.Scrollbar(
-            body_tab, orient="vertical", command=self.body_text.yview
+            body_pane, orient="vertical", command=self.body_text.yview
         )
         body_hscroll = ttk.Scrollbar(
-            body_tab, orient="horizontal", command=self.body_text.xview
+            body_pane, orient="horizontal", command=self.body_text.xview
         )
         self.body_text.configure(
             yscrollcommand=body_scroll.set, xscrollcommand=body_hscroll.set
@@ -824,8 +831,8 @@ class BarnardControlApp:
         self.body_text.bind("<<Modified>>", self._on_request_text_modified)
         self.body_text.edit_modified(False)
 
-        request_nb.add(params_tab, text=self._params_tab_title)
-        request_nb.add(body_tab, text=self._body_tab_title)
+        split.add(params_pane, weight=1)
+        split.add(body_pane, weight=2)
         self._update_request_tab_counts()
 
         # Actions row
@@ -833,7 +840,9 @@ class BarnardControlApp:
         actions.grid(row=2, column=0, sticky="ew", pady=(10, 0))
         actions.columnconfigure(0, weight=1)
 
-        send_button = ttk.Button(actions, text="Send", command=self._send_operation)
+        send_button = ttk.Button(
+            actions, text="Send", command=self._send_operation, style="Primary.TButton"
+        )
         clear_button = ttk.Button(
             actions, text="Clear", command=self._clear_operation_fields
         )
@@ -924,7 +933,8 @@ class BarnardControlApp:
         self.status_tree.heading("value", text="Value")
         self.status_tree.column("key", width=300, anchor="w")
         self.status_tree.column("value", width=700, anchor="w")
-        self.status_tree.tag_configure("changed", background="#fff2cc")
+        changed_bg = self._theme.get("changed_bg") if self._theme else "#fff2cc"
+        self.status_tree.tag_configure("changed", background=changed_bg)
         self.status_tree.pack(fill=tk.BOTH, expand=True)
 
         scrollbar = ttk.Scrollbar(
@@ -975,7 +985,10 @@ class BarnardControlApp:
         btn_row = ttk.Frame(conn)
         btn_row.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
         connect_button = ttk.Button(
-            btn_row, text="Connect", command=self._connect_socket
+            btn_row,
+            text="Connect",
+            command=self._connect_socket,
+            style="Primary.TButton",
         )
         disconnect_button = ttk.Button(
             btn_row, text="Disconnect", command=self._disconnect_socket
@@ -1021,7 +1034,9 @@ class BarnardControlApp:
         restart_button = ttk.Button(
             commands, text="Restart app", command=self._restart_app
         )
-        shutdown_button = ttk.Button(commands, text="Shutdown", command=self._shutdown)
+        shutdown_button = ttk.Button(
+            commands, text="Shutdown", command=self._shutdown, style="Danger.TButton"
+        )
 
         take_button.grid(row=0, column=0, padx=(0, 10), pady=2)
         release_button.grid(row=0, column=1, padx=(0, 10), pady=2)
@@ -1130,7 +1145,10 @@ class BarnardControlApp:
         fetch_button = ttk.Button(controls, text="Fetch", command=self._fetch_image)
         save_button = ttk.Button(controls, text="Save", command=self._save_image)
         live_button = ttk.Button(
-            controls, text="Start live view", command=self._start_live_view
+            controls,
+            text="Start live view",
+            command=self._start_live_view,
+            style="Primary.TButton",
         )
         stop_button = ttk.Button(controls, text="Stop", command=self._stop_live_view)
 
@@ -1507,8 +1525,6 @@ class BarnardControlApp:
         self._update_request_tab_counts()
 
     def _update_request_tab_counts(self) -> None:
-        if not hasattr(self, "request_nb"):
-            return
         params_text = ""
         body_text = ""
         if hasattr(self, "params_text"):
@@ -1519,10 +1535,14 @@ class BarnardControlApp:
         body_count = len(body_text)
         params_label = f"{self._params_tab_title} [{params_count}]"
         body_label = f"{self._body_tab_title} [{body_count}]"
-        if hasattr(self, "params_tab"):
+        if hasattr(self, "request_nb") and hasattr(self, "params_tab"):
             self.request_nb.tab(self.params_tab, text=params_label)
-        if hasattr(self, "body_tab"):
+        if hasattr(self, "request_nb") and hasattr(self, "body_tab"):
             self.request_nb.tab(self.body_tab, text=body_label)
+        if hasattr(self, "params_pane"):
+            self.params_pane.configure(text=params_label)
+        if hasattr(self, "body_pane"):
+            self.body_pane.configure(text=body_label)
 
     def _select_operation(self, label: str, *, from_debug: bool) -> None:
         route = self._operation_lookup.get(label)
@@ -2008,6 +2028,7 @@ class BarnardControlApp:
             self.last_image_bytes = data
             self.last_image_content_type = content_type
             self._display_image(data)
+            self._render_status_card()
 
         self._run_in_thread(action, done)
 
@@ -2334,12 +2355,128 @@ class BarnardControlApp:
                     break
         return lines
 
+    def _open_images_tab(self) -> None:
+        if self._notebook is None:
+            return
+        try:
+            self._notebook.select(self.image_tab)
+        except Exception:
+            pass
+
+    def _is_images_tab_selected(self) -> bool:
+        if self._notebook is None:
+            return False
+        try:
+            current = self._notebook.nametowidget(self._notebook.select())
+            return current == self.image_tab
+        except Exception:
+            return False
+
+    def _pick_contrasting_text(self, image: "Image.Image") -> Tuple[str, str]:
+        width, height = image.size
+        sample_w = min(220, width)
+        sample_h = min(80, height)
+        region = image.crop((0, 0, sample_w, sample_h)).convert("RGB").resize((32, 32))
+        total = 0.0
+        pixels = list(region.getdata())
+        for red, green, blue in pixels:
+            total += 0.2126 * red + 0.7152 * green + 0.0722 * blue
+        luminance = total / max(1, len(pixels))
+        if luminance < 140:
+            return ("#f8fafc", "#0b1020")
+        return ("#0b1020", "#f8fafc")
+
+    def _render_status_card(self) -> None:
+        if not hasattr(self, "status_canvas"):
+            return
+        canvas: tk.Canvas = self.status_canvas
+        width = canvas.winfo_width()
+        height = canvas.winfo_height()
+        if width < 40 or height < 30:
+            return
+
+        text = (self.status_summary_var.get() or "").strip() or "(no status yet)"
+        overlay_text = "\n".join(text.splitlines()[:3])
+        show_preview = (
+            bool(self.last_image_bytes) and not self._is_images_tab_selected()
+        )
+        state_key = (
+            width,
+            height,
+            id(self.last_image_bytes) if self.last_image_bytes else 0,
+            overlay_text,
+            show_preview,
+        )
+        if self._status_preview_last_state == state_key:
+            return
+        self._status_preview_last_state = state_key
+        canvas.delete("all")
+
+        bg = self._theme["panel"] if self._theme else self.root.cget("bg")
+        canvas.configure(background=bg)
+
+        if show_preview and self.last_image_bytes and PIL_AVAILABLE:
+            try:
+                image = Image.open(io.BytesIO(self.last_image_bytes)).convert("RGB")
+                image.thumbnail((width, height), Image.LANCZOS)
+                fg, shadow = self._pick_contrasting_text(image)
+                self._status_preview_tk = ImageTk.PhotoImage(image)
+                offset_x = max(0, (width - image.width) // 2)
+                offset_y = max(0, (height - image.height) // 2)
+                canvas.create_image(
+                    offset_x, offset_y, image=self._status_preview_tk, anchor="nw"
+                )
+                canvas.create_text(
+                    9,
+                    9,
+                    text=overlay_text,
+                    anchor="nw",
+                    width=max(80, width - 18),
+                    fill=shadow,
+                    font=("TkDefaultFont", 9, "bold"),
+                    justify="left",
+                )
+                canvas.create_text(
+                    8,
+                    8,
+                    text=overlay_text,
+                    anchor="nw",
+                    width=max(80, width - 18),
+                    fill=fg,
+                    font=("TkDefaultFont", 9, "bold"),
+                    justify="left",
+                )
+                canvas.create_text(
+                    width - 8,
+                    height - 8,
+                    text="click to open",
+                    anchor="se",
+                    fill=fg,
+                    font=("TkDefaultFont", 8),
+                )
+                return
+            except Exception as exc:
+                self.gui_log.logger.debug("Status preview render failed: %s", exc)
+
+        fg = self._theme["text"] if self._theme else "black"
+        canvas.create_text(
+            8,
+            6,
+            text=text,
+            anchor="nw",
+            width=max(80, width - 16),
+            fill=fg,
+            font=("TkDefaultFont", 9),
+            justify="left",
+        )
+
     def _update_status_summary(self, status: Any) -> None:
         lines = self._build_status_summary_lines(status, max_lines=5)
         if not lines:
             lines = ["(no status yet)"]
         if hasattr(self, "status_summary_var"):
             self.status_summary_var.set("\n".join(lines))
+            self._render_status_card()
             return
         # Fallback for older widget structure.
         if hasattr(self, "status_summary_text"):
