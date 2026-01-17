@@ -5,6 +5,7 @@
 <p align=center><img src="https://github.com/doublemover/oneane/blob/main/screenshot.png" width=30% height=20%></img></p>
 
 # Barnard Instrument Toolkit
+[![CI](https://github.com/doublemover/oneane/actions/workflows/ci.yml/badge.svg)](https://github.com/doublemover/oneane/actions/workflows/ci.yml)
 
 A small, practical toolkit for Vaonis instrument **local** APIs as used by the Barnard Android app (`com.vaonis.barnard`).
 
